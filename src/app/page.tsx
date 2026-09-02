@@ -6,7 +6,8 @@ import { Hero } from "@/components/sections/hero";
 import { Misdirection } from "@/components/sections/misdirection";
 import { PrestationsSplit } from "@/components/sections/prestations-split";
 import { ReactionsRail } from "@/components/sections/reactions-rail";
-import { TemoignagesSection } from "@/components/sections/temoignages-section";
+import { AvisGalerie } from "@/components/sections/avis-galerie";
+import { ClientsBand } from "@/components/sections/temoignages-section";
 import { VideoSection } from "@/components/sections/video-section";
 import { JsonLd, performerSchema } from "@/lib/jsonld";
 
@@ -30,7 +31,8 @@ export default function Page() {
       <ReactionsRail />
       <VideoSection />
       <AproposTeaser />
-      <TemoignagesSection />
+      <AvisGalerie />
+      <ClientsBand />
       <CtaBand />
     </>
   );

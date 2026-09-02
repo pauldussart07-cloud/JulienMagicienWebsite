@@ -15,10 +15,18 @@ const LIGNES = [
 ];
 
 /**
- * Ouverture du site : la photo occupe tout l'écran, le titre monte ligne par
- * ligne. C'est le seul enchaînement animé non déclenché par l'utilisateur.
- * L'animation est en CSS : le titre est donc rendu, et mesuré comme LCP,
- * sans attendre l'hydratation.
+ * Ouverture du site.
+ *
+ * Le plan source est très large (2,76:1). Étiré en plein cadre sur un écran
+ * de téléphone, il faudrait l'agrandir plus de trois fois : l'image devient
+ * floue. Sur mobile, la vidéo est donc présentée en bandeau 4/3, recadrée
+ * horizontalement — elle reste nette — et le titre se pose dessous, sur
+ * l'encre. À partir de `md`, où l'écran est assez large, elle reprend toute
+ * la surface.
+ *
+ * Le titre monte ligne par ligne : c'est le seul enchaînement animé non
+ * déclenché par l'utilisateur. L'animation est en CSS, le titre est donc
+ * rendu, et mesuré comme LCP, sans attendre l'hydratation.
  */
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -33,22 +41,27 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative flex h-[100svh] min-h-[36rem] flex-col justify-end overflow-hidden"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden pt-20 md:justify-end md:pt-0"
     >
-      <motion.div className="absolute inset-0" style={reduce ? undefined : { y }}>
+      <motion.div
+        className="relative aspect-[4/3] w-full shrink-0 md:absolute md:inset-0 md:aspect-auto md:h-full"
+        style={reduce ? undefined : { y }}
+      >
         <HeroVideo
           poster="/images/home/hero-poster.webp"
           posterAlt="Julien Lambert fait apparaître une flamme entre ses mains, face à la mer"
         />
-        {/* Assez sombre pour le texte, assez clair pour qu'on le voie, lui */}
-        <div className="veil-b absolute inset-0" />
-        <div className="absolute inset-0 bg-encre-900/25" />
+        {/* Le voile ne sert que là où le texte passe par-dessus l'image */}
+        <div className="veil-b absolute inset-0 hidden md:block" />
+        <div className="absolute inset-0 hidden bg-encre-900/25 md:block" />
+        {/* Sur mobile, un fondu relie le bas du bandeau à l'encre de la page */}
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-encre-900 to-transparent md:hidden" />
       </motion.div>
 
-      <div className="gutter relative pb-8 sm:pb-10">
+      <div className="gutter relative flex flex-1 flex-col justify-end pb-8 pt-10 sm:pb-10 md:flex-none md:pt-0">
         <h1 className="t-display font-display text-carton" aria-label={LIGNES.join(" ")}>
           {LIGNES.map((ligne, i) => (
-            <span key={i} className="block overflow-hidden pb-[0.04em]" aria-hidden>
+            <span key={i} className="block text-balance overflow-hidden pb-[0.04em]" aria-hidden>
               <span className="rise" style={{ animationDelay: `${0.3 + i * 0.1}s` }}>
                 {ligne}
               </span>

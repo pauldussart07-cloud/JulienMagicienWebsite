@@ -22,6 +22,8 @@ export function HeroVideo({
   const video = useRef<HTMLVideoElement>(null);
   const [charger, setCharger] = useState(false);
   const [visible, setVisible] = useState(false);
+  /** Fichier retenu : le petit en dessous de 900 px de large. */
+  const [taille, setTaille] = useState<"1280" | "1920">("1920");
 
   useEffect(() => {
     const calme = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -36,6 +38,9 @@ export function HeroVideo({
     if (co?.saveData) return;
     if (co?.effectiveType && ["slow-2g", "2g", "3g"].includes(co.effectiveType)) return;
 
+    // Chrome ignore l'attribut `media` sur les <source> d'une vidéo :
+    // on choisit donc le fichier nous-mêmes.
+    setTaille(window.innerWidth < 900 ? "1280" : "1920");
     setCharger(true);
   }, []);
 
@@ -78,19 +83,8 @@ export function HeroVideo({
             visible ? "opacity-100" : "opacity-0"
           }`}
         >
-          {/* Le petit fichier d'abord : le navigateur prend le premier qui colle. */}
-          <source
-            src="/videos/hero-1280.webm"
-            type="video/webm"
-            media="(max-width: 900px)"
-          />
-          <source
-            src="/videos/hero-1280.mp4"
-            type="video/mp4"
-            media="(max-width: 900px)"
-          />
-          <source src="/videos/hero-1920.webm" type="video/webm" />
-          <source src="/videos/hero-1920.mp4" type="video/mp4" />
+          <source src={`/videos/hero-${taille}.webm`} type="video/webm" />
+          <source src={`/videos/hero-${taille}.mp4`} type="video/mp4" />
         </video>
       )}
     </>

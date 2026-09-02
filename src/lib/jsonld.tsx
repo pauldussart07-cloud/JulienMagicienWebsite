@@ -1,5 +1,6 @@
 import { faqFlat } from "@/content/faq";
 import { site, zones } from "@/content/site";
+import { noteGoogle, temoignages } from "@/content/temoignages";
 import { baseUrl } from "@/lib/base-url";
 
 /** Fiche entreprise locale : sert aussi de nœud parent aux autres schémas. */
@@ -31,8 +32,18 @@ export function performerSchema() {
       "@type": "AggregateRating",
       ratingValue: "5",
       bestRating: "5",
-      ratingCount: "2",
+      ratingCount: String(noteGoogle.nombre),
     },
+    review: temoignages.map((t) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: t.auteur },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: String(t.note),
+        bestRating: "5",
+      },
+      reviewBody: t.texte,
+    })),
   };
 }
 
