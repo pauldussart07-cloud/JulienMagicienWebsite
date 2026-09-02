@@ -1,19 +1,19 @@
 import { faqFlat } from "@/content/faq";
-import { site, zones } from "@/content/site";
+import { baseUrl, site, zones } from "@/content/site";
 
 /** Fiche entreprise locale : sert aussi de nœud parent aux autres schémas. */
 export function performerSchema() {
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "Person"],
-    "@id": `${site.url}/#julien-lambert`,
+    "@id": `${baseUrl}/#julien-lambert`,
     name: site.name,
     jobTitle: site.role,
     description: site.description,
-    url: site.url,
+    url: baseUrl,
     telephone: "+33632786119",
     email: site.email,
-    image: `${site.url}/og.png`,
+    image: `${baseUrl}/og.png`,
     priceRange: "€€",
     address: {
       "@type": "PostalAddress",
@@ -57,9 +57,9 @@ export function serviceSchema(p: {
     "@type": "Service",
     name: p.nom,
     description: p.resume,
-    url: `${site.url}/${p.slug}`,
+    url: `${baseUrl}/${p.slug}`,
     serviceType: "Animation magie",
-    provider: { "@id": `${site.url}/#julien-lambert` },
+    provider: { "@id": `${baseUrl}/#julien-lambert` },
     areaServed: zones.map((z) => ({
       "@type": "AdministrativeArea",
       name: z.region,
@@ -79,11 +79,11 @@ export function articleSchema(a: {
     "@type": "BlogPosting",
     headline: a.titre,
     description: a.chapo,
-    url: `${site.url}/blog/${a.slug}`,
+    url: `${baseUrl}/blog/${a.slug}`,
     datePublished: a.date,
-    image: `${site.url}${a.cover.src}`,
-    author: { "@id": `${site.url}/#julien-lambert` },
-    publisher: { "@id": `${site.url}/#julien-lambert` },
+    image: `${baseUrl}${a.cover.src}`,
+    author: { "@id": `${baseUrl}/#julien-lambert` },
+    publisher: { "@id": `${baseUrl}/#julien-lambert` },
   };
 }
 
@@ -95,7 +95,7 @@ export function breadcrumbSchema(items: { name: string; href: string }[]) {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${site.url}${item.href}`,
+      item: `${baseUrl}${item.href}`,
     })),
   };
 }

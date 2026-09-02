@@ -4,7 +4,7 @@ import { Instrument_Serif, Inter_Tight } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { IntroSignature } from "@/components/magic/intro-signature";
-import { site } from "@/content/site";
+import { baseUrl, site } from "@/content/site";
 
 import "./globals.css";
 
@@ -23,7 +23,7 @@ const sans = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(baseUrl),
   title: {
     default: `${site.name} | Magicien close-up, ${site.zone}`,
     template: `%s | ${site.name}, magicien`,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: site.url,
+    url: baseUrl,
     siteName: `${site.name}, ${site.role}`,
     title: `${site.name} | Magicien close-up et magie de salon`,
     description: site.description,
