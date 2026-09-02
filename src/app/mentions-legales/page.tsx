@@ -37,7 +37,7 @@ export default function Page() {
         {
           titre: "Propriété intellectuelle",
           paragraphes: [
-            "L'ensemble des contenus de ce site — textes, photographies, vidéos, logo et éléments graphiques — est protégé par le droit d'auteur. Toute reproduction, représentation ou adaptation, totale ou partielle, sans autorisation écrite préalable est interdite.",
+            "L'ensemble des contenus de ce site (textes, photographies, vidéos, logo et éléments graphiques) est protégé par le droit d'auteur. Toute reproduction, représentation ou adaptation, totale ou partielle, sans autorisation écrite préalable est interdite.",
             "Les photographies présentées ont été réalisées lors de prestations réelles. Les personnes qui y figurent ont donné leur accord pour cette diffusion.",
           ],
         },

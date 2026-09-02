@@ -6,7 +6,7 @@ import { TextLink } from "@/components/ui/button";
 import { site, stats } from "@/content/site";
 
 /**
- * Bascule vers le registre clair — le carton d'une carte à jouer.
+ * Bascule vers le registre clair : le carton d'une carte à jouer.
  * C'est là que le site se lit posément, après le noir du spectacle.
  */
 export function AproposTeaser() {
@@ -54,7 +54,7 @@ export function AproposTeaser() {
         </div>
       </div>
 
-      {/* Les trois chiffres, séparés par des filets — pas de cartes */}
+      {/* Les trois chiffres, séparés par des filets : pas de cartes */}
       <div className="border-t border-encre/15">
         <div className="gutter grid divide-y divide-encre/15 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {stats.map((s) => (

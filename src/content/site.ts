@@ -1,5 +1,5 @@
 /**
- * Données de marque et coordonnées — source unique de vérité.
+ * Données de marque et coordonnées : source unique de vérité.
  * Tout le contenu provient du site existant de Julien Lambert.
  */
 
@@ -9,7 +9,7 @@ export const site = {
   tagline: "Magicien close-up & magie de salon",
   url: "https://www.julienlambertmagicien.fr",
   description:
-    "Close-up ou magie de salon, une expérience sur mesure pour chaque événement. Mariages, soirées d'entreprise, anniversaires — en Bretagne et dans toute la France.",
+    "Close-up ou magie de salon, une expérience sur mesure pour chaque événement. Mariages, soirées d'entreprise, anniversaires, en Bretagne et dans toute la France.",
   phone: "06 32 78 61 19",
   phoneHref: "tel:+33632786119",
   email: "julienlambertmagicien@gmail.com",
@@ -69,7 +69,7 @@ export const clients = [
   { src: "/images/clients/client-hq.webp", alt: "Client", width: 345, height: 165 },
 ] as const;
 
-/** Zones d'intervention — reprises telles quelles de l'ancien site (maillage SEO). */
+/** Zones d'intervention : reprises telles quelles de l'ancien site (maillage SEO). */
 export const zones = [
   {
     region: "Bretagne",

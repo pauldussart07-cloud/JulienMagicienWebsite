@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-/** Ce que le client obtient en écrivant — repris de l'ancien site. */
+/** Ce que le client obtient en écrivant, repris de l'ancien site. */
 const promesses = [
   {
     titre: "Réponse rapide",

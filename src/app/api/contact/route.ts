@@ -83,7 +83,7 @@ export async function POST(request: Request) {
 
   if (!cle || !expediteur) {
     console.error(
-      "Contact : RESEND_API_KEY ou CONTACT_FROM manquant — voir .env.example"
+      "Contact : RESEND_API_KEY ou CONTACT_FROM manquant, voir .env.example"
     );
     return NextResponse.json(
       {
@@ -128,7 +128,7 @@ export async function POST(request: Request) {
       from: expediteur,
       to: destinataire,
       replyTo: d.email,
-      subject: `Devis — ${d.typeEvenement} à ${d.ville} (${d.prenom} ${d.nom})`,
+      subject: `Devis : ${d.typeEvenement} à ${d.ville} (${d.prenom} ${d.nom})`,
       html,
     });
 

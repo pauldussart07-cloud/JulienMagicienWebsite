@@ -36,7 +36,7 @@ export function Reveal({
 }
 
 /**
- * Titre dont chaque ligne monte depuis sous un masque — le texte se
+ * Titre dont chaque ligne monte depuis sous un masque : le texte se
  * « matérialise » ligne par ligne. Passer le titre déjà découpé en lignes
  * pour garder la main sur les césures.
  */
@@ -91,7 +91,7 @@ export function RevealLines({
   );
 }
 
-/** Photo révélée par un volet qui se retire — comme une carte retournée. */
+/** Photo révélée par un volet qui se retire : comme une carte retournée. */
 export function RevealImage({
   children,
   className,

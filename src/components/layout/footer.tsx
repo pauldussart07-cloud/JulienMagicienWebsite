@@ -30,10 +30,10 @@ export function Footer() {
       <div className="gutter py-16 lg:py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
-            <Link href="/" aria-label={`${site.name} — accueil`}>
+            <Link href="/" aria-label={`${site.name}, accueil`}>
               <Image
                 src="/images/brand/logo-blanc.png"
-                alt={`${site.name} — ${site.role}`}
+                alt={`${site.name}, ${site.role}`}
                 width={1200}
                 height={322}
                 className="h-14 w-auto"
@@ -106,7 +106,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Zones desservies — maillage local */}
+        {/* Zones desservies : maillage local */}
         <div className="mt-16 border-t border-carton/12 pt-8">
           <dl className="grid gap-6 sm:grid-cols-2">
             {zones.map((z) => (

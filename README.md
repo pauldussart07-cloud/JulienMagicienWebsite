@@ -21,7 +21,7 @@ npm run dev        # http://localhost:3000
 | `npm run lint` | ESLint |
 | `npm run images` | ré-encode `_assets_raw/` vers `public/images/` |
 
-## Design system — « Encre & Carton »
+## Design system : « Encre & Carton »
 
 Toute la palette vient de l'objet que Julien tient en main, une carte à jouer.
 
@@ -45,12 +45,12 @@ inverse ses couleurs.
 
 Le contenu est centralisé dans `src/content/` :
 
-- `site.ts` — coordonnées, navigation, zones d'intervention
-- `prestations.ts` — close-up et magie de salon
-- `faq.ts` — 36 questions/réponses, six catégories
-- `blog.ts` — six articles, en blocs typés
-- `galerie.ts` — 24 photographies
-- `temoignages.ts` — avis clients
+- `site.ts` : coordonnées, navigation, zones d'intervention
+- `prestations.ts` : close-up et magie de salon
+- `faq.ts` : 36 questions/réponses, six catégories
+- `blog.ts` : six articles, en blocs typés
+- `galerie.ts` : 24 photographies
+- `temoignages.ts` : avis clients
 
 ## Images
 

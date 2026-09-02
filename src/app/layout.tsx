@@ -24,8 +24,8 @@ const sans = Inter_Tight({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Magicien close-up, ${site.zone}`,
-    template: `%s — ${site.name}, magicien`,
+    default: `${site.name} | Magicien close-up, ${site.zone}`,
+    template: `%s | ${site.name}, magicien`,
   },
   description: site.description,
   keywords: [
@@ -46,14 +46,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: site.url,
-    siteName: `${site.name} — ${site.role}`,
-    title: `${site.name} — Magicien close-up et magie de salon`,
+    siteName: `${site.name}, ${site.role}`,
+    title: `${site.name} | Magicien close-up et magie de salon`,
     description: site.description,
     images: [{ url: "/images/home/hero-cartes.webp", width: 2400, height: 1048 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Magicien close-up`,
+    title: `${site.name} | Magicien close-up`,
     description: site.description,
     images: ["/images/home/hero-cartes.webp"],
   },

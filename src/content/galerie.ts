@@ -1,5 +1,5 @@
 /**
- * Galerie photo — toutes les images proviennent de l'ancien site,
+ * Galerie photo : toutes les images proviennent de l'ancien site,
  * ré-encodées en WebP (voir scripts/optimize-images.mjs).
  * Les dimensions réelles sont nécessaires pour la mosaïque et pour
  * éviter tout décalage de mise en page (CLS).

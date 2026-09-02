@@ -1,7 +1,7 @@
 import { faqFlat } from "@/content/faq";
 import { site, zones } from "@/content/site";
 
-/** Fiche entreprise locale — sert aussi de nœud parent aux autres schémas. */
+/** Fiche entreprise locale : sert aussi de nœud parent aux autres schémas. */
 export function performerSchema() {
   return {
     "@context": "https://schema.org",

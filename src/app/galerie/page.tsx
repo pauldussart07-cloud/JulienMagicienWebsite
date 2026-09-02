@@ -26,7 +26,7 @@ export default function Page() {
       <PageHero
         label="En images"
         titre="Des regards émerveillés, des moments suspendus"
-        intro="La magie se vit, elle ne se regarde pas. Ces images en donnent un aperçu — la vraie expérience commence quand elle se déroule sous vos yeux."
+        intro="La magie se vit, elle ne se regarde pas. Ces images en donnent un aperçu : la vraie expérience commence quand elle se déroule sous vos yeux."
         image="/images/galerie/gal-20.webp"
         alt="Ambiance de soirée pendant une prestation de magie"
       />

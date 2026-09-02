@@ -15,7 +15,7 @@ const PHOTO = {
  * La photo reste fixe pendant deux hauteurs d'écran. Les deux phrases
  * défilent dans une fenêtre découpée : la première sort par le haut au moment
  * exact où la seconde entre par le bas. Il y a donc toujours une phrase et une
- * seule à l'écran — le regard est déplacé sans jamais être perdu.
+ * seule à l'écran : le regard est déplacé sans jamais être perdu.
  *
  * C'est la mise en scène du détournement d'attention, la spécialité de Julien,
  * et la seule séquence de ce type sur le site.

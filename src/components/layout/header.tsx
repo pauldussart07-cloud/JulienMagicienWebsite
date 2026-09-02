@@ -85,14 +85,14 @@ export function Header() {
         )}
       >
         <div className="gutter flex items-center justify-between gap-8">
-          <Link href="/" aria-label={`${site.name}, magicien — accueil`}>
+          <Link href="/" aria-label={`${site.name}, magicien, accueil`}>
             <Image
               src={
                 surCarton
                   ? "/images/brand/logo-original.png"
                   : "/images/brand/logo-blanc.png"
               }
-              alt={`${site.name} — ${site.role}`}
+              alt={`${site.name}, ${site.role}`}
               width={1200}
               height={322}
               priority

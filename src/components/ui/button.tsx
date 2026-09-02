@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 
 /**
  * Deux traitements seulement, à angles vifs :
- * — `solid` : bloc plein, l'action principale de la page ;
- * — `hairline` : simple filet, tout le reste.
+ * - `solid` : bloc plein, l'action principale de la page ;
+ * - `hairline` : simple filet, tout le reste.
  * Le fond se remplit depuis le bas au survol : rien ne bouge, seul le
  * contraste change.
  */

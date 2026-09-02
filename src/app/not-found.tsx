@@ -15,7 +15,7 @@ export default function NotFound() {
         </h1>
 
         <p className="lede mt-8 text-carton/70">
-          Ça arrive, dans ce métier. Celle-ci ne reviendra pas — mais tout le
+          Ça arrive, dans ce métier. Celle-ci ne reviendra pas, mais tout le
           reste du site est bien là.
         </p>
 

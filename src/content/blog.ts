@@ -1,5 +1,5 @@
 /**
- * Articles du blog — repris intégralement de l'ancien site.
+ * Articles du blog : repris intégralement de l'ancien site.
  * Le corps est décrit en blocs typés plutôt qu'en Markdown : le rendu
  * reste totalement maîtrisé et il n'y a aucun parseur à charger côté client.
  */
@@ -61,12 +61,12 @@ export const articles: Article[] = [
       { type: "h3", text: "Magie close-up en cocktail ou pause networking" },
       {
         type: "p",
-        text: "Je circule parmi les groupes avec des cartes, créant des interactions brèves et percutantes utilisant les objets des participants eux-mêmes — bague, billet, carte de visite. Cela détend l'atmosphère avant une intervention importante ou fluidifie les moments réseautage généralement silencieux et maladroits.",
+        text: "Je circule parmi les groupes avec des cartes, créant des interactions brèves et percutantes utilisant les objets des participants eux-mêmes : bague, billet, carte de visite. Cela détend l'atmosphère avant une intervention importante ou fluidifie les moments réseautage généralement silencieux et maladroits.",
       },
       { type: "h3", text: "Magie sur-mesure autour d'un message" },
       {
         type: "p",
-        text: "La formule la plus demandée par les entreprises : un tour conçu spécifiquement autour d'une valeur, chiffre clé ou annonce majeure (lancement produit, résultat annuel, nouvelle stratégie). Le message ne s'énonce pas seulement — il se vit, se prouve, se mémorise.",
+        text: "La formule la plus demandée par les entreprises : un tour conçu spécifiquement autour d'une valeur, chiffre clé ou annonce majeure (lancement produit, résultat annuel, nouvelle stratégie). Le message ne s'énonce pas seulement : il se vit, se prouve, se mémorise.",
       },
       { type: "h2", text: "Ce que ça change concrètement" },
       {
@@ -102,7 +102,7 @@ export const articles: Article[] = [
     titre:
       "Pourquoi vous oubliez 90% des tours de magie que vous voyez sur Instagram (et jamais ceux vécus en vrai)",
     chapo:
-      "Le même tour, réalisé à un mètre de vous, dans votre salon ou pendant votre mariage — celui-là, vous vous en souviendrez dans dix ans.",
+      "Le même tour, réalisé à un mètre de vous, dans votre salon ou pendant votre mariage : celui-là, vous vous en souviendrez dans dix ans.",
     date: "2025-08-13",
     dateLabel: "13 août",
     lecture: "2 min",
@@ -118,16 +118,16 @@ export const articles: Article[] = [
       },
       {
         type: "p",
-        text: "Le même tour, réalisé à un mètre de vous, dans votre salon ou pendant votre mariage — celui-là, vous vous en souviendrez dans dix ans.",
+        text: "Le même tour, réalisé à un mètre de vous, dans votre salon ou pendant votre mariage : celui-là, vous vous en souviendrez dans dix ans.",
       },
       { type: "h2", text: "Le piège du point de vue unique" },
       {
         type: "p",
-        text: "Sur les réseaux sociaux, la caméra choisit tout pour vous. Un seul angle, souvent le plus flatteur pour le tour. Ce que vous ne voyez pas — le cadrage, le montage, parfois même plusieurs prises recollées — fait autant partie du secret que la manipulation elle-même.",
+        text: "Sur les réseaux sociaux, la caméra choisit tout pour vous. Un seul angle, souvent le plus flatteur pour le tour. Ce que vous ne voyez pas (le cadrage, le montage, parfois même plusieurs prises recollées) fait autant partie du secret que la manipulation elle-même.",
       },
       {
         type: "p",
-        text: "En vrai, il n'y a pas de deuxième prise. Pas de cadrage avantageux. Vous êtes debout, à vingt centimètres des mains du magicien, et vous cherchez le truc avec vos propres yeux, sous tous les angles que vous voulez. Quand la carte disparaît quand même — malgré votre vigilance — l'émotion n'a rien à voir avec un like ou un commentaire. C'est de la stupéfaction pure, vécue dans votre corps.",
+        text: "En vrai, il n'y a pas de deuxième prise. Pas de cadrage avantageux. Vous êtes debout, à vingt centimètres des mains du magicien, et vous cherchez le truc avec vos propres yeux, sous tous les angles que vous voulez. Quand la carte disparaît quand même, malgré votre vigilance, l'émotion n'a rien à voir avec un like ou un commentaire. C'est de la stupéfaction pure, vécue dans votre corps.",
       },
       { type: "h2", text: "Ce que la vidéo ne peut pas donner" },
       {
@@ -158,7 +158,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Un souvenir collectif, pas une consommation solitaire" },
       {
         type: "p",
-        text: "Regarder un tour sur son téléphone est une expérience solitaire, silencieuse, instantanément remplacée par le contenu suivant. Assister à un tour en vrai, entouré d'amis ou de collègues, crée un souvenir partagé — quelque chose que le groupe se remémore et raconte encore des années après, avec ce petit frisson qui ne s'efface pas.",
+        text: "Regarder un tour sur son téléphone est une expérience solitaire, silencieuse, instantanément remplacée par le contenu suivant. Assister à un tour en vrai, entouré d'amis ou de collègues, crée un souvenir partagé, quelque chose que le groupe se remémore et raconte encore des années après, avec ce petit frisson qui ne s'efface pas.",
       },
       {
         type: "quote",

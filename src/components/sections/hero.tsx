@@ -17,7 +17,7 @@ const LIGNES = [
 /**
  * Ouverture du site : la photo occupe tout l'écran, le titre monte ligne par
  * ligne. C'est le seul enchaînement animé non déclenché par l'utilisateur.
- * L'animation est en CSS pour que le titre soit rendu — et mesuré comme LCP —
+ * L'animation est en CSS : le titre est donc rendu, et mesuré comme LCP,
  * sans attendre l'hydratation.
  */
 export function Hero() {

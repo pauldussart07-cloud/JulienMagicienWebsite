@@ -1,5 +1,5 @@
 /**
- * Contenu des deux prestations — repris intégralement de l'ancien site.
+ * Contenu des deux prestations : repris intégralement de l'ancien site.
  */
 
 export type Prestation = {
@@ -23,9 +23,9 @@ export const closeUp: Prestation = {
   slug: "close-up",
   nom: "Magie close-up",
   accroche: "Magie rapprochée",
-  duree: "1h30 – 2h",
+  duree: "1h30 à 2h",
   resume:
-    "Pas d'écran, pas de distance — juste vos yeux, mes mains, et l'incroyable qui s'invite. Une expérience unique pour vos mariages, cocktails et soirées d'entreprise.",
+    "Pas d'écran, pas de distance : juste vos yeux, mes mains, et l'incroyable qui s'invite. Une expérience unique pour vos mariages, cocktails et soirées d'entreprise.",
   hero: {
     src: "/images/closeup/closeup-hero.webp",
     alt: "Julien Lambert en pleine prestation de magie close-up devant des invités",
@@ -59,7 +59,7 @@ export const closeUp: Prestation = {
     {
       titre: "Adapté à votre événement",
       texte:
-        "Mariage, soirée d'entreprise, anniversaire — Julien adapte son approche, son rythme, son registre.",
+        "Mariage, soirée d'entreprise, anniversaire : Julien adapte son approche, son rythme, son registre.",
     },
     {
       titre: "Le moment dont tout le monde parlera",
@@ -96,12 +96,12 @@ export const closeUp: Prestation = {
     {
       titre: "Soirée privée",
       texte:
-        "Dîner entre amis, réception à domicile, soirée dans un lieu privatisé — le close-up est dans son élément quand l'espace est intime.",
+        "Dîner entre amis, réception à domicile, soirée dans un lieu privatisé : le close-up est dans son élément quand l'espace est intime.",
     },
     {
       titre: "Foires et salons",
       texte:
-        "Stand automobile, salon professionnel, foire commerciale — attirer l'attention dans un espace bruyant et chargé est un défi en soi.",
+        "Stand automobile, salon professionnel, foire commerciale : attirer l'attention dans un espace bruyant et chargé est un défi en soi.",
     },
   ],
   temoignage: {
@@ -114,7 +114,7 @@ export const closeUp: Prestation = {
     {
       titre: "1h30-2h à vos côtés",
       texte:
-        "Julien s'intègre à votre programme sans le bousculer. Pendant le cocktail, l'apéritif, ou entre les plats — la magie arrive au bon moment, au bon endroit.",
+        "Julien s'intègre à votre programme sans le bousculer. Pendant le cocktail, l'apéritif, ou entre les plats, la magie arrive au bon moment, au bon endroit.",
     },
     {
       titre: "Interactif et convivial",
@@ -129,7 +129,7 @@ export const closeUp: Prestation = {
     {
       titre: "Intérieur ou extérieur",
       texte:
-        "Terrasse, jardin, salle de réception, restaurant, rooftop — aucune contrainte technique, aucun aménagement préalable.",
+        "Terrasse, jardin, salle de réception, restaurant, rooftop : aucune contrainte technique, aucun aménagement préalable.",
     },
     {
       titre: "Aucune installation requise",

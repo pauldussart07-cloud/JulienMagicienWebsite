@@ -10,7 +10,7 @@ import { TemoignagesSection } from "@/components/sections/temoignages-section";
 import { JsonLd, performerSchema } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
-  title: "Julien Lambert — Magicien close-up, Bretagne & toute la France",
+  title: "Julien Lambert | Magicien close-up, Bretagne et toute la France",
   description:
     "Magicien professionnel basé à Saint-Malo et en région parisienne. Close-up et magie de salon pour mariages, soirées d'entreprise et réceptions privées.",
   alternates: { canonical: "/" },

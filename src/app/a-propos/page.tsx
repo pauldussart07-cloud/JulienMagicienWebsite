@@ -142,7 +142,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Valeurs — quatre convictions, pas une séquence */}
+      {/* Valeurs : quatre convictions, pas une séquence */}
       <section className="py-20 lg:py-28">
         <div className="gutter">
           <h2 className="t-h3 max-w-xl font-display text-carton">

@@ -36,7 +36,7 @@ export function TemoignagesSection() {
                 </blockquote>
                 <figcaption className="mt-7 text-[0.875rem] text-encre/60">
                   {t.auteur}, {t.ville}
-                  {t.contexte ? ` — ${t.contexte}` : ""}
+                  {t.contexte ? `, ${t.contexte}` : ""}
                 </figcaption>
               </figure>
             </Reveal>

@@ -135,7 +135,7 @@ export default async function Page({
   );
 }
 
-/** Rendu des blocs de contenu — aucun parseur Markdown côté client. */
+/** Rendu des blocs de contenu : aucun parseur Markdown côté client. */
 function BlockRenderer({ block }: { block: Block }) {
   switch (block.type) {
     case "lead":

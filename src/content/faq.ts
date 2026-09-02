@@ -1,5 +1,5 @@
 /**
- * FAQ — l'intégralité des questions/réponses de l'ancien site,
+ * FAQ : l'intégralité des questions/réponses de l'ancien site,
  * regroupées par catégorie (36 entrées).
  */
 
@@ -21,11 +21,11 @@ export const faq: FaqCategorie[] = [
       },
       {
         q: "Combien de temps à l'avance faut-il réserver ?",
-        a: "Le plus tôt possible, surtout pour les mariages en saison (avril à septembre) où les dates partent vite. Mais n'hésitez jamais à me contacter, même à la dernière minute — parfois la magie trouve un créneau là où on ne l'attendait pas !",
+        a: "Le plus tôt possible, surtout pour les mariages en saison (avril à septembre) où les dates partent vite. Mais n'hésitez jamais à me contacter, même à la dernière minute : parfois la magie trouve un créneau là où on ne l'attendait pas !",
       },
       {
         q: "Est-ce adapté si certains invités sont plutôt réservés ou timides ?",
-        a: "Oui, sans problème. La magie s'adapte à chacun — certains préfèrent observer de loin, d'autres s'approchent naturellement. Personne n'est jamais forcé à participer.",
+        a: "Oui, sans problème. La magie s'adapte à chacun : certains préfèrent observer de loin, d'autres s'approchent naturellement. Personne n'est jamais forcé à participer.",
       },
       {
         q: "Peut-on filmer ou photographier les tours ?",
@@ -33,7 +33,7 @@ export const faq: FaqCategorie[] = [
       },
       {
         q: "Où intervenez-vous ?",
-        a: "Je suis basé à Saint-Malo et je me déplace dans toute la Bretagne — Dinard, Rennes, Saint-Brieuc, Vannes — ainsi que partout en France selon les événements.",
+        a: "Je suis basé à Saint-Malo et je me déplace dans toute la Bretagne (Dinard, Rennes, Saint-Brieuc, Vannes), ainsi que partout en France selon les événements.",
       },
       {
         q: "Comment vous suivre après l'événement ?",
@@ -48,7 +48,7 @@ export const faq: FaqCategorie[] = [
     items: [
       {
         q: "Qu'est-ce que la magie close-up, exactement ?",
-        a: "De la magie qui se joue à quelques centimètres de vous. Pas de scène, pas de distance : les objets sont dans vos mains, l'illusion se passe sous vos yeux. C'est la forme de magie la plus troublante — parce qu'il n'y a nulle part où se cacher.",
+        a: "De la magie qui se joue à quelques centimètres de vous. Pas de scène, pas de distance : les objets sont dans vos mains, l'illusion se passe sous vos yeux. C'est la forme de magie la plus troublante, parce qu'il n'y a nulle part où se cacher.",
       },
       {
         q: "Combien de temps dure une prestation de close-up ?",
@@ -60,7 +60,7 @@ export const faq: FaqCategorie[] = [
       },
       {
         q: "Avez-vous besoin de matériel particulier sur place ?",
-        a: "Non. Je viens avec tout mon matériel. Un peu d'espace pour circuler suffit — le reste, c'est mon affaire.",
+        a: "Non. Je viens avec tout mon matériel. Un peu d'espace pour circuler suffit : le reste, c'est mon affaire.",
       },
       {
         q: "Pour quels événements le close-up est-il adapté ?",
@@ -91,7 +91,7 @@ export const faq: FaqCategorie[] = [
       },
       {
         q: "Quelle est la différence avec la magie close-up ?",
-        a: "Le close-up circule de table en table, en petits groupes, dans l'intimité totale. La magie de salon s'adresse à un groupe entier réuni au même moment, avec un vrai rythme de spectacle — une montée, un twist, une chute — tout en gardant la proximité qui fait la force de la magie rapprochée.",
+        a: "Le close-up circule de table en table, en petits groupes, dans l'intimité totale. La magie de salon s'adresse à un groupe entier réuni au même moment, avec un vrai rythme de spectacle (une montée, un twist, une chute), tout en gardant la proximité qui fait la force de la magie rapprochée.",
       },
       {
         q: "Pour combien de personnes cette prestation est-elle adaptée ?",
@@ -103,7 +103,7 @@ export const faq: FaqCategorie[] = [
       },
       {
         q: "Quel espace faut-il prévoir sur place ?",
-        a: "Un espace dégagé où les invités peuvent se rassembler face à moi, assis ou debout. Pas besoin de scène ni d'installation particulière — juste un peu de place et de bonne lumière.",
+        a: "Un espace dégagé où les invités peuvent se rassembler face à moi, assis ou debout. Pas besoin de scène ni d'installation particulière : juste un peu de place et de bonne lumière.",
       },
       {
         q: "Pour quel type d'événement est-ce le plus adapté ?",
@@ -111,7 +111,7 @@ export const faq: FaqCategorie[] = [
       },
       {
         q: "Faut-il que les invités soient assis ou peuvent-ils être debout ?",
-        a: "Les deux fonctionnent très bien. L'important est que chacun puisse voir sans être trop éloigné — on ajuste la disposition ensemble selon votre lieu.",
+        a: "Les deux fonctionnent très bien. L'important est que chacun puisse voir sans être trop éloigné : on ajuste la disposition ensemble selon votre lieu.",
       },
       {
         q: "Le spectacle peut-il être personnalisé selon l'occasion ?",
@@ -161,7 +161,7 @@ export const faq: FaqCategorie[] = [
       },
       {
         q: "La magie peut-elle s'intégrer à un événement de networking ou un séminaire ?",
-        a: "C'est même l'un de ses meilleurs usages : elle brise la glace, crée des conversations, et laisse une trace mémorable de votre événement — bien au-delà du buffet.",
+        a: "C'est même l'un de ses meilleurs usages : elle brise la glace, crée des conversations, et laisse une trace mémorable de votre événement, bien au-delà du buffet.",
       },
       {
         q: "La magie peut-elle être utilisée pour renforcer un message ou une marque ?",
@@ -190,7 +190,7 @@ export const faq: FaqCategorie[] = [
   },
 ];
 
-/** Toutes les questions à plat — utilisé pour le JSON-LD FAQPage. */
+/** Toutes les questions à plat : utilisé pour le JSON-LD FAQPage. */
 export const faqFlat: QA[] = faq.flatMap((c) => c.items);
 
 /** Sélection affichée sur les pages prestation. */

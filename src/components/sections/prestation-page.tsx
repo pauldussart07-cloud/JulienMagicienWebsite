@@ -24,7 +24,7 @@ export function PrestationPage({ p }: { p: Prestation }) {
         hauteur="haute"
       />
 
-      {/* Chiffres clés — une ligne de filets, pas des cartes */}
+      {/* Chiffres clés : une ligne de filets, pas des cartes */}
       <section className="border-b border-carton/12">
         <div className="gutter grid divide-y divide-carton/12 sm:grid-cols-2 sm:divide-x lg:grid-cols-4 lg:divide-y-0">
           {p.chiffres.map((c) => (
