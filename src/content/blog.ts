@@ -15,6 +15,8 @@ export type Block =
 export type Article = {
   slug: string;
   titre: string;
+  /** Titre de la balise <title> : court, pour ne pas être tronqué. */
+  titreSeo: string;
   chapo: string;
   date: string; // ISO
   dateLabel: string;
@@ -27,6 +29,7 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: "magie-seminaire-entreprise-moment-inoubliable",
+    titreSeo: "Magie et séminaire d'entreprise",
     titre:
       "Pourquoi la magie transforme un séminaire d'entreprise en moment que personne n'oublie",
     chapo:
@@ -99,6 +102,7 @@ export const articles: Article[] = [
 
   {
     slug: "pourquoi-vous-oubliez-les-tours-de-magie-sur-instagram",
+    titreSeo: "Magie sur Instagram ou en vrai",
     titre:
       "Pourquoi vous oubliez 90% des tours de magie que vous voyez sur Instagram (et jamais ceux vécus en vrai)",
     chapo:
@@ -173,6 +177,7 @@ export const articles: Article[] = [
 
   {
     slug: "10-raisons-de-choisir-un-magicien-experimente",
+    titreSeo: "10 raisons de choisir un magicien expérimenté",
     titre: "10 raisons de choisir un magicien expérimenté pour votre soirée",
     chapo:
       "Un magicien expérimenté peut transformer un événement ordinaire en un moment inoubliable. Voici dix raisons convaincantes.",
@@ -248,6 +253,7 @@ export const articles: Article[] = [
 
   {
     slug: "magicien-effets-et-techniques-varies",
+    titreSeo: "Choisir un magicien aux techniques variées",
     titre:
       "L'importance de choisir un magicien aux effets et techniques variés pour vos événements",
     chapo:
@@ -341,6 +347,7 @@ export const articles: Article[] = [
 
   {
     slug: "magie-close-up-briser-la-glace",
+    titreSeo: "La magie close-up pour briser la glace",
     titre:
       "La magie en close-up : un atout pour animer votre soirée et briser la glace entre invités",
     chapo:
@@ -425,6 +432,7 @@ export const articles: Article[] = [
 
   {
     slug: "detournement-attention-signaux-forts-et-faibles",
+    titreSeo: "Le détournement d'attention expliqué",
     titre:
       "Le détournement d'attention : comment notre cerveau filtre les signaux forts et faibles",
     chapo:

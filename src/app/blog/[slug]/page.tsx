@@ -23,7 +23,7 @@ export async function generateMetadata({
   if (!article) return {};
 
   return {
-    title: article.titre,
+    title: article.titreSeo,
     description: article.chapo,
     alternates: { canonical: `/blog/${article.slug}` },
     openGraph: {

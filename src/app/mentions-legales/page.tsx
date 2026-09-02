@@ -5,7 +5,8 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
-  description: `Mentions légales du site de ${site.name}, magicien close-up.`,
+  description:
+    "Éditeur, hébergeur, propriété intellectuelle et responsabilité : les mentions légales du site de Julien Lambert, magicien close-up.",
   alternates: { canonical: "/mentions-legales" },
   robots: { index: false, follow: true },
 };

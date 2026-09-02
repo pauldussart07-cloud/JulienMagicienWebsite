@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
   description:
-    "Quelles données sont collectées sur ce site, pourquoi, combien de temps, et comment exercer vos droits.",
+    "Quelles données ce site collecte, pourquoi, combien de temps elles sont conservées et comment exercer vos droits. Aucun cookie publicitaire, aucun traceur.",
   alternates: { canonical: "/politique-de-confidentialite" },
   robots: { index: false, follow: true },
 };

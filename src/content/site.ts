@@ -27,22 +27,6 @@ export const site = {
 export type NavLink = { href: string; label: string; hint?: string };
 export type NavItem = NavLink & { children?: NavLink[] };
 
-/**
- * URL de base des métadonnées (canoniques, Open Graph, JSON-LD).
- *
- * Tant que le domaine définitif n'est pas branché, Vercel renseigne
- * VERCEL_PROJECT_PRODUCTION_URL avec l'adresse .vercel.app ; le jour où le
- * domaine est ajouté au projet, la même variable renvoie julienlambertmagicien.fr.
- * Les aperçus de partage sont donc corrects dans les deux cas, sans rien
- * changer au code.
- */
-export const baseUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : site.url)
-).replace(/\/$/, "");
-
 export const nav: NavItem[] = [
   { href: "/", label: "Accueil" },
   { href: "/a-propos", label: "À propos" },

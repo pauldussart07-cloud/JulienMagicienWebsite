@@ -1,5 +1,6 @@
 import { faqFlat } from "@/content/faq";
-import { baseUrl, site, zones } from "@/content/site";
+import { site, zones } from "@/content/site";
+import { baseUrl } from "@/lib/base-url";
 
 /** Fiche entreprise locale : sert aussi de nœud parent aux autres schémas. */
 export function performerSchema() {

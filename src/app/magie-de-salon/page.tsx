@@ -6,7 +6,7 @@ import { magieDeSalon } from "@/content/prestations";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
-  title: "Magie de salon, 50 minutes de spectacle",
+  title: "Magie de salon",
   description:
     "Un spectacle de magie de salon de 50 minutes pour jusqu'à 50 personnes. L'entre-deux parfait entre la scène et le close-up.",
   alternates: { canonical: "/magie-de-salon" },

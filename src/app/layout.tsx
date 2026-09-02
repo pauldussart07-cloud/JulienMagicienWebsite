@@ -4,7 +4,8 @@ import { Instrument_Serif, Inter_Tight } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { IntroSignature } from "@/components/magic/intro-signature";
-import { baseUrl, site } from "@/content/site";
+import { site } from "@/content/site";
+import { baseUrl } from "@/lib/base-url";
 
 import "./globals.css";
 
@@ -25,8 +26,8 @@ const sans = Inter_Tight({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: `${site.name} | Magicien close-up, ${site.zone}`,
-    template: `%s | ${site.name}, magicien`,
+    default: `${site.name}, magicien close-up en Bretagne et à Paris`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   keywords: [

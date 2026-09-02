@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 
 import { articles } from "@/content/blog";
-import { baseUrl } from "@/content/site";
+import { zonesPages } from "@/content/zones-pages";
+import { baseUrl } from "@/lib/base-url";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const maintenant = new Date();
@@ -28,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: maintenant,
       changeFrequency: p.freq,
       priority: p.priority,
+    })),
+    ...zonesPages.map((z) => ({
+      url: `${baseUrl}/${z.slug}`,
+      lastModified: maintenant,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
     })),
     ...articles.map((a) => ({
       url: `${baseUrl}/blog/${a.slug}`,
