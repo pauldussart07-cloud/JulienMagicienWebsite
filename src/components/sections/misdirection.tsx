@@ -5,8 +5,8 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { useRef } from "react";
 
 const PHOTO = {
-  src: "/images/galerie/gal-15.webp",
-  alt: "Un groupe d'invités suit des yeux les mains du magicien",
+  src: "/images/home/hero-cartes.webp",
+  alt: "Julien Lambert au milieu d'une envolée de cartes, le regard fixe",
 };
 
 /**
@@ -60,7 +60,7 @@ export function Misdirection() {
             alt={PHOTO.alt}
             fill
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-[50%_38%]"
           />
         </motion.div>
         <div className="veil-b absolute inset-0" />

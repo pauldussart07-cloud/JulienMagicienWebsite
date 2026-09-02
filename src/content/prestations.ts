@@ -1,3 +1,5 @@
+import type { NomIcone } from "@/components/ui/magic-icon";
+
 /**
  * Contenu des deux prestations : repris intégralement de l'ancien site.
  */
@@ -12,7 +14,7 @@ export type Prestation = {
   intro: string[];
   citation: string;
   chiffres: { value: string; label: string }[];
-  piliers: { titre: string; texte: string }[];
+  piliers: { titre: string; texte: string; icone: NomIcone }[];
   contextes: { titre: string; texte: string }[];
   temoignage: { auteur: string; ville: string; texte: string };
   pratique: { titre: string; texte: string }[];
@@ -47,31 +49,37 @@ export const closeUp: Prestation = {
   ],
   piliers: [
     {
+      icone: "oeil",
       titre: "Vous regardiez au bon endroit",
       texte:
         "Pendant que vos yeux suivaient ce que Julien voulait bien leur montrer, l'impossible se construisait juste à côté. Le close-up n'est pas une question de vitesse, c'est une question de direction du regard.",
     },
     {
+      icone: "table",
       titre: "La scène, c'est partout",
       texte:
         "Julien n'a pas besoin d'estrade ni de rideau. Il opère entre les verres, les mains, les conversations. Chaque table devient un théâtre, chaque invité un protagoniste.",
     },
     {
+      icone: "cartes",
       titre: "Adapté à votre événement",
       texte:
         "Mariage, soirée d'entreprise, anniversaire : Julien adapte son approche, son rythme, son registre.",
     },
     {
+      icone: "bulle",
       titre: "Le moment dont tout le monde parlera",
       texte:
         "Ce n'est pas un tour que vos invités ont « vu ». C'est quelque chose qu'ils ont vécu, et qu'ils ne savent toujours pas expliquer.",
     },
     {
+      icone: "etoile",
       titre: "Pas un souvenir de magie",
       texte:
         "Un souvenir à vous. Vos invités ne repartiront pas en disant « il était habile ». Ils repartiront en se demandant comment c'est possible.",
     },
     {
+      icone: "main",
       titre: "L'art de mener l'attention",
       texte:
         "À 30 cm de vos yeux, il n'y a pas de marge d'erreur. Julien maîtrise les mécanismes de perception et d'attention.",
@@ -180,30 +188,36 @@ export const magieDeSalon: Prestation = {
   ],
   piliers: [
     {
+      icone: "regards",
       titre: "Toute la salle regarde au même endroit",
       texte:
         "Cinquante paires d'yeux dirigées vers une même direction, créant une attention collective où chacun vit une expérience unique.",
     },
     {
+      icone: "cartes",
       titre: "Un spectacle, plusieurs magies",
       texte:
         "Détournement d'attention, manipulation et mentalisme s'enchaînent au fil des 50 minutes.",
     },
     {
+      icone: "pensee",
       titre: "Lit-il dans les pensées ?",
       texte:
         "Le mentalisme repose sur l'observation et la logique plutôt que sur des artifices.",
     },
     {
+      icone: "sablier",
       titre: "50 minutes, aucun temps mort",
       texte:
         "Durée calibrée pour maintenir l'énergie auprès d'une cinquantaine de personnes.",
     },
     {
+      icone: "bulle",
       titre: "Ce dont on parlera encore au dessert",
       texte: "Le spectacle génère des conversations durables entre invités.",
     },
     {
+      icone: "main",
       titre: "La manipulation, à visage découvert",
       texte: "Manipulation visible sous les yeux du public, sans trucage caché.",
     },

@@ -5,6 +5,7 @@ import { Counter } from "@/components/magic/counter";
 import { Reveal, RevealLines } from "@/components/magic/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
 import { PageHero } from "@/components/sections/page-hero";
+import { MagicIcon, type NomIcone } from "@/components/ui/magic-icon";
 import { site, stats } from "@/content/site";
 import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
 
@@ -16,23 +17,27 @@ export const metadata: Metadata = {
 };
 
 /** Les quatre valeurs affichées sur l'ancien site, reprises telles quelles. */
-const valeurs = [
+const valeurs: { titre: string; texte: string; icone: NomIcone }[] = [
   {
+    icone: "main",
     titre: "L'élégance du geste",
     texte:
       "Une magie qui se regarde autant qu'elle se subit. Rien de brusque, rien de démonstratif : la technique disparaît derrière le moment.",
   },
   {
+    icone: "cercle",
     titre: "Un prétexte pour se retrouver",
     texte:
       "La magie n'est pas le but. Elle est ce qui rassemble des gens autour d'une même table, et leur donne quelque chose à se raconter.",
   },
   {
+    icone: "cartes",
     titre: "Une magie qui s'adapte",
     texte:
       "Mariage, séminaire, anniversaire : le rythme, le registre et le répertoire changent selon les personnes en face.",
   },
   {
+    icone: "oeil",
     titre: "La maîtrise au service de l'inattendu",
     texte:
       "À trente centimètres des yeux, il n'y a pas de marge d'erreur. C'est cette précision qui rend la surprise possible.",
@@ -159,7 +164,8 @@ export default function Page() {
                   i % 2 === 0 ? "sm:border-r sm:border-carton/12 sm:pr-12" : "sm:pl-12",
                 ].join(" ")}
               >
-                <dt className="t-h3 font-display text-carton">{v.titre}</dt>
+                <MagicIcon nom={v.icone} />
+                <dt className="t-h3 mt-5 font-display text-carton">{v.titre}</dt>
                 <dd className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-carton/65">
                   {v.texte}
                 </dd>

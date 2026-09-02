@@ -5,6 +5,7 @@ import { Reveal, RevealImage, RevealLines } from "@/components/magic/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
 import { FaqListe } from "@/components/sections/faq-section";
 import { PageHero } from "@/components/sections/page-hero";
+import { MagicIcon } from "@/components/ui/magic-icon";
 import { TemoignageUnique } from "@/components/sections/temoignages-section";
 import { faqPour } from "@/content/faq";
 import { getAutrePrestation, type Prestation } from "@/content/prestations";
@@ -81,7 +82,8 @@ export function PrestationPage({ p }: { p: Prestation }) {
                 delay={(i % 3) * 0.06}
                 className="border-b border-encre/15 py-9 md:pr-10"
               >
-                <dt className="t-h3 font-display">{pilier.titre}</dt>
+                <MagicIcon nom={pilier.icone} className="text-laiton-600" />
+                <dt className="t-h3 mt-5 font-display">{pilier.titre}</dt>
                 <dd className="mt-4 max-w-sm text-[0.95rem] leading-relaxed text-encre/65">
                   {pilier.texte}
                 </dd>
@@ -92,13 +94,15 @@ export function PrestationPage({ p }: { p: Prestation }) {
       </section>
 
       {/* Photo pleine largeur */}
-      <RevealImage className="relative h-[55svh] min-h-[22rem]">
+      {/* Le sujet est haut dans le cadre : rapport 2:1 et cadrage remonté,
+          sinon la tête est coupée. */}
+      <RevealImage className="relative aspect-[16/10] max-h-[70svh] w-full sm:aspect-[2/1]">
         <Image
           src={p.photos[0].src}
           alt={p.photos[0].alt}
           fill
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[50%_26%]"
         />
       </RevealImage>
 

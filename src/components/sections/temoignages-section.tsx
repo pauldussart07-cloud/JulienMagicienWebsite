@@ -12,7 +12,7 @@ export function ClientsBand() {
         <p className="shrink-0 text-[0.8125rem] text-encre/55">
           Ils ont fait appel à Julien
         </p>
-        <ul className="flex flex-wrap items-center gap-x-12 gap-y-7">
+        <ul className="flex flex-1 flex-wrap items-center justify-between gap-x-10 gap-y-7">
           {clients.map((c) => (
             <li key={c.src}>
               <Image

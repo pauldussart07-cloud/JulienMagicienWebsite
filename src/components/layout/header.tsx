@@ -117,10 +117,10 @@ export function Header() {
                   surCarton
                     ? isActive(item.href)
                       ? "text-encre"
-                      : "text-encre/55 hover:text-encre"
+                      : "text-encre/75 hover:text-encre"
                     : isActive(item.href)
                       ? "text-carton"
-                      : "text-carton/55 hover:text-carton"
+                      : "text-carton/80 hover:text-carton"
                 )}
               >
                 {item.label}
@@ -134,8 +134,8 @@ export function Header() {
               className={cn(
                 "link-hover hidden text-[0.9rem] transition-colors lg:block",
                 surCarton
-                  ? "text-encre/55 hover:text-encre"
-                  : "text-carton/55 hover:text-carton"
+                  ? "text-encre/75 hover:text-encre"
+                  : "text-carton/80 hover:text-carton"
               )}
             >
               {site.phone}
@@ -227,7 +227,7 @@ export function Header() {
                 <ButtonLink href="/contact" size="lg" className="w-full">
                   Réserver une date
                 </ButtonLink>
-                <div className="flex items-center justify-between text-[0.9rem] text-carton/55">
+                <div className="flex items-center justify-between text-[0.9rem] text-carton/70">
                   <a href={site.phoneHref} className="link-hover">
                     {site.phone}
                   </a>

@@ -13,6 +13,7 @@ export function PageHero({
   image,
   alt,
   hauteur = "moyenne",
+  position = "50% 50%",
   children,
 }: {
   titre: string;
@@ -21,6 +22,8 @@ export function PageHero({
   image: string;
   alt: string;
   hauteur?: "moyenne" | "haute";
+  /** Cadrage de la photo, quand le sujet n'est pas au centre. */
+  position?: string;
   children?: React.ReactNode;
 }) {
   return (
@@ -36,7 +39,8 @@ export function PageHero({
         fill
         priority
         sizes="100vw"
-        className="object-cover object-center"
+        style={{ objectPosition: position }}
+        className="object-cover"
       />
       <div className="veil-b absolute inset-0" />
       <div className="absolute inset-0 bg-encre-900/20" />

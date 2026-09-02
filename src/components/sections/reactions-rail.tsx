@@ -5,37 +5,49 @@ import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-/** Les photos où l'on voit la réaction, pas le tour. C'est le vrai produit. */
+/**
+ * Les photos où l'on voit la réaction, pas le tour.
+ *
+ * Toutes sont verticales : la carte de la bande l'est aussi, il n'y a donc
+ * presque rien à recadrer et l'image reste nette, y compris sur téléphone.
+ * `position` remonte le cadrage quand le sujet est haut dans l'image.
+ */
 const CLICHES = [
   {
-    src: "/images/galerie/gal-15.webp",
-    alt: "Une invitée porte les mains à son visage pendant un tour",
-    legende: "Le moment où le groupe cesse de chercher le truc",
-  },
-  {
-    src: "/images/home/home-reaction.webp",
-    alt: "Une spectatrice réagit à un tour de magie en extérieur",
-    legende: "Vin d'honneur, Bretagne",
-  },
-  {
     src: "/images/galerie/gal-09.webp",
-    alt: "Les mariés regardent un tour de cartes de très près",
+    alt: "Une mariée suit de très près un tour de cartes",
     legende: "À vingt centimètres des mains",
+    position: "50% 45%",
   },
   {
-    src: "/images/galerie/gal-12.webp",
-    alt: "Un cercle d'invités entoure le magicien",
+    src: "/images/galerie/gal-10.webp",
+    alt: "Une invitée n'en revient pas pendant un tour de close-up",
+    legende: "Le moment où plus personne ne cherche le truc",
+    position: "50% 32%",
+  },
+  {
+    src: "/images/galerie/gal-14.webp",
+    alt: "Julien Lambert entouré d'invités pendant un tour",
     legende: "Chaque table devient un théâtre",
+    position: "50% 30%",
   },
   {
     src: "/images/galerie/gal-11.webp",
-    alt: "Un tour se déroule dans les mains d'une spectatrice",
+    alt: "Un tour de magie se déroule dans les mains d'une spectatrice",
     legende: "Les objets sont dans vos mains",
+    position: "50% 38%",
   },
   {
-    src: "/images/galerie/gal-17.webp",
-    alt: "Une salle entière regarde dans la même direction",
-    legende: "Cinquante paires d'yeux, une seule direction",
+    src: "/images/galerie/gal-13.webp",
+    alt: "Petit groupe d'invités réuni autour d'un tour de close-up",
+    legende: "Rien ne se passe à distance",
+    position: "50% 35%",
+  },
+  {
+    src: "/images/galerie/gal-19.webp",
+    alt: "Manipulation de cartes en gros plan",
+    legende: "Pas d'écran, pas de coulisses",
+    position: "50% 40%",
   },
 ];
 
@@ -43,7 +55,6 @@ export function ReactionsRail() {
   const rail = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
 
-  // Barre de progression du défilement horizontal
   useEffect(() => {
     const el = rail.current;
     if (!el) return;
@@ -80,19 +91,19 @@ export function ReactionsRail() {
         role="region"
         aria-label="Photographies de réactions du public, défilement horizontal"
       >
-        {/* Amorce à gauche pour aligner la première image sur la gouttière */}
         <div className="w-5 shrink-0 sm:w-8 lg:w-12" aria-hidden />
 
         {CLICHES.map((c) => (
           <figure
             key={c.src}
-            className="relative h-[26rem] w-[80vw] shrink-0 overflow-hidden sm:w-[26rem] lg:h-[34rem] lg:w-[32rem]"
+            className="relative aspect-[3/4] w-[68vw] shrink-0 overflow-hidden sm:w-[20rem] lg:w-[24rem]"
           >
             <Image
               src={c.src}
               alt={c.alt}
               fill
-              sizes="(max-width: 640px) 80vw, 32rem"
+              sizes="(max-width: 640px) 68vw, (max-width: 1024px) 20rem, 24rem"
+              style={{ objectPosition: c.position }}
               className="object-cover"
             />
             <div className="veil-b absolute inset-0" />

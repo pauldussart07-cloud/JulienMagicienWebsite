@@ -29,7 +29,8 @@ export default function Page() {
         titre="Des regards émerveillés, des moments suspendus"
         intro="La magie se vit, elle ne se regarde pas. Ces images en donnent un aperçu : la vraie expérience commence quand elle se déroule sous vos yeux."
         image="/images/galerie/gal-20.webp"
-        alt="Ambiance de soirée pendant une prestation de magie"
+        alt="Julien Lambert présente un effet pendant une réception"
+        position="50% 26%"
       />
 
       <section className="py-14 lg:py-20">
