@@ -128,7 +128,7 @@ export async function POST(request: Request) {
       from: expediteur,
       to: destinataire,
       replyTo: d.email,
-      subject: `Devis : ${d.typeEvenement} à ${d.ville} (${d.prenom} ${d.nom})`,
+      subject: `Devis : ${d.typeEvenement} à ${d.ville} (${d.prenom} ${d.nom})`,
       html,
     });
 

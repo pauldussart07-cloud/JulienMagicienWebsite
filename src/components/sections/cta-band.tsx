@@ -11,7 +11,7 @@ import { site } from "@/content/site";
  * toujours sur la même chose.
  */
 export function CtaBand({
-  lignes = ["Prêt pour", "l'impossible ?"],
+  lignes = ["Prêt pour", "l'impossible ?"],
   image = "/images/galerie/gal-09.webp",
   alt = "Invités stupéfaits pendant un tour de magie",
 }: {
@@ -41,7 +41,7 @@ export function CtaBand({
           <Reveal delay={0.1}>
             <p className="lede mt-8 text-carton/70">
               Mariages, cocktails, soirées d&apos;entreprise, anniversaires.
-              Écrivez à Julien pour parler de votre projet : il répond
+              Écrivez à Julien pour parler de votre projet : il répond
               rapidement, avec un devis adapté à votre événement.
             </p>
           </Reveal>

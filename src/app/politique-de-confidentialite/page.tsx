@@ -21,14 +21,14 @@ export default function Page() {
         {
           titre: "Responsable du traitement",
           paragraphes: [
-            `${site.name}, magicien professionnel. Pour toute question sur vos données : ${site.email}.`,
+            `${site.name}, magicien professionnel. Pour toute question sur vos données : ${site.email}.`,
           ],
         },
         {
           titre: "Données collectées",
           paragraphes: [
             "Lorsque vous remplissez le formulaire de contact, sont collectés : vos nom et prénom, votre adresse e-mail, votre numéro de téléphone, le type et la ville de votre événement, la prestation souhaitée, le nombre d'invités, la date envisagée et le message que vous rédigez.",
-            "Aucun autre traitement n'est réalisé : le site ne dépose ni cookie publicitaire, ni traceur de mesure d'audience.",
+            "Aucun autre traitement n'est réalisé : le site ne dépose ni cookie publicitaire, ni traceur de mesure d'audience.",
           ],
         },
         {
@@ -60,7 +60,7 @@ export default function Page() {
         {
           titre: "Sécurité",
           paragraphes: [
-            "Le site est servi exclusivement en HTTPS. Les données transmises via le formulaire ne sont pas stockées sur le site : elles sont acheminées directement par courriel.",
+            "Le site est servi exclusivement en HTTPS. Les données transmises via le formulaire ne sont pas stockées sur le site : elles sont acheminées directement par courriel.",
           ],
         },
       ]}

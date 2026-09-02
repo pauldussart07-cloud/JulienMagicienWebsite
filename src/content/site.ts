@@ -1,5 +1,5 @@
 /**
- * Données de marque et coordonnées : source unique de vérité.
+ * Données de marque et coordonnées : source unique de vérité.
  * Tout le contenu provient du site existant de Julien Lambert.
  */
 
@@ -69,7 +69,7 @@ export const clients = [
   { src: "/images/clients/client-hq.webp", alt: "Client", width: 345, height: 165 },
 ] as const;
 
-/** Zones d'intervention : reprises telles quelles de l'ancien site (maillage SEO). */
+/** Zones d'intervention : reprises telles quelles de l'ancien site (maillage SEO). */
 export const zones = [
   {
     region: "Bretagne",

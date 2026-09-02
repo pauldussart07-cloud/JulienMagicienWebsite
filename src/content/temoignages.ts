@@ -1,6 +1,6 @@
 /**
  * Avis clients repris du site existant.
- * Julien affiche 100 % d'avis 5★ sur Google ; seuls les témoignages
+ * Julien affiche 100 % d'avis 5★ sur Google ; seuls les témoignages
  * effectivement publiés sur l'ancien site sont repris ici.
  */
 

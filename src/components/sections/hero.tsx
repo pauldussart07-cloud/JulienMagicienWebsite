@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+import { HeroVideo } from "@/components/magic/hero-video";
 import { ButtonLink } from "@/components/ui/button";
 import { Note } from "@/components/ui/stars";
 import { site } from "@/content/site";
@@ -36,13 +36,9 @@ export function Hero() {
       className="relative flex h-[100svh] min-h-[36rem] flex-col justify-end overflow-hidden"
     >
       <motion.div className="absolute inset-0" style={reduce ? undefined : { y }}>
-        <Image
-          src="/images/home/hero-cartes.webp"
-          alt="Julien Lambert au milieu d'une envolée de cartes, pendant un mariage"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[50%_30%]"
+        <HeroVideo
+          poster="/images/home/hero-poster.webp"
+          posterAlt="Julien Lambert fait apparaître une flamme entre ses mains, face à la mer"
         />
         {/* Assez sombre pour le texte, assez clair pour qu'on le voie, lui */}
         <div className="veil-b absolute inset-0" />

@@ -235,8 +235,8 @@ function Champ({
     "[&>option]:bg-encre-800 [&>option]:text-carton",
     "[&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:invert",
     erreur
-      ? "border-[#E06A7E]"
-      : "border-carton/20 transition-colors focus:border-laiton"
+      ? "border-[#E06A7E]"
+      : "border-carton/20 transition-colors focus:border-laiton"
   );
 
   return (

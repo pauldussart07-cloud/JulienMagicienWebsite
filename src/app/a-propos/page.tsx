@@ -20,7 +20,7 @@ const valeurs = [
   {
     titre: "L'élégance du geste",
     texte:
-      "Une magie qui se regarde autant qu'elle se subit. Rien de brusque, rien de démonstratif : la technique disparaît derrière le moment.",
+      "Une magie qui se regarde autant qu'elle se subit. Rien de brusque, rien de démonstratif : la technique disparaît derrière le moment.",
   },
   {
     titre: "Un prétexte pour se retrouver",
@@ -30,7 +30,7 @@ const valeurs = [
   {
     titre: "Une magie qui s'adapte",
     texte:
-      "Mariage, séminaire, anniversaire : le rythme, le registre et le répertoire changent selon les personnes en face.",
+      "Mariage, séminaire, anniversaire : le rythme, le registre et le répertoire changent selon les personnes en face.",
   },
   {
     titre: "La maîtrise au service de l'inattendu",
@@ -52,7 +52,7 @@ export default function Page() {
       <PageHero
         label="Le magicien"
         titre="Une obsession devenue un métier"
-        intro={`Basé en Bretagne, Julien intervient partout en France depuis ${site.since}. Sa spécialité ? Le détournement d'attention. Sa philosophie ? La magie comme prétexte pour passer un bon moment ensemble.`}
+        intro={`Basé en Bretagne, Julien intervient partout en France depuis ${site.since}. Sa spécialité ? Le détournement d'attention. Sa philosophie ? La magie comme prétexte pour passer un bon moment ensemble.`}
         image="/images/apropos/apropos-hero.webp"
         alt="Julien Lambert présentant un tour à un groupe d'invités attablés"
         hauteur="haute"
@@ -72,7 +72,7 @@ export default function Page() {
                 <p>
                   Tout part d&apos;une boîte de magie trouvée au pied du sapin,
                   à cinq ans. Ce qui n&apos;aurait dû être qu&apos;un cadeau de
-                  Noël de plus est devenu une obsession : comprendre pourquoi
+                  Noël de plus est devenu une obsession : comprendre pourquoi
                   un adulte attentif peut regarder une chose et ne pas la voir.
                 </p>
                 <p>
@@ -83,7 +83,7 @@ export default function Page() {
                   parisienne.
                 </p>
                 <p>
-                  Sa spécialité tient en une idée : le détournement
+                  Sa spécialité tient en une idée : le détournement
                   d&apos;attention, l&apos;alliance du geste précis et de la
                   psychologie. Il ne cherche pas à cacher, mais à guider le
                   regard et la pensée pour créer l&apos;impossible là où tout
@@ -94,7 +94,7 @@ export default function Page() {
           </div>
 
           {/* Le tirage d'époque est présenté comme un objet posé sur la page,
-              pas comme un fond : c'est une pièce d'archive. */}
+              pas comme un fond : c'est une pièce d'archive. */}
           <div className="flex items-center justify-center border-t border-encre/15 bg-carton-200 px-8 py-16 lg:border-l lg:border-t-0 lg:px-14">
             <Reveal className="w-full max-w-md">
               <figure>

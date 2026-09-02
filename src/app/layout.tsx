@@ -3,6 +3,7 @@ import { Instrument_Serif, Inter_Tight } from "next/font/google";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { IntroSignature } from "@/components/magic/intro-signature";
 import { site } from "@/content/site";
 
 import "./globals.css";
@@ -49,13 +50,13 @@ export const metadata: Metadata = {
     siteName: `${site.name}, ${site.role}`,
     title: `${site.name} | Magicien close-up et magie de salon`,
     description: site.description,
-    images: [{ url: "/images/home/hero-cartes.webp", width: 2400, height: 1048 }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: `${site.name}, magicien close-up` }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | Magicien close-up`,
     description: site.description,
-    images: ["/images/home/hero-cartes.webp"],
+    images: ["/og.png"],
   },
   robots: { index: true, follow: true },
 };
@@ -78,9 +79,14 @@ export default function RootLayout({
           Aller au contenu
         </a>
 
+        <IntroSignature />
+
         <Header />
         <main id="contenu">{children}</main>
         <Footer />
+
+        {/* Grain posé au-dessus de tout, sauf du header et des panneaux */}
+        <div className="grain" aria-hidden />
       </body>
     </html>
   );

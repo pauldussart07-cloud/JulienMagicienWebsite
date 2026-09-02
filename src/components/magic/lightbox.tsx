@@ -51,7 +51,7 @@ export function GalerieGrille({ photos }: { photos: Photo[] }) {
             type="button"
             onClick={() => setActif(i)}
             className="group relative block w-full overflow-hidden"
-            aria-label={`Agrandir : ${photo.alt}`}
+            aria-label={`Agrandir : ${photo.alt}`}
           >
             <Image
               src={photo.src}

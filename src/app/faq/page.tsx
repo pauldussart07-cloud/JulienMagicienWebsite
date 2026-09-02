@@ -10,7 +10,7 @@ import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 export const metadata: Metadata = {
   title: "Questions fréquentes",
   description:
-    "Déroulé, durée, nombre d'invités, extérieur, réservation, tarifs : toutes les réponses aux questions posées à Julien Lambert, magicien close-up.",
+    "Déroulé, durée, nombre d'invités, extérieur, réservation, tarifs : toutes les réponses aux questions posées à Julien Lambert, magicien close-up.",
   alternates: { canonical: "/faq" },
 };
 
@@ -47,7 +47,7 @@ export default function Page() {
       </section>
 
       <CtaBand
-        lignes={["Une dernière", "question ?"]}
+        lignes={["Une dernière", "question ?"]}
         image="/images/galerie/gal-06.webp"
         alt="Sourires et étonnement autour d'un tour de cartes"
       />

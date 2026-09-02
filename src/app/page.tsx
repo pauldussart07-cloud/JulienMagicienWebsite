@@ -7,6 +7,7 @@ import { Misdirection } from "@/components/sections/misdirection";
 import { PrestationsSplit } from "@/components/sections/prestations-split";
 import { ReactionsRail } from "@/components/sections/reactions-rail";
 import { TemoignagesSection } from "@/components/sections/temoignages-section";
+import { VideoSection } from "@/components/sections/video-section";
 import { JsonLd, performerSchema } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function Page() {
       <Misdirection />
       <PrestationsSplit />
       <ReactionsRail />
+      <VideoSection />
       <AproposTeaser />
       <TemoignagesSection />
       <CtaBand />

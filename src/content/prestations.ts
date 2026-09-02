@@ -1,5 +1,5 @@
 /**
- * Contenu des deux prestations : repris intégralement de l'ancien site.
+ * Contenu des deux prestations : repris intégralement de l'ancien site.
  */
 
 export type Prestation = {
@@ -25,7 +25,7 @@ export const closeUp: Prestation = {
   accroche: "Magie rapprochée",
   duree: "1h30 à 2h",
   resume:
-    "Pas d'écran, pas de distance : juste vos yeux, mes mains, et l'incroyable qui s'invite. Une expérience unique pour vos mariages, cocktails et soirées d'entreprise.",
+    "Pas d'écran, pas de distance : juste vos yeux, mes mains, et l'incroyable qui s'invite. Une expérience unique pour vos mariages, cocktails et soirées d'entreprise.",
   hero: {
     src: "/images/closeup/closeup-hero.webp",
     alt: "Julien Lambert en pleine prestation de magie close-up devant des invités",
@@ -33,7 +33,7 @@ export const closeUp: Prestation = {
   intro: [
     "Le close-up est une forme de magie qui se vit à quelques centimètres des yeux des spectateurs, sans scène ni artifices visibles.",
     "Chaque effet se déroule dans leurs mains ou sous leur regard direct, rendant l'expérience particulièrement immersive.",
-    "La spécialité de Julien repose sur le détournement d'attention : une combinaison subtile de gestes précis et de mécanismes psychologiques.",
+    "La spécialité de Julien repose sur le détournement d'attention : une combinaison subtile de gestes précis et de mécanismes psychologiques.",
     "Il ne cherche pas à cacher, mais à guider le regard et la pensée pour créer l'impossible là où tout semblait observable.",
     "Car la magie la plus marquante est souvent celle que l'on ne voit pas venir, même lorsqu'on la cherche activement.",
   ],
@@ -59,17 +59,17 @@ export const closeUp: Prestation = {
     {
       titre: "Adapté à votre événement",
       texte:
-        "Mariage, soirée d'entreprise, anniversaire : Julien adapte son approche, son rythme, son registre.",
+        "Mariage, soirée d'entreprise, anniversaire : Julien adapte son approche, son rythme, son registre.",
     },
     {
       titre: "Le moment dont tout le monde parlera",
       texte:
-        "Ce n'est pas un tour que vos invités ont « vu ». C'est quelque chose qu'ils ont vécu, et qu'ils ne savent toujours pas expliquer.",
+        "Ce n'est pas un tour que vos invités ont « vu ». C'est quelque chose qu'ils ont vécu, et qu'ils ne savent toujours pas expliquer.",
     },
     {
       titre: "Pas un souvenir de magie",
       texte:
-        "Un souvenir à vous. Vos invités ne repartiront pas en disant « il était habile ». Ils repartiront en se demandant comment c'est possible.",
+        "Un souvenir à vous. Vos invités ne repartiront pas en disant « il était habile ». Ils repartiront en se demandant comment c'est possible.",
     },
     {
       titre: "L'art de mener l'attention",
@@ -96,12 +96,12 @@ export const closeUp: Prestation = {
     {
       titre: "Soirée privée",
       texte:
-        "Dîner entre amis, réception à domicile, soirée dans un lieu privatisé : le close-up est dans son élément quand l'espace est intime.",
+        "Dîner entre amis, réception à domicile, soirée dans un lieu privatisé : le close-up est dans son élément quand l'espace est intime.",
     },
     {
       titre: "Foires et salons",
       texte:
-        "Stand automobile, salon professionnel, foire commerciale : attirer l'attention dans un espace bruyant et chargé est un défi en soi.",
+        "Stand automobile, salon professionnel, foire commerciale : attirer l'attention dans un espace bruyant et chargé est un défi en soi.",
     },
   ],
   temoignage: {
@@ -129,7 +129,7 @@ export const closeUp: Prestation = {
     {
       titre: "Intérieur ou extérieur",
       texte:
-        "Terrasse, jardin, salle de réception, restaurant, rooftop : aucune contrainte technique, aucun aménagement préalable.",
+        "Terrasse, jardin, salle de réception, restaurant, rooftop : aucune contrainte technique, aucun aménagement préalable.",
     },
     {
       titre: "Aucune installation requise",
@@ -139,7 +139,7 @@ export const closeUp: Prestation = {
     {
       titre: "Modulable",
       texte:
-        "Close-up en déambulation pendant le cocktail, close-up de tables en tables pendant le dîner, ou magie de salon : trois ambiances, un seul artiste, une soirée complète.",
+        "Close-up en déambulation pendant le cocktail, close-up de tables en tables pendant le dîner, ou magie de salon : trois ambiances, un seul artiste, une soirée complète.",
     },
   ],
   photos: [
@@ -190,7 +190,7 @@ export const magieDeSalon: Prestation = {
         "Détournement d'attention, manipulation et mentalisme s'enchaînent au fil des 50 minutes.",
     },
     {
-      titre: "Lit-il dans les pensées ?",
+      titre: "Lit-il dans les pensées ?",
       texte:
         "Le mentalisme repose sur l'observation et la logique plutôt que sur des artifices.",
     },
@@ -284,7 +284,7 @@ export function getPrestation(slug: string) {
   return prestations.find((p) => p.slug === slug);
 }
 
-/** L'autre prestation, pour le bloc « Les autres prestations proposées ». */
+/** L'autre prestation, pour le bloc « Les autres prestations proposées ». */
 export function getAutrePrestation(slug: string) {
-  return prestations.find((p) => p.slug !== slug)!;
+  return prestations.find((p) => p.slug !== slug)!;
 }

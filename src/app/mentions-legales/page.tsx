@@ -20,8 +20,8 @@ export default function Page() {
           titre: "Éditeur du site",
           paragraphes: [
             `${site.name}, magicien professionnel, exerçant en entreprise individuelle.`,
-            `Téléphone : ${site.phone}. Courriel : ${site.email}.`,
-            "Numéro SIRET et adresse du siège : à compléter avant la mise en ligne.",
+            `Téléphone : ${site.phone}. Courriel : ${site.email}.`,
+            "Numéro SIRET et adresse du siège : à compléter avant la mise en ligne.",
           ],
         },
         {

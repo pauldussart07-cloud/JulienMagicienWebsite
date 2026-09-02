@@ -76,6 +76,16 @@
     display: block;
     animation: rise 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
+  /* Tracé de la signature : le conteneur s'ouvre, l'image ne bouge pas. */
+  @keyframes ecrire {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
   @keyframes rise {
     from {
       transform: translateY(108%);
@@ -130,6 +140,33 @@
   }
   .register-carton .mark::before {
     @apply bg-laiton-600;
+  }
+
+
+  /* ─────────────────────────────────────────────────────────
+     Grain argentique
+     Une trame de bruit fixe posée sur toute la page. En mode overlay elle
+     éclaire et assombrit également, ce qui donne de la matière aux aplats
+     sans les salir. C'est ce qui fait lire « imprimé » plutôt qu'« écran ».
+     ───────────────────────────────────────────────────────── */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    pointer-events: none;
+    background-image: url("/images/grain.png");
+    background-size: 220px 220px;
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+    opacity: 0.05;
+  }
+  /* Sur les écrans à haute densité, la tuile est affichée plus petite pour
+     que le grain garde sa finesse physique. */
+  @media (min-resolution: 2dppx) {
+    .grain {
+      background-size: 150px 150px;
+      opacity: 0.045;
+    }
   }
 
   /* ─────────────────────────────────────────────────────────

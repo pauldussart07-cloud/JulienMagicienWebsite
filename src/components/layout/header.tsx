@@ -78,7 +78,7 @@ export function Header() {
         data-register={surCarton ? "carton" : "encre"}
         className={cn(
           "group/header fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,padding] duration-500",
-          scrolled ? "py-3.5" : "py-6",
+          scrolled ? "py-3.5" : "py-6",
           scrolled && !surCarton && "border-b border-carton/12 bg-encre-900/95 backdrop-blur-md",
           scrolled && surCarton && "border-b border-encre/12 bg-carton/95 backdrop-blur-md",
           !scrolled && "border-b border-transparent"
@@ -98,7 +98,7 @@ export function Header() {
               priority
               className={cn(
                 "w-auto transition-all duration-500",
-                scrolled ? "h-8" : "h-10 sm:h-12"
+                scrolled ? "h-8" : "h-10 sm:h-12"
               )}
             />
           </Link>
@@ -118,8 +118,8 @@ export function Header() {
                     ? isActive(item.href)
                       ? "text-encre"
                       : "text-encre/55 hover:text-encre"
-                    : isActive(item.href)
-                      ? "text-carton"
+                    : isActive(item.href)
+                      ? "text-carton"
                       : "text-carton/55 hover:text-carton"
                 )}
               >
@@ -212,7 +212,7 @@ export function Header() {
                       href={item.href}
                       className={cn(
                         "block py-1.5 font-display text-[clamp(2.25rem,9vw,3.5rem)] leading-[1.05] transition-colors",
-                        isActive(item.href) ? "text-carton" : "text-carton/50"
+                        isActive(item.href) ? "text-carton" : "text-carton/50"
                       )}
                     >
                       {item.label}

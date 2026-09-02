@@ -91,7 +91,7 @@ export function RevealLines({
   );
 }
 
-/** Photo révélée par un volet qui se retire : comme une carte retournée. */
+/** Photo révélée par un volet qui se retire : comme une carte retournée. */
 export function RevealImage({
   children,
   className,

@@ -33,12 +33,12 @@ export function AproposTeaser() {
             <div className="prose-fr mt-9 text-[1.0625rem] leading-relaxed text-encre/75">
               <p>
                 Depuis {site.since}, Julien accompagne mariages, soirées
-                d&apos;entreprise et réceptions privées. Sa spécialité :
+                d&apos;entreprise et réceptions privées. Sa spécialité :
                 le détournement d&apos;attention, l&apos;alliance du geste
                 précis et de la psychologie.
               </p>
               <p>
-                Sa philosophie tient en une phrase : la magie comme prétexte
+                Sa philosophie tient en une phrase : la magie comme prétexte
                 pour passer un bon moment ensemble.
               </p>
             </div>

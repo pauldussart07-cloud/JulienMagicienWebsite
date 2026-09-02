@@ -89,7 +89,7 @@ export default async function Page({
 
               <div className="rule mt-14" />
               <p className="pt-8 text-[0.95rem] text-encre/70">
-                Un événement en préparation ?{" "}
+                Un événement en préparation ?{" "}
                 <Link href="/contact" className="link text-encre">
                   Parlons-en avec Julien
                 </Link>
@@ -135,7 +135,7 @@ export default async function Page({
   );
 }
 
-/** Rendu des blocs de contenu : aucun parseur Markdown côté client. */
+/** Rendu des blocs de contenu : aucun parseur Markdown côté client. */
 function BlockRenderer({ block }: { block: Block }) {
   switch (block.type) {
     case "lead":

@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
 export const metadata: Metadata = {
   title: "Les prestations",
   description:
-    "Magie close-up en déambulation ou spectacle de salon de 50 minutes : deux formats, une seule exigence de proximité.",
+    "Magie close-up en déambulation ou spectacle de salon de 50 minutes : deux formats, une seule exigence de proximité.",
   alternates: { canonical: "/prestations" },
 };
 
@@ -30,7 +30,7 @@ export default function Page() {
       <PrestationsSplit />
 
       <CtaBand
-        lignes={["Quel format", "pour votre soirée ?"]}
+        lignes={["Quel format", "pour votre soirée ?"]}
         image="/images/galerie/gal-13.webp"
         alt="Julien Lambert présente un effet à un petit groupe"
       />

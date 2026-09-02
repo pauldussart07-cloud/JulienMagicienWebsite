@@ -1,6 +1,6 @@
 /**
- * Articles du blog : repris intégralement de l'ancien site.
- * Le corps est décrit en blocs typés plutôt qu'en Markdown : le rendu
+ * Articles du blog : repris intégralement de l'ancien site.
+ * Le corps est décrit en blocs typés plutôt qu'en Markdown : le rendu
  * reste totalement maîtrisé et il n'y a aucun parseur à charger côté client.
  */
 
@@ -30,7 +30,7 @@ export const articles: Article[] = [
     titre:
       "Pourquoi la magie transforme un séminaire d'entreprise en moment que personne n'oublie",
     chapo:
-      "Et si le moment mémorable n'était pas la présentation PowerPoint, mais ces trente secondes où personne ne comprend ce qui vient de se produire sous ses yeux ?",
+      "Et si le moment mémorable n'était pas la présentation PowerPoint, mais ces trente secondes où personne ne comprend ce qui vient de se produire sous ses yeux ?",
     date: "2025-08-19",
     dateLabel: "19 août",
     lecture: "2 min",
@@ -42,16 +42,16 @@ export const articles: Article[] = [
     blocks: [
       {
         type: "lead",
-        text: "Un séminaire d'entreprise suit une formule prévisible : présentations, pauses café, activités de team building parfois artificielles, avec le sentiment que chacun repart inchangé. Rarement un souvenir véritablement partagé.",
+        text: "Un séminaire d'entreprise suit une formule prévisible : présentations, pauses café, activités de team building parfois artificielles, avec le sentiment que chacun repart inchangé. Rarement un souvenir véritablement partagé.",
       },
       {
         type: "p",
-        text: "Et si le moment mémorable n'était pas la présentation PowerPoint, mais ces trente secondes où personne ne comprend ce qui vient de se produire sous ses yeux ?",
+        text: "Et si le moment mémorable n'était pas la présentation PowerPoint, mais ces trente secondes où personne ne comprend ce qui vient de se produire sous ses yeux ?",
       },
       { type: "h2", text: "Un langage universel, sans barrière hiérarchique" },
       {
         type: "p",
-        text: "Dans un séminaire, les langages diffèrent : le commercial et la technique ne partagent pas les mêmes codes, la direction et les nouveaux collaborateurs n'ont pas les mêmes réflexes. La magie dissipe ces distinctions en quelques secondes. Face à un tour inexplicable, le DRH et le stagiaire réagissent identiquement : yeux écarquillés, rire nerveux, demande de répétition.",
+        text: "Dans un séminaire, les langages diffèrent : le commercial et la technique ne partagent pas les mêmes codes, la direction et les nouveaux collaborateurs n'ont pas les mêmes réflexes. La magie dissipe ces distinctions en quelques secondes. Face à un tour inexplicable, le DRH et le stagiaire réagissent identiquement : yeux écarquillés, rire nerveux, demande de répétition.",
       },
       {
         type: "quote",
@@ -61,12 +61,12 @@ export const articles: Article[] = [
       { type: "h3", text: "Magie close-up en cocktail ou pause networking" },
       {
         type: "p",
-        text: "Je circule parmi les groupes avec des cartes, créant des interactions brèves et percutantes utilisant les objets des participants eux-mêmes : bague, billet, carte de visite. Cela détend l'atmosphère avant une intervention importante ou fluidifie les moments réseautage généralement silencieux et maladroits.",
+        text: "Je circule parmi les groupes avec des cartes, créant des interactions brèves et percutantes utilisant les objets des participants eux-mêmes : bague, billet, carte de visite. Cela détend l'atmosphère avant une intervention importante ou fluidifie les moments réseautage généralement silencieux et maladroits.",
       },
       { type: "h3", text: "Magie sur-mesure autour d'un message" },
       {
         type: "p",
-        text: "La formule la plus demandée par les entreprises : un tour conçu spécifiquement autour d'une valeur, chiffre clé ou annonce majeure (lancement produit, résultat annuel, nouvelle stratégie). Le message ne s'énonce pas seulement : il se vit, se prouve, se mémorise.",
+        text: "La formule la plus demandée par les entreprises : un tour conçu spécifiquement autour d'une valeur, chiffre clé ou annonce majeure (lancement produit, résultat annuel, nouvelle stratégie). Le message ne s'énonce pas seulement : il se vit, se prouve, se mémorise.",
       },
       { type: "h2", text: "Ce que ça change concrètement" },
       {
@@ -92,7 +92,7 @@ export const articles: Article[] = [
       },
       {
         type: "p",
-        text: "Vous organisez un séminaire, une convention ou un événement d'entreprise ? Discutons de l'intégration d'un moment de magie personnalisée à votre programme.",
+        text: "Vous organisez un séminaire, une convention ou un événement d'entreprise ? Discutons de l'intégration d'un moment de magie personnalisée à votre programme.",
       },
     ],
   },
@@ -102,7 +102,7 @@ export const articles: Article[] = [
     titre:
       "Pourquoi vous oubliez 90% des tours de magie que vous voyez sur Instagram (et jamais ceux vécus en vrai)",
     chapo:
-      "Le même tour, réalisé à un mètre de vous, dans votre salon ou pendant votre mariage : celui-là, vous vous en souviendrez dans dix ans.",
+      "Le même tour, réalisé à un mètre de vous, dans votre salon ou pendant votre mariage : celui-là, vous vous en souviendrez dans dix ans.",
     date: "2025-08-13",
     dateLabel: "13 août",
     lecture: "2 min",
@@ -118,7 +118,7 @@ export const articles: Article[] = [
       },
       {
         type: "p",
-        text: "Le même tour, réalisé à un mètre de vous, dans votre salon ou pendant votre mariage : celui-là, vous vous en souviendrez dans dix ans.",
+        text: "Le même tour, réalisé à un mètre de vous, dans votre salon ou pendant votre mariage : celui-là, vous vous en souviendrez dans dix ans.",
       },
       { type: "h2", text: "Le piège du point de vue unique" },
       {
@@ -153,7 +153,7 @@ export const articles: Article[] = [
       },
       {
         type: "p",
-        text: "C'est cette dimension sensorielle et sociale qui transforme un tour en souvenir. On ne raconte pas à ses invités « j'ai vu une vidéo incroyable hier soir ». On raconte « il y avait ce magicien à mon mariage, et ce qu'il a fait avec l'alliance de ma mère, je n'y crois toujours pas ».",
+        text: "C'est cette dimension sensorielle et sociale qui transforme un tour en souvenir. On ne raconte pas à ses invités « j'ai vu une vidéo incroyable hier soir ». On raconte « il y avait ce magicien à mon mariage, et ce qu'il a fait avec l'alliance de ma mère, je n'y crois toujours pas ».",
       },
       { type: "h2", text: "Un souvenir collectif, pas une consommation solitaire" },
       {
@@ -162,11 +162,11 @@ export const articles: Article[] = [
       },
       {
         type: "quote",
-        text: "C'est précisément ce que je cherche à créer à chaque prestation : pas un contenu qu'on consomme, mais un moment qu'on vit ensemble, et qu'on garde.",
+        text: "C'est précisément ce que je cherche à créer à chaque prestation : pas un contenu qu'on consomme, mais un moment qu'on vit ensemble, et qu'on garde.",
       },
       {
         type: "p",
-        text: "Vous organisez un mariage, un événement d'entreprise ou une soirée privée en Bretagne ou en région parisienne ? Offrez à vos invités un souvenir qu'aucun écran ne pourra jamais leur donner.",
+        text: "Vous organisez un mariage, un événement d'entreprise ou une soirée privée en Bretagne ou en région parisienne ? Offrez à vos invités un souvenir qu'aucun écran ne pourra jamais leur donner.",
       },
     ],
   },
@@ -263,12 +263,12 @@ export const articles: Article[] = [
     blocks: [
       {
         type: "lead",
-        text: "Engager un magicien pour un événement est une excellente idée pour surprendre et divertir vos invités. Mais tous les magiciens ne se valent pas. Choisir un artiste qui maîtrise une « magie variée » et des techniques différentes peut transformer une simple animation en une expérience mémorable.",
+        text: "Engager un magicien pour un événement est une excellente idée pour surprendre et divertir vos invités. Mais tous les magiciens ne se valent pas. Choisir un artiste qui maîtrise une « magie variée » et des techniques différentes peut transformer une simple animation en une expérience mémorable.",
       },
       { type: "h2", text: "Offrir une expérience unique et captivante" },
       {
         type: "p",
-        text: "Un magicien qui utilise une « magie variée » propose des effets diversifiés : illusions, tours de cartes, mentalisme, magie close-up, et parfois même des numéros plus spectaculaires. Cette diversité évite la monotonie et maintient l'attention du public tout au long du spectacle. Par exemple, un magicien qui commence par un tour de mentalisme, puis enchaîne avec de la magie close-up, capte mieux l'intérêt des invités que celui qui répète le même type de tour.",
+        text: "Un magicien qui utilise une « magie variée » propose des effets diversifiés : illusions, tours de cartes, mentalisme, magie close-up, et parfois même des numéros plus spectaculaires. Cette diversité évite la monotonie et maintient l'attention du public tout au long du spectacle. Par exemple, un magicien qui commence par un tour de mentalisme, puis enchaîne avec de la magie close-up, capte mieux l'intérêt des invités que celui qui répète le même type de tour.",
       },
       {
         type: "p",
@@ -277,7 +277,7 @@ export const articles: Article[] = [
       { type: "h2", text: "S'adapter à tous les types d'événements et de publics" },
       {
         type: "p",
-        text: "Chaque événement a ses spécificités : mariage, anniversaire, soirée d'entreprise, ou fête privée. Un magicien aux techniques variées sait ajuster son spectacle en fonction du contexte et du public. Par exemple, lors d'un mariage, il privilégiera des tours élégants et légers, tandis qu'à une soirée d'entreprise, il pourra intégrer des effets plus interactifs et surprenants.",
+        text: "Chaque événement a ses spécificités : mariage, anniversaire, soirée d'entreprise, ou fête privée. Un magicien aux techniques variées sait ajuster son spectacle en fonction du contexte et du public. Par exemple, lors d'un mariage, il privilégiera des tours élégants et légers, tandis qu'à une soirée d'entreprise, il pourra intégrer des effets plus interactifs et surprenants.",
       },
       {
         type: "p",
@@ -286,7 +286,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Gérer les imprévus avec professionnalisme" },
       {
         type: "p",
-        text: "Lors d'un événement, des imprévus peuvent survenir : changement de lieu, contraintes techniques, ou réactions inattendues du public. Un magicien qui maîtrise plusieurs techniques est plus à même de s'adapter rapidement. Par exemple, si l'espace est réduit, il pourra privilégier la magie close-up plutôt qu'un numéro nécessitant une grande scène.",
+        text: "Lors d'un événement, des imprévus peuvent survenir : changement de lieu, contraintes techniques, ou réactions inattendues du public. Un magicien qui maîtrise plusieurs techniques est plus à même de s'adapter rapidement. Par exemple, si l'espace est réduit, il pourra privilégier la magie close-up plutôt qu'un numéro nécessitant une grande scène.",
       },
       {
         type: "p",
@@ -295,7 +295,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Valoriser l'investissement et garantir la satisfaction" },
       {
         type: "p",
-        text: "Engager un magicien représente un investissement financier et émotionnel. Choisir un artiste qui propose une « magie variée » maximise la valeur de cet investissement. En effet, un spectacle diversifié captive mieux, crée des souvenirs durables et suscite des réactions enthousiastes.",
+        text: "Engager un magicien représente un investissement financier et émotionnel. Choisir un artiste qui propose une « magie variée » maximise la valeur de cet investissement. En effet, un spectacle diversifié captive mieux, crée des souvenirs durables et suscite des réactions enthousiastes.",
       },
       {
         type: "p",
@@ -334,7 +334,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Conclusion" },
       {
         type: "p",
-        text: "Choisir un magicien qui maîtrise une « magie variée » et plusieurs techniques, dont la magie close-up, est essentiel pour garantir un spectacle vivant, surprenant et adapté à votre événement. Cette diversité permet de captiver tous les publics, de s'adapter aux contraintes du lieu, et d'offrir une expérience unique à vos invités.",
+        text: "Choisir un magicien qui maîtrise une « magie variée » et plusieurs techniques, dont la magie close-up, est essentiel pour garantir un spectacle vivant, surprenant et adapté à votre événement. Cette diversité permet de captiver tous les publics, de s'adapter aux contraintes du lieu, et d'offrir une expérience unique à vos invités.",
       },
     ],
   },
@@ -342,7 +342,7 @@ export const articles: Article[] = [
   {
     slug: "magie-close-up-briser-la-glace",
     titre:
-      "La magie en close-up : un atout pour animer votre soirée et briser la glace entre invités",
+      "La magie en close-up : un atout pour animer votre soirée et briser la glace entre invités",
     chapo:
       "Lors d'un cocktail dinatoire, la magie close-up s'impose comme une animation idéale pour créer des échanges et détendre l'atmosphère.",
     date: "2025-07-14",
@@ -426,9 +426,9 @@ export const articles: Article[] = [
   {
     slug: "detournement-attention-signaux-forts-et-faibles",
     titre:
-      "Le détournement d'attention : comment notre cerveau filtre les signaux forts et faibles",
+      "Le détournement d'attention : comment notre cerveau filtre les signaux forts et faibles",
     chapo:
-      "Vous avez déjà vécu ce moment où vos yeux voient clairement quelque chose, mais votre cerveau ne l'enregistre pas ?",
+      "Vous avez déjà vécu ce moment où vos yeux voient clairement quelque chose, mais votre cerveau ne l'enregistre pas ?",
     date: "2025-07-14",
     dateLabel: "14 juillet",
     lecture: "3 min",
@@ -440,7 +440,7 @@ export const articles: Article[] = [
     blocks: [
       {
         type: "lead",
-        text: "Le détournement d'attention fascine autant qu'il intrigue. Vous avez déjà vécu ce moment où vos yeux voient clairement quelque chose, mais votre cerveau ne l'enregistre pas ? Ce phénomène est au cœur de la magie, notamment la magie close-up, où le magicien manipule habilement votre attention pour créer l'illusion.",
+        text: "Le détournement d'attention fascine autant qu'il intrigue. Vous avez déjà vécu ce moment où vos yeux voient clairement quelque chose, mais votre cerveau ne l'enregistre pas ? Ce phénomène est au cœur de la magie, notamment la magie close-up, où le magicien manipule habilement votre attention pour créer l'illusion.",
       },
       { type: "h2", text: "Comment le cerveau traite les informations visuelles" },
       {
@@ -471,7 +471,7 @@ export const articles: Article[] = [
       },
       {
         type: "p",
-        text: "Prenons un exemple simple en magie close-up : le magicien vous montre une pièce brillante qu'il fait tourner entre ses doigts. Ce mouvement rapide et lumineux devient un signal fort qui attire toute votre attention. Pendant ce temps, il déplace discrètement une autre pièce hors de votre vue. Votre cerveau enregistre la pièce brillante, mais ignore le déplacement subtil, ce qui crée l'illusion.",
+        text: "Prenons un exemple simple en magie close-up : le magicien vous montre une pièce brillante qu'il fait tourner entre ses doigts. Ce mouvement rapide et lumineux devient un signal fort qui attire toute votre attention. Pendant ce temps, il déplace discrètement une autre pièce hors de votre vue. Votre cerveau enregistre la pièce brillante, mais ignore le déplacement subtil, ce qui crée l'illusion.",
       },
       { type: "h2", text: "Pourquoi vos yeux voient mais votre cerveau n'enregistre pas" },
       {
@@ -531,5 +531,5 @@ export function getArticle(slug: string) {
 
 /** Les 3 articles les plus récents, hors article courant. */
 export function articlesLies(slug?: string, n = 3) {
-  return articles.filter((a) => a.slug !== slug).slice(0, n);
+  return articles.filter((a) => a.slug !== slug).slice(0, n);
 }

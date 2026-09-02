@@ -22,7 +22,7 @@ const promesses = [
   {
     titre: "Devis personnalisé",
     texte:
-      "Pas de tarif générique : une proposition construite pour votre événement.",
+      "Pas de tarif générique : une proposition construite pour votre événement.",
   },
   {
     titre: "Sans engagement",
