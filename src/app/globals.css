@@ -65,9 +65,24 @@
      Échelle typographique — quarte juste, resserrée en display
      ───────────────────────────────────────────────────────── */
   .t-display {
-    font-size: clamp(3.25rem, 1.2rem + 8.6vw, 10.5rem);
-    line-height: 0.86;
-    letter-spacing: -0.032em;
+    font-size: clamp(2.75rem, 1.1rem + 6.6vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  /* Lignes de titre qui montent au chargement — en CSS, donc rendues
+     correctement côté serveur : le titre reste le LCP. */
+  .rise {
+    display: block;
+    animation: rise 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes rise {
+    from {
+      transform: translateY(108%);
+    }
+    to {
+      transform: translateY(0);
+    }
   }
   .t-h1 {
     font-size: clamp(2.75rem, 1.4rem + 5.6vw, 7rem);
@@ -112,6 +127,9 @@
   .mark::before {
     content: "";
     @apply mt-[0.45em] h-[5px] w-[5px] shrink-0 self-start bg-laiton;
+  }
+  .register-carton .mark::before {
+    @apply bg-laiton-600;
   }
 
   /* ─────────────────────────────────────────────────────────
@@ -161,21 +179,36 @@
   /* ─────────────────────────────────────────────────────────
      Photos : plein bord, angles vifs, aucune ombre
      ───────────────────────────────────────────────────────── */
-  /* Assombrit juste assez le bas d'une image pour y poser du texte */
+  /* Assombrit le bas d'une image juste assez pour y poser du texte.
+     Le haut reste intact : les photos sont le produit, pas un fond. */
   .veil-b {
     background: linear-gradient(
       to top,
-      rgba(8, 4, 24, 0.88) 0%,
-      rgba(8, 4, 24, 0.45) 30%,
-      rgba(8, 4, 24, 0) 62%
+      rgba(8, 4, 24, 0.92) 0%,
+      rgba(8, 4, 24, 0.7) 22%,
+      rgba(8, 4, 24, 0.28) 48%,
+      rgba(8, 4, 24, 0) 72%
     );
   }
-  .veil-full {
+  /* Scrim haut : garde le header lisible quand une photo affleure le sommet
+     de la page. */
+  .veil-t {
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 4, 24, 0.9) 0%,
+      rgba(8, 4, 24, 0.5) 40%,
+      rgba(8, 4, 24, 0) 100%
+    );
+  }
+
+  /* Variante pour les panneaux hauts, où le texte occupe le tiers bas */
+  .veil-panel {
     background: linear-gradient(
       to top,
-      rgba(8, 4, 24, 0.92) 0%,
-      rgba(8, 4, 24, 0.6) 42%,
-      rgba(8, 4, 24, 0.3) 100%
+      rgba(8, 4, 24, 0.94) 0%,
+      rgba(8, 4, 24, 0.76) 26%,
+      rgba(8, 4, 24, 0.2) 55%,
+      rgba(8, 4, 24, 0.05) 100%
     );
   }
 

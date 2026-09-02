@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
 
 import { site, zones } from "@/content/site";
 
@@ -11,34 +10,25 @@ const colonnes = [
       { href: "/close-up", label: "Magie close-up" },
       { href: "/magie-de-salon", label: "Magie de salon" },
       { href: "/galerie", label: "Galerie" },
-      { href: "/avis", label: "Avis clients" },
+      { href: "/avis", label: "Avis" },
     ],
   },
   {
     titre: "En savoir plus",
     liens: [
-      { href: "/a-propos", label: "À propos de Julien" },
+      { href: "/a-propos", label: "À propos" },
       { href: "/blog", label: "Blog" },
-      { href: "/faq", label: "FAQ" },
-      { href: "/contact", label: "Contact & devis" },
+      { href: "/faq", label: "Questions fréquentes" },
+      { href: "/contact", label: "Contact" },
     ],
   },
 ];
 
 export function Footer() {
-  const villes = zones.flatMap((z) => z.villes);
-
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-night-950">
-      <div className="bg-starfield pointer-events-none absolute inset-0 opacity-30" aria-hidden />
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-300/40 to-transparent"
-        aria-hidden
-      />
-
-      <div className="container relative py-16 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
-          {/* Marque */}
+    <footer className="border-t border-carton/12 bg-encre-900">
+      <div className="gutter py-16 lg:py-20">
+        <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
             <Link href="/" aria-label={`${site.name} — accueil`}>
               <Image
@@ -49,42 +39,21 @@ export function Footer() {
                 className="h-14 w-auto"
               />
             </Link>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-ivory-dim">
+            <p className="mt-6 max-w-xs text-[0.9rem] leading-relaxed text-carton/55">
               Magie close-up et magie de salon pour mariages, soirées
-              d&apos;entreprise et événements privés.
+              d&apos;entreprise et réceptions privées.
             </p>
-            <div className="mt-6 flex gap-2.5">
-              <a
-                href={site.socials.instagram}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="Instagram"
-                className="rounded-full border border-white/12 p-2.5 text-ivory-muted transition-colors hover:border-gold-300/50 hover:text-gold-200"
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a
-                href={site.socials.youtube}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="YouTube"
-                className="rounded-full border border-white/12 p-2.5 text-ivory-muted transition-colors hover:border-gold-300/50 hover:text-gold-200"
-              >
-                <Youtube className="h-4 w-4" />
-              </a>
-            </div>
           </div>
 
-          {/* Liens */}
           {colonnes.map((col) => (
             <nav key={col.titre} aria-label={col.titre}>
-              <h2 className="eyebrow">{col.titre}</h2>
+              <h2 className="text-[0.8125rem] text-carton/45">{col.titre}</h2>
               <ul className="mt-5 space-y-3">
                 {col.liens.map((lien) => (
                   <li key={lien.href}>
                     <Link
                       href={lien.href}
-                      className="underline-sweep text-sm text-ivory-muted transition-colors hover:text-gold-200"
+                      className="link-hover text-[0.95rem] text-carton/80 transition-colors hover:text-carton"
                     >
                       {lien.label}
                     </Link>
@@ -94,70 +63,72 @@ export function Footer() {
             </nav>
           ))}
 
-          {/* Contact */}
           <div>
-            <h2 className="eyebrow">Contact</h2>
-            <ul className="mt-5 space-y-3.5 text-sm">
+            <h2 className="text-[0.8125rem] text-carton/45">Contact</h2>
+            <ul className="mt-5 space-y-3 text-[0.95rem]">
               <li>
-                <a
-                  href={site.phoneHref}
-                  className="flex items-center gap-3 text-ivory-muted transition-colors hover:text-gold-200"
-                >
-                  <Phone className="h-4 w-4 shrink-0 text-gold-300/70" />
+                <a href={site.phoneHref} className="link-hover text-carton/80 hover:text-carton">
                   {site.phone}
                 </a>
               </li>
               <li>
                 <a
                   href={site.emailHref}
-                  className="flex items-start gap-3 break-all text-ivory-muted transition-colors hover:text-gold-200"
+                  className="link-hover break-all text-carton/80 hover:text-carton"
                 >
-                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-300/70" />
                   {site.email}
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-ivory-muted">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-300/70" />
-                <span>
-                  {site.bases}
-                  <br />
-                  <span className="text-ivory-dim">{site.zone}</span>
-                </span>
+              <li className="pt-1 text-carton/55">
+                {site.bases}
+                <br />
+                {site.zone}
+              </li>
+              <li className="flex gap-5 pt-2">
+                <a
+                  href={site.socials.instagram}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="link-hover text-carton/80 hover:text-carton"
+                >
+                  Instagram
+                </a>
+                <a
+                  href={site.socials.youtube}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="link-hover text-carton/80 hover:text-carton"
+                >
+                  YouTube
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Maillage des villes desservies */}
-        <div className="mt-14 border-t border-white/[0.07] pt-8">
-          <h2 className="eyebrow">Zones d&apos;intervention</h2>
-          <ul className="mt-4 flex flex-wrap gap-x-1 gap-y-1.5 text-xs text-ivory-dim">
-            {villes.map((ville, i) => (
-              <li key={ville} className="flex items-center gap-1">
-                <span>Magicien {ville}</span>
-                {i < villes.length - 1 && (
-                  <span className="text-gold-700" aria-hidden>
-                    ·
-                  </span>
-                )}
-              </li>
+        {/* Zones desservies — maillage local */}
+        <div className="mt-16 border-t border-carton/12 pt-8">
+          <dl className="grid gap-6 sm:grid-cols-2">
+            {zones.map((z) => (
+              <div key={z.slug}>
+                <dt className="text-[0.8125rem] text-carton/45">{z.region}</dt>
+                <dd className="mt-2 text-[0.8125rem] leading-relaxed text-carton/60">
+                  {z.villes.map((v) => `Magicien ${v}`).join(", ")}
+                </dd>
+              </div>
             ))}
-          </ul>
+          </dl>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/[0.07] pt-8 text-xs text-ivory-dim sm:flex-row">
+        <div className="mt-12 flex flex-col gap-4 border-t border-carton/12 pt-8 text-[0.8125rem] text-carton/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.name} — {site.role}. Tous droits
-            réservés.
+            © {new Date().getFullYear()} {site.name}, {site.role}
           </p>
-          <div className="flex items-center gap-5">
-            <Link
-              href="/politique-de-confidentialite"
-              className="transition-colors hover:text-gold-200"
-            >
+          <div className="flex gap-7">
+            <Link href="/politique-de-confidentialite" className="link-hover hover:text-carton">
               Confidentialité
             </Link>
-            <Link href="/mentions-legales" className="transition-colors hover:text-gold-200">
+            <Link href="/mentions-legales" className="link-hover hover:text-carton">
               Mentions légales
             </Link>
           </div>

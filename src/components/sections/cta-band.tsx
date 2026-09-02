@@ -1,80 +1,72 @@
 import Image from "next/image";
-import { ArrowRight, Mail, Phone } from "lucide-react";
 
-import { Reveal, RevealWords } from "@/components/magic/reveal";
+import { Reveal, RevealLines } from "@/components/magic/reveal";
 import { ButtonLink } from "@/components/ui/button";
-import { GoogleBadge } from "@/components/ui/stars";
+import { Note } from "@/components/ui/stars";
 import { site } from "@/content/site";
 
 /**
- * Bandeau de conversion repris en pied de chaque page.
- * Le texte est celui de l'ancien site.
+ * Bandeau de conversion en pied de chaque page.
+ * Photo plein bord à gauche, appel à l'action à droite : le regard finit
+ * toujours sur la même chose.
  */
 export function CtaBand({
-  titre = "Prêt pour l'impossible ?",
-  image = "/images/home/home-04.webp",
+  lignes = ["Prêt pour", "l'impossible ?"],
+  image = "/images/galerie/gal-09.webp",
+  alt = "Invités stupéfaits pendant un tour de magie",
 }: {
-  titre?: string;
+  lignes?: string[];
   image?: string;
+  alt?: string;
 }) {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0">
-        <Image
-          src={image}
-          alt=""
-          fill
-          sizes="100vw"
-          className="scale-105 object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-night-950/85" />
-        <div className="bg-aurora absolute inset-0 opacity-90" />
-      </div>
+    <section className="relative border-t border-carton/12 bg-encre-900">
+      <div className="grid lg:grid-cols-2">
+        <div className="relative min-h-[22rem] lg:min-h-[38rem]">
+          <Image
+            src={image}
+            alt={alt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
 
-      <div className="container relative py-24 text-center lg:py-32">
-        <Reveal>
-          <GoogleBadge />
-        </Reveal>
+        <div className="flex flex-col justify-center px-5 py-16 sm:px-10 lg:py-20 xl:px-16">
+          <RevealLines
+            lines={lignes}
+            className="t-h2 font-display text-carton"
+          />
 
-        <RevealWords
-          text={titre}
-          as="h2"
-          className="t-h2 mx-auto mt-7 max-w-3xl font-display font-light text-ivory"
-        />
+          <Reveal delay={0.1}>
+            <p className="lede mt-8 text-carton/70">
+              Mariages, cocktails, soirées d&apos;entreprise, anniversaires.
+              Écrivez à Julien pour parler de votre projet : il répond
+              rapidement, avec un devis adapté à votre événement.
+            </p>
+          </Reveal>
 
-        <Reveal delay={0.15}>
-          <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-ivory-muted sm:text-lg">
-            Mariages, cocktails, soirées d&apos;entreprise, anniversaires —
-            contactez Julien pour échanger sur votre projet. Il vous répond
-            rapidement avec un devis personnalisé.
-          </p>
-        </Reveal>
+          <Reveal delay={0.18}>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <ButtonLink href="/contact" size="lg">
+                Demander un devis
+              </ButtonLink>
+              <ButtonLink href={site.phoneHref} variant="hairline" size="lg">
+                {site.phone}
+              </ButtonLink>
+            </div>
+          </Reveal>
 
-        <Reveal delay={0.25}>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonLink href="/contact" size="lg">
-              Demander un devis gratuit
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="outline" size="lg">
-              <Phone className="h-4 w-4" />
-              {site.phone}
-            </ButtonLink>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.35}>
-          <p className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-ivory-dim">
-            <Mail className="h-3.5 w-3.5" />
-            <a href={site.emailHref} className="underline-sweep hover:text-gold-200">
-              {site.email}
-            </a>
-            <span className="text-gold-700" aria-hidden>
-              ·
-            </span>
-            <span>{site.zone}</span>
-          </p>
-        </Reveal>
+          <Reveal delay={0.26}>
+            <div className="rule mt-12" />
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-5 text-[0.8125rem] text-carton/55">
+              <Note />
+              <a href={site.emailHref} className="link-hover">
+                {site.email}
+              </a>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

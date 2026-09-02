@@ -24,7 +24,10 @@ export const site = {
   },
 } as const;
 
-export const nav = [
+export type NavLink = { href: string; label: string; hint?: string };
+export type NavItem = NavLink & { children?: NavLink[] };
+
+export const nav: NavItem[] = [
   { href: "/", label: "Accueil" },
   { href: "/a-propos", label: "À propos" },
   {
@@ -39,13 +42,13 @@ export const nav = [
   { href: "/avis", label: "Avis" },
   { href: "/faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
-] as const;
+];
 
 export const stats = [
   { value: "10+", label: "ans sur le terrain" },
   { value: "100%", label: "d'avis 5★ Google" },
   { value: "∞", label: "émotions partagées" },
-] as const;
+];
 
 /** Logos clients affichés en bandeau sur l'accueil */
 export const clients = [

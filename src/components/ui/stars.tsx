@@ -1,49 +1,60 @@
-import { Star } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
-export function Stars({
-  count = 5,
+/**
+ * Note Google. Pas de pastille ni de fond : un chiffre, cinq étoiles pleines
+ * et une mention, posés à même la page.
+ */
+export function Note({
   className,
-  size = "sm",
+  tone = "light",
 }: {
-  count?: number;
   className?: string;
-  size?: "sm" | "md";
+  /** `light` = sur fond encre, `dark` = sur fond carton */
+  tone?: "light" | "dark";
 }) {
   return (
-    <span
-      className={cn("inline-flex items-center gap-0.5", className)}
-      aria-label={`${count} étoiles sur 5`}
-      role="img"
-    >
-      {Array.from({ length: count }).map((_, i) => (
-        <Star
-          key={i}
-          aria-hidden
-          className={cn(
-            "fill-gold-300 text-gold-300",
-            size === "sm" ? "h-3.5 w-3.5" : "h-4.5 w-4.5"
-          )}
-        />
-      ))}
-    </span>
-  );
-}
-
-/** Pastille « 5★ sur Google » utilisée dans les hero et les bandeaux CTA. */
-export function GoogleBadge({ className }: { className?: string }) {
-  return (
-    <span
+    <p
       className={cn(
-        "surface inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-xs text-ivory-muted",
+        "flex items-center gap-3 text-[0.8125rem]",
+        tone === "light" ? "text-carton/70" : "text-encre/60",
         className
       )}
     >
-      <Stars />
-      <span className="text-ivory">5,0</span>
-      <span className="h-3 w-px bg-white/15" aria-hidden />
+      <Stars tone={tone} />
+      <span className={tone === "light" ? "text-carton" : "text-encre"}>5,0</span>
       <span>sur Google</span>
+    </p>
+  );
+}
+
+export function Stars({
+  count = 5,
+  tone = "light",
+  className,
+}: {
+  count?: number;
+  tone?: "light" | "dark";
+  className?: string;
+}) {
+  return (
+    <span
+      role="img"
+      aria-label={`${count} étoiles sur 5`}
+      className={cn("inline-flex items-center gap-[3px]", className)}
+    >
+      {Array.from({ length: count }).map((_, i) => (
+        <svg
+          key={i}
+          viewBox="0 0 12 12"
+          aria-hidden
+          className={cn(
+            "h-[11px] w-[11px]",
+            tone === "light" ? "fill-laiton" : "fill-laiton-600"
+          )}
+        >
+          <path d="M6 0l1.6 3.9L12 4.4 8.8 7.2l1 4.4L6 9.3 2.2 11.6l1-4.4L0 4.4l4.4-.5z" />
+        </svg>
+      ))}
     </span>
   );
 }
