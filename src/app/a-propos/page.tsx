@@ -103,19 +103,29 @@ export default function Page() {
 
           {/* Le tirage d'époque est présenté comme un objet posé sur la page,
               pas comme un fond : c'est une pièce d'archive. */}
-          <div className="flex items-center justify-center border-t border-encre/15 bg-carton-200 px-8 py-16 lg:border-l lg:border-t-0 lg:px-14">
-            <Reveal className="w-full max-w-md">
+          {/* Le tirage occupe toute la largeur du panneau, et non plus une
+              vignette perdue au milieu. Un intitulé au-dessus, un filet et
+              la légende au-dessous : le vide autour devient une marge, pas
+              un oubli. */}
+          <div className="flex flex-col justify-center border-t border-encre/15 bg-carton-200 px-8 py-14 lg:border-l lg:border-t-0 lg:px-12">
+            <Reveal className="w-full">
               <figure>
+                <p className="mark text-encre/50">
+                  <span>Pièce d&apos;archive</span>
+                </p>
+
                 <Image
                   src="/images/apropos/apropos-enfant.png"
                   alt="Julien enfant, chapeau haut de forme et cape, sur un tirage d'époque"
                   width={1000}
                   height={712}
-                  sizes="(max-width: 1024px) 90vw, 28rem"
-                  className="w-full"
+                  sizes="(max-width: 1024px) 90vw, 40vw"
+                  className="mt-6 w-full"
                 />
-                <figcaption className="mark mt-6 text-encre/60">
-                  <span>La boîte de magie de Noël, et tout ce qui a suivi</span>
+
+                <div className="mt-7 h-px w-full bg-encre/15" />
+                <figcaption className="mt-5 font-display text-[1.25rem] leading-snug text-encre/80">
+                  La boîte de magie de Noël, et tout ce qui a suivi.
                 </figcaption>
               </figure>
             </Reveal>
@@ -185,8 +195,9 @@ export default function Page() {
 
       <CtaBand
         lignes={["Parlons de", "votre événement."]}
-        image="/images/site/site-apropos-cta.webp"
-        alt="Julien Lambert échange avec une invitée pendant un vin d'honneur"
+        image="/images/site/site-portrait.webp"
+        alt="Julien Lambert, une pièce entre les doigts, pendant un vin d'honneur"
+        position="50% 15%"
       />
     </>
   );

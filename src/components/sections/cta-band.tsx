@@ -12,9 +12,9 @@ import { site } from "@/content/site";
  */
 export function CtaBand({
   lignes = ["Prêt pour", "l'impossible ?"],
-  image = "/images/site/site-flamme.webp",
-  alt = "Julien Lambert fait apparaître une flamme entre ses mains",
-  position = "50% 50%",
+  image = "/images/site/site-cta-accueil.webp",
+  alt = "Julien Lambert manipule au milieu des invités, pendant un vin d'honneur",
+  position = "50% 25%",
 }: {
   lignes?: string[];
   image?: string;

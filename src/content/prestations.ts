@@ -22,9 +22,9 @@ export type Prestation = {
   citation: string;
   chiffres: { value: string; label: string }[];
   piliers: { titre: string; texte: string; icone: NomIcone }[];
-  contextes: { titre: string; texte: string }[];
+  contextes: { titre: string; texte: string; icone: NomIcone }[];
   temoignage: { auteur: string; ville: string; texte: string };
-  pratique: { titre: string; texte: string }[];
+  pratique: { titre: string; texte: string; icone: NomIcone }[];
   photos: { src: string; alt: string }[];
 };
 
@@ -102,26 +102,31 @@ export const closeUp: Prestation = {
       titre: "Événement d'entreprise",
       texte:
         "Cocktail de fin d'année, lancement de produit, séminaire, team building. La magie en close-up s'intègre naturellement à tous vos formats professionnels. Julien circule parmi vos collaborateurs et clients, crée des moments de surprise partagée et brise la glace sans effort.",
+      icone: "cercle",
     },
     {
       titre: "Vin d'honneur de mariage",
       texte:
         "Le vin d'honneur, c'est souvent le moment où les invités attendent, verre en main, sans vraiment savoir quoi faire. Julien transforme ce temps suspendu en expérience.",
+      icone: "etoile",
     },
     {
       titre: "Anniversaire",
       texte:
         "Qu'il s'agisse d'un 30 ans entre amis ou d'un 60 ans en famille, la magie en close-up s'adapte à l'ambiance et au public.",
+      icone: "bulle",
     },
     {
       titre: "Soirée privée",
       texte:
         "Dîner entre amis, réception à domicile, soirée dans un lieu privatisé : le close-up est dans son élément quand l'espace est intime.",
+      icone: "table",
     },
     {
       titre: "Foires et salons",
       texte:
         "Stand automobile, salon professionnel, foire commerciale : attirer l'attention dans un espace bruyant et chargé est un défi en soi.",
+      icone: "regards",
     },
   ],
   temoignage: {
@@ -135,31 +140,37 @@ export const closeUp: Prestation = {
       titre: "1h30-2h à vos côtés",
       texte:
         "Julien s'intègre à votre programme sans le bousculer. Pendant le cocktail, l'apéritif, ou entre les plats, la magie arrive au bon moment, au bon endroit.",
+      icone: "sablier",
     },
     {
       titre: "Interactif et convivial",
       texte:
         "Chaque effet magique se vit à quelques centimètres des yeux des invités. Ils participent, touchent les objets… et repartent avec un souvenir unique.",
+      icone: "main",
     },
     {
       titre: "20-100 personnes",
       texte:
         "Du dîner intime au cocktail d'entreprise, Julien s'adapte à la taille de votre groupe.",
+      icone: "regards",
     },
     {
       titre: "Intérieur ou extérieur",
       texte:
         "Terrasse, jardin, salle de réception, restaurant, rooftop : aucune contrainte technique, aucun aménagement préalable.",
+      icone: "table",
     },
     {
       titre: "Aucune installation requise",
       texte:
         "Pas de scène, pas de sono, pas de câbles. Julien arrive, salue vos invités, et c'est parti.",
+      icone: "cartes",
     },
     {
       titre: "Modulable",
       texte:
         "Close-up en déambulation pendant le cocktail, close-up de tables en tables pendant le dîner, ou magie de salon : trois ambiances, un seul artiste, une soirée complète.",
+      icone: "cercle",
     },
   ],
   photos: [
@@ -244,25 +255,30 @@ export const magieDeSalon: Prestation = {
       titre: "Événement d'entreprise",
       texte:
         "Cocktails de fin d'année, lancements de produit, séminaires, team-building.",
+      icone: "cercle",
     },
     {
       titre: "Vin d'honneur de mariage",
       texte:
         "Rassemblement des invités autour d'un moment fédérateur pendant l'attente.",
+      icone: "etoile",
     },
     {
       titre: "Anniversaire",
       texte: "Spectacle rassemblant plusieurs générations pour un moment mémorable.",
+      icone: "bulle",
     },
     {
       titre: "Soirée privée",
       texte:
         "Dîner entre amis ou réception à domicile transformés en souvenir collectif.",
+      icone: "table",
     },
     {
       titre: "Foires et salons",
       texte:
         "Stand automobile, salon professionnel, foire commerciale devenant destination.",
+      icone: "regards",
     },
   ],
   temoignage: {
@@ -275,26 +291,32 @@ export const magieDeSalon: Prestation = {
     {
       titre: "50 min de magie",
       texte: "Format calibré pour construire une histoire complète.",
+      icone: "sablier",
     },
     {
       titre: "50 personnes",
       texte: "Spectacle rassemblant tout le monde simultanément.",
+      icone: "main",
     },
     {
       titre: "Aucune installation requise",
       texte: "Pas de scène surélevée ni matériel encombrant.",
+      icone: "regards",
     },
     {
       titre: "Interactif sans être intrusif",
       texte: "Participation du public sans malaise.",
+      icone: "table",
     },
     {
       titre: "Intérieur comme extérieur",
       texte: "Adaptable à tous les espaces.",
+      icone: "cartes",
     },
     {
       titre: "Modulable",
       texte: "Combinable avec d'autres formats sur une même soirée.",
+      icone: "cercle",
     },
   ],
   photos: [

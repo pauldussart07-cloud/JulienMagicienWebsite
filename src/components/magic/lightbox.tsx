@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { repartirEnColonnes, type Photo } from "@/content/galerie";
 
@@ -43,16 +43,33 @@ function useNombreDeColonnes() {
 export function GalerieGrille({ photos }: { photos: Photo[] }) {
   const [actif, setActif] = useState<number | null>(null);
   const nombre = useNombreDeColonnes();
-  const colonnes = repartirEnColonnes(photos, nombre);
+  // La repartition est un calcul d'optimisation : on ne le refait pas à
+  // chaque ouverture de la visionneuse, seulement quand la largeur change.
+  const colonnes = useMemo(
+    () => repartirEnColonnes(photos, nombre),
+    [photos, nombre]
+  );
+
+  /**
+   * La visionneuse suit l'ordre affiché, pas l'ordre de la liste.
+   *
+   * La mosaïque réordonne les photos pour équilibrer ses colonnes : la
+   * quatorzième de la liste peut se retrouver en haut de l'ecran. Numéroter
+   * et faire defiler d'après la liste donnait alors un compteur qui ne
+   * correspondait à rien de visible, et des flèches qui sautaient d'un bout
+   * à l'autre de la page. On parcourt donc les colonnes, de haut en bas puis
+   * de gauche à droite, exactement comme elles sont posées.
+   */
+  const ordre = useMemo(() => colonnes.flat(), [colonnes]);
 
   const fermer = useCallback(() => setActif(null), []);
   const suivant = useCallback(
-    () => setActif((i) => (i === null ? null : (i + 1) % photos.length)),
-    [photos.length]
+    () => setActif((i) => (i === null ? null : (i + 1) % ordre.length)),
+    [ordre.length]
   );
   const precedent = useCallback(
-    () => setActif((i) => (i === null ? null : (i - 1 + photos.length) % photos.length)),
-    [photos.length]
+    () => setActif((i) => (i === null ? null : (i - 1 + ordre.length) % ordre.length)),
+    [ordre.length]
   );
 
   useEffect(() => {
@@ -74,14 +91,14 @@ export function GalerieGrille({ photos }: { photos: Photo[] }) {
 
   return (
     <>
-      <div className="flex gap-px">
+      <div className="flex items-start gap-px">
         {colonnes.map((colonne, c) => (
           <div key={c} className="flex min-w-0 flex-1 flex-col gap-px">
             {colonne.map((photo) => (
               <button
                 key={photo.src}
                 type="button"
-                onClick={() => setActif(photos.indexOf(photo))}
+                onClick={() => setActif(ordre.indexOf(photo))}
                 className="group relative block w-full overflow-hidden"
                 aria-label={`Agrandir : ${photo.alt}`}
               >
@@ -115,7 +132,7 @@ export function GalerieGrille({ photos }: { photos: Photo[] }) {
           >
             <div className="flex items-center justify-between px-5 py-5 sm:px-8">
               <p className="text-[0.8125rem] text-carton/55">
-                {actif + 1} sur {photos.length}
+                {actif + 1} sur {ordre.length}
               </p>
               <button
                 type="button"
@@ -139,8 +156,8 @@ export function GalerieGrille({ photos }: { photos: Photo[] }) {
                 className="relative h-full w-full"
               >
                 <Image
-                  src={photos[actif].src}
-                  alt={photos[actif].alt}
+                  src={ordre[actif].src}
+                  alt={ordre[actif].alt}
                   fill
                   sizes="100vw"
                   priority
@@ -167,7 +184,7 @@ export function GalerieGrille({ photos }: { photos: Photo[] }) {
             </div>
 
             <p className="mark px-5 pb-6 text-carton/70 sm:px-8">
-              <span>{photos[actif].alt}</span>
+              <span>{ordre[actif].alt}</span>
             </p>
           </motion.div>
         )}

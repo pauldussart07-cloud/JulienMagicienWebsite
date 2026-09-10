@@ -122,7 +122,10 @@ export function PrestationPage({ p }: { p: Prestation }) {
                 delay={i * 0.04}
                 className="grid gap-4 border-b border-carton/12 py-8 lg:grid-cols-[18rem_1fr] lg:gap-12"
               >
-                <dt className="t-h3 font-display text-carton">{c.titre}</dt>
+                <dt className="t-h3 flex items-start gap-4 font-display text-carton">
+                  <MagicIcon nom={c.icone} className="mt-1 shrink-0" />
+                  <span>{c.titre}</span>
+                </dt>
                 <dd className="max-w-3xl text-[0.95rem] leading-relaxed text-carton/65">
                   {c.texte}
                 </dd>
@@ -145,7 +148,8 @@ export function PrestationPage({ p }: { p: Prestation }) {
                 key={item.titre}
                 className="border-b border-encre/15 py-9 sm:pr-10"
               >
-                <dt className="font-display text-[1.375rem] leading-snug">
+                <MagicIcon nom={item.icone} className="text-laiton-600" />
+                <dt className="mt-5 font-display text-[1.375rem] leading-snug">
                   {item.titre}
                 </dt>
                 <dd className="mt-3 max-w-xs text-[0.9rem] leading-relaxed text-encre/65">

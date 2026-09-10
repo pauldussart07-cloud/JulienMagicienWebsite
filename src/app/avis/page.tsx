@@ -61,9 +61,9 @@ export default function Page() {
 
       <CtaBand
         lignes={["À votre tour", "d'y assister."]}
-        image="/images/site/site-portrait.webp"
-        alt="Julien Lambert, une pièce entre les doigts, pendant un vin d'honneur"
-        position="50% 15%"
+        image="/images/site/site-flamme.webp"
+        alt="Julien Lambert fait apparaître une flamme entre ses mains, pendant une réception"
+        position="50% 30%"
       />
     </>
   );

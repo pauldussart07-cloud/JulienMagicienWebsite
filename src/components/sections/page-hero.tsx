@@ -30,7 +30,9 @@ export function PageHero({
     <section
       className={cn(
         "relative flex flex-col justify-end overflow-hidden",
-        hauteur === "haute" ? "h-[88svh] min-h-[34rem]" : "h-[68svh] min-h-[28rem]"
+        hauteur === "haute"
+          ? "min-h-[88svh] sm:min-h-[34rem]"
+          : "min-h-[68svh] sm:min-h-[28rem]"
       )}
     >
       <Image
@@ -45,7 +47,11 @@ export function PageHero({
       <div className="veil-b absolute inset-0" />
       <div className="absolute inset-0 bg-encre-900/20" />
 
-      <div className="gutter relative pb-10 sm:pb-14">
+      {/* Le contenu est calé en bas, mais sur une fenêtre courte un titre long
+          le fait déborder par le haut, où il passe sous le header fixe. La
+          réserve haute vaut la hauteur du header : le bloc s'arrête dessous
+          au lieu de glisser derrière. */}
+      <div className="gutter relative pb-10 pt-28 sm:pb-14 sm:pt-32">
         {label && (
           <p className="mark mb-5 text-carton/70">
             <span>{label}</span>

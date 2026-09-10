@@ -49,6 +49,7 @@ const SITE = {
   "site-salon-large": 2000,
   "site-salon-cta": 1800,
   "site-portrait": 1600,
+  "site-cta-accueil": 1600,
   "site-galerie-hero": 2400,
   "site-flamme": 1600,
   // Bande de réactions : jamais affichée au-delà de 24rem de large.
