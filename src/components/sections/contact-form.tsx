@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
+import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 const schema = z.object({
@@ -42,9 +43,36 @@ const PRESTATIONS = [
   "Je ne sais pas encore",
 ];
 
+/**
+ * Lien de secours.
+ *
+ * Si l'envoi échoue, côté serveur ou réseau, la demande deja saisie ne doit
+ * pas être perdue : ce lien ouvre la messagerie du visiteur avec l'objet et
+ * le corps déjà remplis. Il n'a plus qu'à appuyer sur envoyer, et le message
+ * arrive dans la même boîte que par la route normale.
+ */
+function lienDeSecours(v: Valeurs) {
+  const corps = [
+    `Prénom et nom : ${v.prenom} ${v.nom}`,
+    `E-mail : ${v.email}`,
+    `Téléphone : ${v.telephone}`,
+    `Type d'événement : ${v.typeEvenement}`,
+    `Prestation souhaitée : ${v.prestation}`,
+    `Nombre d'invités : ${v.personnes}`,
+    `Ville : ${v.ville}`,
+    `Date envisagée : ${v.date || "non précisée"}`,
+    "",
+    v.message,
+  ].join("\n");
+
+  const objet = `Demande de devis : ${v.typeEvenement} à ${v.ville}`;
+  return `mailto:${site.email}?subject=${encodeURIComponent(objet)}&body=${encodeURIComponent(corps)}`;
+}
+
 export function ContactForm() {
   const [etat, setEtat] = useState<"repos" | "envoi" | "ok" | "erreur">("repos");
   const [erreur, setErreur] = useState<string | null>(null);
+  const [secours, setSecours] = useState<string | null>(null);
 
   const {
     register,
@@ -56,6 +84,7 @@ export function ContactForm() {
   const onSubmit = async (valeurs: Valeurs) => {
     setEtat("envoi");
     setErreur(null);
+    setSecours(null);
 
     try {
       const res = await fetch("/api/contact", {
@@ -73,6 +102,7 @@ export function ContactForm() {
       reset();
     } catch (e) {
       setEtat("erreur");
+      setSecours(lienDeSecours(valeurs));
       setErreur(
         e instanceof Error
           ? e.message
@@ -202,9 +232,18 @@ export function ContactForm() {
       </div>
 
       {etat === "erreur" && erreur && (
-        <p role="alert" className="text-[0.9rem] text-[#E06A7E]">
-          {erreur}
-        </p>
+        <div role="alert" className="space-y-4">
+          <p className="text-[0.9rem] text-[#E06A7E]">{erreur}</p>
+          {secours && (
+            <p className="text-[0.9rem] text-carton/70">
+              Rien n&apos;est perdu :{" "}
+              <a href={secours} className="link text-carton">
+                ouvrir ce message dans votre messagerie
+              </a>
+              . Tout ce que vous avez saisi y est déjà.
+            </p>
+          )}
+        </div>
       )}
     </form>
   );
