@@ -1,8 +1,8 @@
 # Site de Julien Lambert, magicien
 
-Refonte du site `julienlambertmagicien.fr`. Tout le contenu, les
-photographies, le logo et la FAQ proviennent du site existant ; seuls la mise
-en forme, l'architecture technique et les performances ont été refaits.
+Refonte du site `julienlambertmagicien.fr`. Les photographies et la vidéo
+sont les fichiers pleine définition fournis par Julien ; le contenu éditorial
+vient du site existant, la FAQ a été reprise en septembre 2026.
 
 ## Démarrer
 
@@ -47,16 +47,46 @@ Le contenu est centralisé dans `src/content/` :
 
 - `site.ts` : coordonnées, navigation, zones d'intervention
 - `prestations.ts` : close-up et magie de salon
-- `faq.ts` : 36 questions/réponses, six catégories
+- `faq.ts` : 41 questions/réponses, six catégories
 - `blog.ts` : six articles, en blocs typés
-- `galerie.ts` : 24 photographies
-- `temoignages.ts` : avis clients
+- `galerie.ts` : 21 photographies, plus la répartition en colonnes
+- `temoignages.ts` : avis Google, recopiés depuis la fiche
 
 ## Images
 
-Les originaux téléchargés depuis l'ancien site vivent dans `_assets_raw/`
-(non versionné). `npm run images` les redimensionne et les convertit en WebP
-vers `public/images/`. Le dernier passage : 100,3 Mo → 7,9 Mo.
+Les originaux vivent dans `_assets_raw/` (non versionné). `npm run images` les
+redimensionne et les convertit en WebP vers `public/images/`. Dernier passage :
+236,9 Mo → 10,8 Mo.
+
+Deux familles, et la règle qui les sépare :
+
+- `public/images/site/` : les photos retenues pour une page précise (héros,
+  bandeaux, bande de réactions, appels à l'action) ;
+- `public/images/galerie/` : tout le reste.
+
+Une photo ne peut appartenir qu'à une seule des deux. La galerie ne reprend
+donc jamais une image déjà vue ailleurs sur le site, et ne contient pas deux
+prises du même instant. Le plan de nommage est en tête de
+`scripts/optimize-images.mjs`.
+
+La galerie ne s'appuie pas sur les colonnes CSS, qui équilibrent mal des
+rapports d'image très différents et laissent un vide avant le pied de page.
+`repartirEnColonnes` (dans `src/content/galerie.ts`) donne chaque photo à la
+colonne la plus courte : les colonnes finissent à la même hauteur.
+
+## Vidéo
+
+`public/videos/` contient deux choses, toutes deux tirées du montage d'origine
+à 27 Mbit/s, et non d'une copie récupérée sur YouTube :
+
+- `hero-1920` et `hero-1280` (mp4 + webm) : la boucle muette de fond du hero,
+  six secondes, deux plans raccordés par un fondu, avec un second fondu au
+  point de bouclage pour que le raccord ne se voie pas ;
+- `teaser-1080.mp4` et `teaser-720.mp4` : le teaser complet, 1 min 25 avec le
+  son, chargé seulement au clic. Le 720p est servi sous 900 px de large.
+
+L'image fixe `site-hero-poster` est la première image exacte de la boucle : le
+passage de la photo à la vidéo est invisible.
 
 ## Formulaire de contact
 
@@ -72,3 +102,4 @@ directement à Julien : le site reste utilisable.
 - SIRET et adresse dans `src/app/mentions-legales/page.tsx`
 - Variables d'environnement Resend
 - Vérifier le lien de la fiche Google dans `src/content/temoignages.ts`
+- Relever les avis Google restants : la fiche en compte 27, dix sont repris ici

@@ -29,7 +29,7 @@ const promesses = [
     texte: "Vous décidez librement, à votre rythme.",
   },
   {
-    titre: "Saint-Malo et région parisienne",
+    titre: "Bretagne et région parisienne",
     texte:
       "Interventions dans toute la Bretagne et partout en France.",
   },
@@ -67,7 +67,7 @@ export default function Page() {
         <aside className="relative flex flex-col justify-between border-t border-carton/12 lg:border-l lg:border-t-0">
           <div className="relative h-64 shrink-0 overflow-hidden lg:h-[28rem]">
             <Image
-              src="/images/galerie/gal-01.webp"
+              src="/images/site/site-closeup-large.webp"
               alt="Julien Lambert présente un tour de cartes à des invités"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"

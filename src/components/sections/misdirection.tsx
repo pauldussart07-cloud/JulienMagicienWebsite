@@ -5,7 +5,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { useRef } from "react";
 
 const PHOTO = {
-  src: "/images/home/hero-cartes.webp",
+  src: "/images/site/site-cartes-envol.webp",
   alt: "Julien Lambert au milieu d'une envolée de cartes, le regard fixe",
 };
 

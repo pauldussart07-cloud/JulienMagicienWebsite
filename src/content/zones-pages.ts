@@ -176,7 +176,7 @@ export const zonesPages: ZonePage[] = [
       ],
     },
     image: {
-      src: "/images/galerie/gal-15.webp",
+      src: "/images/site/site-apropos.webp",
       alt: "Invités stupéfaits pendant une prestation de magie près de Saint-Malo",
     },
   },
@@ -260,7 +260,7 @@ export const zonesPages: ZonePage[] = [
       ],
     },
     image: {
-      src: "/images/galerie/gal-12.webp",
+      src: "/images/site/site-apropos-cta.webp",
       alt: "Julien Lambert entouré d'invités pendant une réception en Ille-et-Vilaine",
     },
   },
@@ -342,7 +342,7 @@ export const zonesPages: ZonePage[] = [
       ],
     },
     image: {
-      src: "/images/home/video-poster.webp",
+      src: "/images/site/site-video-poster.webp",
       alt: "Julien Lambert en prestation face à la mer, sur la côte bretonne",
     },
   },
@@ -420,7 +420,7 @@ export const zonesPages: ZonePage[] = [
       ],
     },
     image: {
-      src: "/images/galerie/gal-17.webp",
+      src: "/images/site/site-closeup-large.webp",
       alt: "Public captivé pendant une prestation de magie lors d'une soirée d'entreprise",
     },
   },
@@ -499,7 +499,7 @@ export const zonesPages: ZonePage[] = [
       ],
     },
     image: {
-      src: "/images/galerie/gal-20.webp",
+      src: "/images/site/site-salon-large.webp",
       alt: "Ambiance de soirée d'entreprise pendant une prestation de magie",
     },
   },

@@ -39,7 +39,7 @@ export const articles: Article[] = [
     lecture: "2 min",
     categorie: "Entreprise",
     cover: {
-      src: "/images/galerie/gal-17.webp",
+      src: "/images/site/site-closeup-large.webp",
       alt: "Public d'un séminaire captivé par un tour de magie",
     },
     blocks: [
@@ -112,7 +112,7 @@ export const articles: Article[] = [
     lecture: "2 min",
     categorie: "Réflexion",
     cover: {
-      src: "/images/galerie/gal-15.webp",
+      src: "/images/site/site-apropos.webp",
       alt: "Des invités stupéfaits pendant un tour de magie en direct",
     },
     blocks: [
@@ -186,7 +186,7 @@ export const articles: Article[] = [
     lecture: "2 min",
     categorie: "Conseils",
     cover: {
-      src: "/images/galerie/gal-12.webp",
+      src: "/images/site/site-apropos-cta.webp",
       alt: "Julien Lambert entouré d'invités pendant une soirée",
     },
     blocks: [
@@ -263,7 +263,7 @@ export const articles: Article[] = [
     lecture: "3 min",
     categorie: "Conseils",
     cover: {
-      src: "/images/galerie/gal-20.webp",
+      src: "/images/site/site-salon-large.webp",
       alt: "Julien Lambert en prestation lors d'un événement",
     },
     blocks: [
@@ -357,7 +357,7 @@ export const articles: Article[] = [
     lecture: "3 min",
     categorie: "Close-up",
     cover: {
-      src: "/images/galerie/gal-01.webp",
+      src: "/images/site/site-closeup-hero.webp",
       alt: "Magie close-up pendant un cocktail",
     },
     blocks: [
@@ -442,7 +442,7 @@ export const articles: Article[] = [
     lecture: "3 min",
     categorie: "Coulisses",
     cover: {
-      src: "/images/galerie/gal-19.webp",
+      src: "/images/site/site-salon-hero.webp",
       alt: "Gros plan sur une manipulation de cartes",
     },
     blocks: [

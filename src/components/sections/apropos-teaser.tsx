@@ -15,7 +15,7 @@ export function AproposTeaser() {
       <div className="grid items-stretch lg:grid-cols-[0.9fr_1.1fr]">
         <RevealImage className="relative min-h-[24rem] lg:min-h-[40rem]">
           <Image
-            src="/images/apropos/apropos-hero.webp"
+            src="/images/site/site-apropos.webp"
             alt="Julien Lambert présentant un tour à un groupe d'invités"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
@@ -25,7 +25,7 @@ export function AproposTeaser() {
 
         <div className="flex flex-col justify-center px-5 py-16 sm:px-10 lg:py-24 xl:px-16">
           <RevealLines
-            lines={["Basé en Bretagne,", "il intervient partout", "en France."]}
+            lines={["Basé en Bretagne", "& en région parisienne,", "il intervient partout en France."]}
             className="t-h2 font-display"
           />
 

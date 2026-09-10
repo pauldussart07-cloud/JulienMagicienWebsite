@@ -15,12 +15,13 @@ export const site = {
   email: "julienlambertmagicien@gmail.com",
   emailHref: "mailto:julienlambertmagicien@gmail.com",
   zone: "Bretagne & toute la France",
-  bases: "Saint-Malo & Région Parisienne",
+  bases: "Bretagne & région parisienne",
   since: 2019,
   socials: {
     instagram: "https://www.instagram.com/julienlambertmagicien/",
     instagramHandle: "@julienlambertmagicien",
-    youtube: "https://www.youtube.com/@julienlambertmagicien",
+    youtube: "https://www.youtube.com/@lemagicienjulien",
+    youtubeHandle: "@lemagicienjulien",
   },
 } as const;
 

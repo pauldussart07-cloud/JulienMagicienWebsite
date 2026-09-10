@@ -1,20 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-
-const VIDEO_ID = "NB_7ZeSW998";
+import { useEffect, useRef, useState } from "react";
 
 /**
- * Le showreel, en chargement différé.
+ * Le teaser, servi depuis le site.
  *
- * Tant que personne ne clique, rien n'est demandé à YouTube : ni script, ni
- * cookie, ni requête. On n'affiche qu'une photo et un bouton. C'est plus
- * rapide, et c'est la seule façon de tenir la promesse faite dans la page
- * de confidentialité.
+ * Le fichier vient du montage d'origine, pas d'une copie récupérée sur
+ * YouTube : c'est ce qui fait la netteté. Rien n'est chargé tant que
+ * personne ne clique, ni script, ni cookie, ni le moindre octet de vidéo.
+ * On n'affiche qu'une image et un bouton.
+ *
+ * Deux fichiers sont préparés. Le 720p est servi aux écrans étroits, où le
+ * 1080p ne se verrait pas mais se paierait en attente.
  */
 export function VideoSection() {
   const [lance, setLance] = useState(false);
+  const [source, setSource] = useState("/videos/teaser-1080.mp4");
+  const video = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (window.innerWidth < 900) setSource("/videos/teaser-720.mp4");
+  }, []);
+
+  useEffect(() => {
+    if (lance) video.current?.play().catch(() => {});
+  }, [lance]);
 
   return (
     <section className="border-y border-carton/12">
@@ -32,13 +43,16 @@ export function VideoSection() {
 
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-encre-900 lg:aspect-[2.2/1]">
         {lance ? (
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
-            title="Julien Lambert, magicien close-up"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute inset-0 h-full w-full border-0"
-          />
+          <video
+            ref={video}
+            controls
+            playsInline
+            preload="auto"
+            poster="/images/site/site-video-poster.webp"
+            className="absolute inset-0 h-full w-full bg-encre-900 object-cover"
+          >
+            <source src={source} type="video/mp4" />
+          </video>
         ) : (
           <button
             type="button"
@@ -47,7 +61,7 @@ export function VideoSection() {
             aria-label="Lire la vidéo de présentation de Julien Lambert"
           >
             <Image
-              src="/images/home/video-poster.webp"
+              src="/images/site/site-video-poster.webp"
               alt="Julien Lambert fait apparaître une flamme entre ses mains, face à la mer"
               fill
               sizes="100vw"
@@ -67,7 +81,7 @@ export function VideoSection() {
             </span>
 
             <span className="mark absolute bottom-5 left-5 text-carton/85 sm:bottom-7 sm:left-7">
-              <span>1 min 30, sans commentaire</span>
+              <span>1 min 25, sans commentaire</span>
             </span>
           </button>
         )}

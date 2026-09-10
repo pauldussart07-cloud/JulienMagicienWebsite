@@ -270,7 +270,7 @@ export default async function Page({
 
       <CtaBand
         lignes={[`Un magicien`, `${p.ou} ?`]}
-        image="/images/galerie/gal-09.webp"
+        image="/images/site/site-apropos-cta.webp"
         alt="Invités stupéfaits pendant un tour de magie"
       />
     </>

@@ -14,7 +14,7 @@ import sharp from "sharp";
 const L = 1200;
 const H = 630;
 
-const PHOTO = "public/images/home/hero-poster.webp";
+const PHOTO = "public/images/site/site-hero-poster.webp";
 const LOGO = "public/images/brand/logo-blanc.png";
 const SORTIE = "public/og.png";
 

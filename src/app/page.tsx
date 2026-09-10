@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { Etincelles } from "@/components/magic/etincelles";
 import { AproposTeaser } from "@/components/sections/apropos-teaser";
 import { CtaBand } from "@/components/sections/cta-band";
 import { Hero } from "@/components/sections/hero";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     absolute: "Julien Lambert, magicien close-up en Bretagne et à Paris",
   },
   description:
-    "Magicien professionnel basé à Saint-Malo et en région parisienne. Close-up et magie de salon pour mariages, soirées d'entreprise et réceptions privées.",
+    "Magicien professionnel basé en Bretagne et en région parisienne. Close-up et magie de salon pour mariages, soirées d'entreprise et réceptions privées.",
   alternates: { canonical: "/" },
 };
 
@@ -26,9 +27,15 @@ export default function Page() {
       <JsonLd data={performerSchema()} />
 
       <Hero />
-      <Misdirection />
-      <PrestationsSplit />
-      <ReactionsRail />
+
+      {/* De « Vous regardiez au bon endroit » jusqu'aux visages : le seul
+          passage où quelque chose scintille au bord du regard. */}
+      <Etincelles>
+        <Misdirection />
+        <PrestationsSplit />
+        <ReactionsRail />
+      </Etincelles>
+
       <VideoSection />
       <AproposTeaser />
       <AvisGalerie />

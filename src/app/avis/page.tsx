@@ -11,7 +11,7 @@ import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
 export const metadata: Metadata = {
   title: "Avis clients",
   description:
-    "5,0 sur 10 avis Google. Ce que disent les clients de Julien Lambert après un mariage, une soirée d'entreprise ou une réception privée.",
+    "5,0 sur 27 avis Google. Ce que disent les clients de Julien Lambert après un mariage, une soirée d'entreprise ou une réception privée.",
   alternates: { canonical: "/avis" },
 };
 
@@ -55,8 +55,9 @@ export default function Page() {
 
       <CtaBand
         lignes={["À votre tour", "d'y assister."]}
-        image="/images/galerie/gal-10.webp"
-        alt="Magie de proximité pendant un cocktail de mariage"
+        image="/images/site/site-portrait.webp"
+        alt="Julien Lambert, une pièce entre les doigts, pendant un vin d'honneur"
+        position="50% 15%"
       />
     </>
   );

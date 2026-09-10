@@ -48,7 +48,7 @@ export default function Page() {
 
       <CtaBand
         lignes={["Une dernière", "question ?"]}
-        image="/images/galerie/gal-06.webp"
+        image="/images/site/site-closeup-cta.webp"
         alt="Sourires et étonnement autour d'un tour de cartes"
       />
     </>

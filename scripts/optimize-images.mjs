@@ -1,9 +1,15 @@
 /**
- * Optimise les visuels bruts téléchargés depuis l'ancien site (_assets_raw)
- * vers public/images : redimensionnement + WebP haute qualité.
- * Les logos gardent leur canal alpha en PNG.
+ * Optimise les visuels bruts (_assets_raw) vers public/images :
+ * redimensionnement + WebP haute qualité. Les logos et le tirage d'enfance
+ * gardent leur canal alpha ou leur grain en PNG.
  *
  *   npm run images
+ *
+ * Les sources sont les fichiers pleine définition fournis par Julien
+ * (dossier « Meilleures photos et vidéo site internet »). Le partage des
+ * photos entre le site et la galerie suit une règle simple : une photo
+ * retenue pour une page (`site-*`) ne reparaît pas dans la galerie
+ * (`gal-*`), et réciproquement. Aucun doublon d'un côté ou de l'autre.
  */
 import { readdir, mkdir, stat } from "node:fs/promises";
 import path from "node:path";
@@ -16,30 +22,50 @@ const OUT = path.resolve("public/images");
 const PLAN = {
   "logo-blanc": { dir: "brand", width: 1200, keepPng: true },
   "logo-original": { dir: "brand", width: 1200, keepPng: true },
-
-  "hero-cartes": { dir: "home", width: 2400 },
-  "home-reaction": { dir: "home", width: 2000 },
-  "home-feu": { dir: "home", width: 1400 },
-  "home-04": { dir: "home", width: 2000 },
+  "apropos-enfant": { dir: "apropos", width: 1000, keepPng: true },
 
   "client-to": { dir: "clients", width: 400 },
   "client-hq": { dir: "clients", width: 400 },
   "client-beaumanoir": { dir: "clients", width: 400, keepPng: true },
   "client-innerwheel": { dir: "clients", width: 400 },
   "client-sncf": { dir: "clients", width: 400 },
-
-  "apropos-hero": { dir: "apropos", width: 2000 },
-  "apropos-enfant": { dir: "apropos", width: 1000, keepPng: true },
-
-  "closeup-hero": { dir: "closeup", width: 2400 },
-  "closeup-02": { dir: "closeup", width: 1400 },
-
-  "salon-hero": { dir: "salon", width: 2400 },
-  "salon-02": { dir: "salon", width: 1200 },
-  "salon-03": { dir: "salon", width: 2000 },
 };
 
-const galleryPlan = (name) => ({ dir: "galerie", width: 1800 });
+/**
+ * Largeurs des visuels de page. La photo des cartes en vol sert de fond
+ * plein écran, y compris sur les grands moniteurs : elle est la seule à
+ * monter à 3000 px.
+ */
+const SITE = {
+  "site-cartes-envol": 3000,
+  "site-hero-poster": 1920,
+  "site-video-poster": 1920,
+  "site-apropos": 2400,
+  "site-apropos-cta": 1800,
+  "site-closeup-hero": 2400,
+  "site-closeup-large": 2000,
+  "site-closeup-cta": 1800,
+  "site-salon-hero": 2400,
+  "site-salon-large": 2000,
+  "site-salon-cta": 1800,
+  "site-portrait": 1600,
+  "site-galerie-hero": 2400,
+  "site-flamme": 1600,
+  // Bande de réactions : jamais affichée au-delà de 24rem de large.
+  "site-rail-01": 1200,
+  "site-rail-02": 1200,
+  "site-rail-03": 1200,
+  "site-rail-04": 1200,
+  "site-rail-05": 1200,
+  "site-rail-06": 1200,
+};
+
+function planPour(name) {
+  if (PLAN[name]) return PLAN[name];
+  if (name in SITE) return { dir: "site", width: SITE[name] };
+  if (name.startsWith("gal-")) return { dir: "galerie", width: 1800 };
+  return null;
+}
 
 async function main() {
   const files = await readdir(RAW).catch(() => []);
@@ -51,13 +77,14 @@ async function main() {
   let done = 0;
   let bytesIn = 0;
   let bytesOut = 0;
+  const dims = [];
 
-  for (const file of files) {
+  for (const file of files.sort()) {
     const ext = path.extname(file).toLowerCase();
     if (![".jpg", ".jpeg", ".png"].includes(ext)) continue;
 
     const name = path.basename(file, ext);
-    const plan = PLAN[name] ?? (name.startsWith("gal-") ? galleryPlan(name) : null);
+    const plan = planPour(name);
     if (!plan) {
       console.warn(`~ ignoré (pas de plan) : ${file}`);
       continue;
@@ -71,7 +98,6 @@ async function main() {
     const meta = await image.metadata();
     const width = Math.min(plan.width, meta.width ?? plan.width);
 
-    // Les logos restent en PNG (transparence), le reste passe en WebP.
     const outExt = plan.keepPng ? ".png" : ".webp";
     const destPath = path.join(destDir, name + outExt);
 
@@ -79,7 +105,14 @@ async function main() {
     if (plan.keepPng) {
       await pipeline.png({ compressionLevel: 9, palette: true }).toFile(destPath);
     } else {
-      await pipeline.webp({ quality: 82, effort: 5 }).toFile(destPath);
+      // Les sources sont volontairement douces (24 Mpx redescendus à 1800) :
+      // une légère accentuation rend le piqué perdu au redimensionnement.
+      // Au-delà de 1800 px, le fichier ne sert que de source à l'optimiseur
+      // de Next : la qualité peut baisser sans que rien ne se voie à l'écran.
+      await pipeline
+        .sharpen({ sigma: 0.6, m1: 0.5, m2: 2 })
+        .webp({ quality: width > 1800 ? 76 : 84, effort: 6 })
+        .toFile(destPath);
     }
 
     const [a, b] = await Promise.all([stat(srcPath), stat(destPath)]);
@@ -88,6 +121,7 @@ async function main() {
     done += 1;
 
     const outMeta = await sharp(destPath).metadata();
+    dims.push(`${plan.dir}/${name}${outExt} ${outMeta.width}x${outMeta.height}`);
     console.log(
       `✓ ${plan.dir}/${name}${outExt}  ${outMeta.width}x${outMeta.height}  ` +
         `${(a.size / 1e6).toFixed(2)}Mo → ${(b.size / 1e6).toFixed(2)}Mo`
@@ -95,7 +129,7 @@ async function main() {
   }
 
   console.log(
-    `\n${done} image(s) — ${(bytesIn / 1e6).toFixed(1)}Mo → ${(bytesOut / 1e6).toFixed(1)}Mo ` +
+    `\n${done} image(s) : ${(bytesIn / 1e6).toFixed(1)}Mo → ${(bytesOut / 1e6).toFixed(1)}Mo ` +
       `(${Math.round((1 - bytesOut / bytesIn) * 100)}% de gain)`
   );
 }

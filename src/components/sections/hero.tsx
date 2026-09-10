@@ -48,7 +48,7 @@ export function Hero() {
         style={reduce ? undefined : { y }}
       >
         <HeroVideo
-          poster="/images/home/hero-poster.webp"
+          poster="/images/site/site-hero-poster.webp"
           posterAlt="Julien Lambert fait apparaître une flamme entre ses mains, face à la mer"
         />
         {/* Le voile ne sert que là où le texte passe par-dessus l'image */}

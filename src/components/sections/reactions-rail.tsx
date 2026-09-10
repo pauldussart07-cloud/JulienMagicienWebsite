@@ -14,40 +14,40 @@ import { cn } from "@/lib/utils";
  */
 const CLICHES = [
   {
-    src: "/images/galerie/gal-09.webp",
+    src: "/images/site/site-rail-01.webp",
     alt: "Une mariée suit de très près un tour de cartes",
-    legende: "À vingt centimètres des mains",
-    position: "50% 45%",
+    legende: "À cinq centimètres des yeux",
+    position: "50% 42%",
   },
   {
-    src: "/images/galerie/gal-10.webp",
-    alt: "Une invitée n'en revient pas pendant un tour de close-up",
+    src: "/images/site/site-rail-04.webp",
+    alt: "Julien Lambert au milieu d'un groupe d'invités, pendant un tour",
     legende: "Le moment où plus personne ne cherche le truc",
-    position: "50% 32%",
+    position: "50% 26%",
   },
   {
-    src: "/images/galerie/gal-14.webp",
-    alt: "Julien Lambert entouré d'invités pendant un tour",
+    src: "/images/site/site-rail-03.webp",
+    alt: "Un petit groupe d'invités réuni autour de la table de Julien Lambert",
     legende: "Chaque table devient un théâtre",
+    position: "50% 34%",
+  },
+  {
+    src: "/images/site/site-rail-06.webp",
+    alt: "Une mariée observe un tour qui se déroule sur la table devant elle",
+    legende: "Les objets sont dans vos mains",
     position: "50% 30%",
   },
   {
-    src: "/images/galerie/gal-11.webp",
-    alt: "Un tour de magie se déroule dans les mains d'une spectatrice",
-    legende: "Les objets sont dans vos mains",
-    position: "50% 38%",
-  },
-  {
-    src: "/images/galerie/gal-13.webp",
-    alt: "Petit groupe d'invités réuni autour d'un tour de close-up",
+    src: "/images/site/site-rail-02.webp",
+    alt: "Un jeune invité ne quitte pas des yeux les mains du magicien",
     legende: "Rien ne se passe à distance",
-    position: "50% 35%",
+    position: "50% 30%",
   },
   {
-    src: "/images/galerie/gal-19.webp",
-    alt: "Manipulation de cartes en gros plan",
+    src: "/images/site/site-rail-05.webp",
+    alt: "Julien Lambert fait osciller un pendule devant les invités",
     legende: "Pas d'écran, pas de coulisses",
-    position: "50% 40%",
+    position: "50% 32%",
   },
 ];
 

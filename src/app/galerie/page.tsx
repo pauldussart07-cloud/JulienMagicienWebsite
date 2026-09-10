@@ -28,9 +28,9 @@ export default function Page() {
         label="En images"
         titre="Des regards émerveillés, des moments suspendus"
         intro="La magie se vit, elle ne se regarde pas. Ces images en donnent un aperçu : la vraie expérience commence quand elle se déroule sous vos yeux."
-        image="/images/galerie/gal-20.webp"
-        alt="Julien Lambert présente un effet pendant une réception"
-        position="50% 26%"
+        image="/images/site/site-galerie-hero.webp"
+        alt="Julien Lambert présente un tour à des invités, dans le parc d'un domaine"
+        position="50% 45%"
       />
 
       <section className="py-14 lg:py-20">
@@ -43,8 +43,8 @@ export default function Page() {
 
       <CtaBand
         lignes={["Vivez la magie", "en vrai."]}
-        image="/images/galerie/gal-14.webp"
-        alt="Effet de magie rapprochée devant des invités attentifs"
+        image="/images/site/site-salon-cta.webp"
+        alt="Public captivé pendant un spectacle de magie de salon"
       />
     </>
   );

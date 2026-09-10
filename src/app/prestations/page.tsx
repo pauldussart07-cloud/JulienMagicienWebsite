@@ -31,7 +31,7 @@ export default function Page() {
 
       <CtaBand
         lignes={["Quel format", "pour votre soirée ?"]}
-        image="/images/galerie/gal-13.webp"
+        image="/images/site/site-salon-large.webp"
         alt="Julien Lambert présente un effet à un petit groupe"
       />
     </>

@@ -11,6 +11,13 @@ export type Prestation = {
   duree: string;
   resume: string;
   hero: { src: string; alt: string };
+  /**
+   * Photo du renvoi « L'autre prestation », en bas de la page voisine.
+   * C'est un bandeau très large : le hero, cadré pour un plein écran,
+   * y perdrait le visage de Julien. On choisit donc une photo et un
+   * point d'ancrage faits pour ce format.
+   */
+  carte: { src: string; alt: string; position: string };
   intro: string[];
   citation: string;
   chiffres: { value: string; label: string }[];
@@ -29,8 +36,13 @@ export const closeUp: Prestation = {
   resume:
     "Pas d'écran, pas de distance : juste vos yeux, mes mains, et l'incroyable qui s'invite. Une expérience unique pour vos mariages, cocktails et soirées d'entreprise.",
   hero: {
-    src: "/images/closeup/closeup-hero.webp",
-    alt: "Julien Lambert en pleine prestation de magie close-up devant des invités",
+    src: "/images/site/site-closeup-hero.webp",
+    alt: "Julien Lambert en pleine prestation de magie close-up devant des invités attablés",
+  },
+  carte: {
+    src: "/images/site/site-closeup-large.webp",
+    alt: "Julien Lambert présente un tour à des invités pendant un cocktail",
+    position: "50% 18%",
   },
   intro: [
     "Le close-up est une forme de magie qui se vit à quelques centimètres des yeux des spectateurs, sans scène ni artifices visibles.",
@@ -152,12 +164,12 @@ export const closeUp: Prestation = {
   ],
   photos: [
     {
-      src: "/images/closeup/closeup-02.webp",
+      src: "/images/site/site-closeup-large.webp",
       alt: "Réactions du public pendant un tour de close-up",
     },
     {
-      src: "/images/home/home-reaction.webp",
-      alt: "Spectatrice stupéfaite par un tour de magie",
+      src: "/images/site/site-closeup-cta.webp",
+      alt: "Une invitée n'en revient pas pendant un tour de close-up",
     },
   ],
 };
@@ -170,8 +182,13 @@ export const magieDeSalon: Prestation = {
   resume:
     "L'entre-deux parfait entre la scène et le close-up. Assez de mise en scène pour un vrai spectacle, assez de proximité pour que rien ne triche. Idéal pour captiver un groupe entier, dans un moment suspendu entre spectacle et confidence.",
   hero: {
-    src: "/images/salon/salon-hero.webp",
-    alt: "Julien Lambert pendant un spectacle de magie de salon",
+    src: "/images/site/site-salon-hero.webp",
+    alt: "Julien Lambert pendant un spectacle de magie de salon, une carte à la main",
+  },
+  carte: {
+    src: "/images/site/site-salon-hero.webp",
+    alt: "Julien Lambert pendant un spectacle de magie de salon, une carte à la main",
+    position: "50% 22%",
   },
   intro: [
     "La magie de salon constitue un format intermédiaire entre le spectacle distant et l'intimité du close-up.",
@@ -282,12 +299,12 @@ export const magieDeSalon: Prestation = {
   ],
   photos: [
     {
-      src: "/images/salon/salon-02.webp",
-      alt: "Julien Lambert pendant un spectacle de salon",
+      src: "/images/site/site-salon-large.webp",
+      alt: "Julien Lambert fait tenir deux cordes à des spectatrices",
     },
     {
-      src: "/images/salon/salon-03.webp",
-      alt: "Public captivé pendant la magie de salon",
+      src: "/images/site/site-salon-cta.webp",
+      alt: "Public captivé pendant un spectacle de magie de salon",
     },
   ],
 };

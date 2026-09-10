@@ -4,16 +4,46 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 
-import type { Photo } from "@/content/galerie";
+import { repartirEnColonnes, type Photo } from "@/content/galerie";
+
+/** Nombre de colonnes selon la largeur, aux mêmes seuils que Tailwind. */
+function useNombreDeColonnes() {
+  // Le rendu serveur part de trois colonnes, la mise en page large.
+  const [colonnes, setColonnes] = useState(3);
+
+  useEffect(() => {
+    const deux = window.matchMedia("(min-width: 640px)");
+    const trois = window.matchMedia("(min-width: 1024px)");
+    const relire = () => setColonnes(trois.matches ? 3 : deux.matches ? 2 : 1);
+
+    relire();
+    deux.addEventListener("change", relire);
+    trois.addEventListener("change", relire);
+    return () => {
+      deux.removeEventListener("change", relire);
+      trois.removeEventListener("change", relire);
+    };
+  }, []);
+
+  return colonnes;
+}
 
 /**
  * Mosaïque de la galerie et sa visionneuse.
  *
  * Les images sont posées bord à bord, séparées par un filet d'un pixel :
  * la grille elle-même fait la mise en page, sans cadre ni ombre.
+ *
+ * La répartition n'est pas laissée aux colonnes CSS. Le navigateur y équilibre
+ * mal des images de rapports très différents, et la dernière colonne s'arrête
+ * bien avant les autres : il reste alors un grand vide juste avant le pied de
+ * page. Chaque photo est donc donnée à la colonne la plus courte du moment,
+ * ce qui fait finir toutes les colonnes à la même hauteur, à une image près.
  */
 export function GalerieGrille({ photos }: { photos: Photo[] }) {
   const [actif, setActif] = useState<number | null>(null);
+  const nombre = useNombreDeColonnes();
+  const colonnes = repartirEnColonnes(photos, nombre);
 
   const fermer = useCallback(() => setActif(null), []);
   const suivant = useCallback(
@@ -44,26 +74,30 @@ export function GalerieGrille({ photos }: { photos: Photo[] }) {
 
   return (
     <>
-      <div className="columns-1 gap-px sm:columns-2 lg:columns-3 [&>*]:mb-px">
-        {photos.map((photo, i) => (
-          <button
-            key={photo.src}
-            type="button"
-            onClick={() => setActif(i)}
-            className="group relative block w-full overflow-hidden"
-            aria-label={`Agrandir : ${photo.alt}`}
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              width={photo.width}
-              height={photo.height}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="w-full transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-            />
-            {/* Le voile se retire au survol : l'image se révèle */}
-            <span className="absolute inset-0 bg-encre-900/25 transition-opacity duration-500 group-hover:opacity-0" />
-          </button>
+      <div className="flex gap-px">
+        {colonnes.map((colonne, c) => (
+          <div key={c} className="flex min-w-0 flex-1 flex-col gap-px">
+            {colonne.map((photo) => (
+              <button
+                key={photo.src}
+                type="button"
+                onClick={() => setActif(photos.indexOf(photo))}
+                className="group relative block w-full overflow-hidden"
+                aria-label={`Agrandir : ${photo.alt}`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={photo.width}
+                  height={photo.height}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="w-full transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                />
+                {/* Le voile se retire au survol : l'image se révèle */}
+                <span className="absolute inset-0 bg-encre-900/25 transition-opacity duration-500 group-hover:opacity-0" />
+              </button>
+            ))}
+          </div>
         ))}
       </div>
 

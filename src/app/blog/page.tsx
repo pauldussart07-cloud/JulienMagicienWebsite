@@ -110,7 +110,7 @@ export default function Page() {
 
       <CtaBand
         lignes={["Envie de le voir", "à l'œuvre ?"]}
-        image="/images/galerie/gal-04.webp"
+        image="/images/site/site-closeup-large.webp"
         alt="Réactions d'un groupe pendant une prestation de close-up"
       />
     </>

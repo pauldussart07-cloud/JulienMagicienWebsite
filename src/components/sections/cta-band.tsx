@@ -12,12 +12,15 @@ import { site } from "@/content/site";
  */
 export function CtaBand({
   lignes = ["Prêt pour", "l'impossible ?"],
-  image = "/images/galerie/gal-09.webp",
-  alt = "Invités stupéfaits pendant un tour de magie",
+  image = "/images/site/site-flamme.webp",
+  alt = "Julien Lambert fait apparaître une flamme entre ses mains",
+  position = "50% 50%",
 }: {
   lignes?: string[];
   image?: string;
   alt?: string;
+  /** Cadrage de la photo, quand le sujet n'est pas au centre. */
+  position?: string;
 }) {
   return (
     <section className="relative border-t border-carton/12 bg-encre-900">
@@ -28,6 +31,7 @@ export function CtaBand({
             alt={alt}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
+            style={{ objectPosition: position }}
             className="object-cover"
           />
         </div>

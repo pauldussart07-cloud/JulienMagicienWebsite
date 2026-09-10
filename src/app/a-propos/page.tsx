@@ -40,7 +40,7 @@ const valeurs: { titre: string; texte: string; icone: NomIcone }[] = [
     icone: "oeil",
     titre: "La maîtrise au service de l'inattendu",
     texte:
-      "À trente centimètres des yeux, il n'y a pas de marge d'erreur. C'est cette précision qui rend la surprise possible.",
+      "À cinq centimètres des yeux, il n'y a pas de marge d'erreur. C'est cette précision qui rend la surprise possible.",
   },
 ];
 
@@ -57,8 +57,8 @@ export default function Page() {
       <PageHero
         label="Le magicien"
         titre="Une obsession devenue un métier"
-        intro={`Basé en Bretagne, Julien intervient partout en France depuis ${site.since}. Sa spécialité ? Le détournement d'attention. Sa philosophie ? La magie comme prétexte pour passer un bon moment ensemble.`}
-        image="/images/apropos/apropos-hero.webp"
+        intro={`Basé en Bretagne et en région parisienne, Julien intervient partout en France depuis ${site.since}. Sa spécialité ? Le détournement d'attention. Sa philosophie ? La magie comme prétexte pour passer un bon moment ensemble.`}
+        image="/images/site/site-apropos.webp"
         alt="Julien Lambert présentant un tour à un groupe d'invités attablés"
         hauteur="haute"
       />
@@ -82,10 +82,10 @@ export default function Page() {
                 </p>
                 <p>
                   Des années de pratique plus tard, en {site.since}, Julien
-                  en fait son métier. Depuis, il joue en close-up et en magie
-                  de salon pour des mariages, des soirées d&apos;entreprise et
-                  des réceptions privées, de Saint-Malo à la région
-                  parisienne.
+                  en fait son métier. Depuis, il se produit en close-up et en
+                  magie de salon pour des mariages, des soirées
+                  d&apos;entreprise et des réceptions privées, de la Bretagne
+                  à la région parisienne.
                 </p>
                 <p>
                   Sa spécialité tient en une idée : le détournement
@@ -182,8 +182,8 @@ export default function Page() {
 
       <CtaBand
         lignes={["Parlons de", "votre événement."]}
-        image="/images/galerie/gal-12.webp"
-        alt="Julien Lambert entouré d'invités pendant une soirée"
+        image="/images/site/site-apropos-cta.webp"
+        alt="Julien Lambert échange avec une invitée pendant un vin d'honneur"
       />
     </>
   );

@@ -181,10 +181,11 @@ export function PrestationPage({ p }: { p: Prestation }) {
           className="group relative flex min-h-[26rem] flex-col justify-end overflow-hidden lg:min-h-[32rem]"
         >
           <Image
-            src={autre.hero.src}
-            alt={autre.hero.alt}
+            src={autre.carte.src}
+            alt={autre.carte.alt}
             fill
             sizes="100vw"
+            style={{ objectPosition: autre.carte.position }}
             className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
           />
           <div className="veil-panel absolute inset-0" />
