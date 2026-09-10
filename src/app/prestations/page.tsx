@@ -4,13 +4,16 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { PageHeroTexte } from "@/components/sections/page-hero";
 import { PrestationsSplit } from "@/components/sections/prestations-split";
 import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Les prestations",
   description:
     "Magie close-up en déambulation ou spectacle de salon de 50 minutes : deux formats, une seule exigence de proximité.",
-  alternates: { canonical: "/prestations" },
-};
+  path: "/prestations",
+  image: "/images/site/site-salon-large.webp",
+  imageAlt: "Julien Lambert pendant un spectacle de magie de salon",
+});
 
 export default function Page() {
   return (

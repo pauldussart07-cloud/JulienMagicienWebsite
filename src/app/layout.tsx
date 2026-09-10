@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/header";
 import { IntroSignature } from "@/components/magic/intro-signature";
 import { site } from "@/content/site";
 import { baseUrl } from "@/lib/base-url";
+import { JsonLd, identiteSchema } from "@/lib/jsonld";
 
 import "./globals.css";
 
@@ -73,6 +74,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${display.variable} ${sans.variable}`}>
       <body>
+        {/* Qui édite le site, et qui est Julien : sur chaque page, pour que
+            les renvois `@id` des autres schémas mènent quelque part. */}
+        <JsonLd data={identiteSchema()} />
+
         <a
           href="#contenu"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-carton focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-encre"

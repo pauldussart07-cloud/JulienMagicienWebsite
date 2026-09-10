@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+import { teaser } from "@/content/media";
+
 /**
  * Le teaser, servi depuis le site.
  *
@@ -16,11 +18,11 @@ import { useEffect, useRef, useState } from "react";
  */
 export function VideoSection() {
   const [lance, setLance] = useState(false);
-  const [source, setSource] = useState("/videos/teaser-1080.mp4");
+  const [source, setSource] = useState<string>(teaser.src);
   const video = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (window.innerWidth < 900) setSource("/videos/teaser-720.mp4");
+    if (window.innerWidth < 900) setSource(teaser.srcMobile);
   }, []);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export function VideoSection() {
             controls
             playsInline
             preload="auto"
-            poster="/images/site/site-video-poster.webp"
+            poster={teaser.poster}
             className="absolute inset-0 h-full w-full bg-encre-900 object-cover"
           >
             <source src={source} type="video/mp4" />
@@ -61,7 +63,7 @@ export function VideoSection() {
             aria-label="Lire la vidéo de présentation de Julien Lambert"
           >
             <Image
-              src="/images/site/site-video-poster.webp"
+              src={teaser.poster}
               alt="Julien Lambert fait apparaître une flamme entre ses mains, face à la mer"
               fill
               sizes="100vw"
@@ -81,7 +83,7 @@ export function VideoSection() {
             </span>
 
             <span className="mark absolute bottom-5 left-5 text-carton/85 sm:bottom-7 sm:left-7">
-              <span>1 min 25, sans commentaire</span>
+              <span>{teaser.dureeTexte}, sans commentaire</span>
             </span>
           </button>
         )}

@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 
+import { pageMetadata } from "@/lib/metadata";
+
 import { PageLegale } from "@/components/sections/page-legale";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Politique de confidentialité",
   description:
     "Quelles données ce site collecte, pourquoi, combien de temps elles sont conservées et comment exercer vos droits. Aucun cookie publicitaire, aucun traceur.",
-  alternates: { canonical: "/politique-de-confidentialite" },
+  path: "/politique-de-confidentialite",
   robots: { index: false, follow: true },
-};
+});
 
 export default function Page() {
   return (

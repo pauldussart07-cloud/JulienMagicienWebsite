@@ -8,13 +8,16 @@ import { PageHero } from "@/components/sections/page-hero";
 import { MagicIcon, type NomIcone } from "@/components/ui/magic-icon";
 import { site, stats } from "@/content/site";
 import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "À propos de Julien Lambert",
   description:
     "De la boîte de magie reçue à 5 ans au métier de magicien professionnel depuis 2019. Le parcours de Julien Lambert, spécialiste du détournement d'attention.",
-  alternates: { canonical: "/a-propos" },
-};
+  path: "/a-propos",
+  image: "/images/site/site-apropos.webp",
+  imageAlt: "Julien Lambert présentant un tour à des invités attablés",
+});
 
 /** Les quatre valeurs affichées sur l'ancien site, reprises telles quelles. */
 const valeurs: { titre: string; texte: string; icone: NomIcone }[] = [

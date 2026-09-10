@@ -14,7 +14,8 @@ import {
   zonesPages,
   type ZonePage,
 } from "@/content/zones-pages";
-import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
+import { ID, JsonLd, breadcrumbSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 import { baseUrl } from "@/lib/base-url";
 
 /** Seules les cinq pages locales existent : tout autre segment est un 404. */
@@ -33,16 +34,13 @@ export async function generateMetadata({
   const p = getZonePage(zone);
   if (!p) return {};
 
-  return {
+  return pageMetadata({
     title: p.metaTitle,
     description: p.metaDescription,
-    alternates: { canonical: `/${p.slug}` },
-    openGraph: {
-      title: p.metaTitle,
-      description: p.metaDescription,
-      url: `${baseUrl}/${p.slug}`,
-    },
-  };
+    path: `/${p.slug}`,
+    image: p.image.src,
+    imageAlt: p.image.alt,
+  });
 }
 
 export default async function Page({
@@ -346,11 +344,12 @@ function serviceLocalSchema(p: ZonePage) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${baseUrl}/${p.slug}#service`,
     name: p.titre,
     description: p.metaDescription,
     url: `${baseUrl}/${p.slug}`,
     serviceType: "Magicien close-up et magie de salon",
-    provider: { "@id": `${baseUrl}/#julien-lambert` },
+    provider: { "@id": ID.personne },
     areaServed: [
       { "@type": p.territoires ? "AdministrativeArea" : "City", name: p.nom },
       { "@type": "AdministrativeArea", name: p.region },

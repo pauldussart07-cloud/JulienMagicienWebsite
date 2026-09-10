@@ -95,6 +95,9 @@ export function Header() {
               alt={`${site.name}, ${site.role}`}
               width={1200}
               height={322}
+              // Le fichier fait 1200 px de large, le logo s'affiche sous 200 :
+              // sans `sizes`, le navigateur télécharge la pleine largeur.
+              sizes="180px"
               priority
               className={cn(
                 "w-auto transition-all duration-500",
@@ -183,6 +186,7 @@ export function Header() {
                   alt=""
                   width={1200}
                   height={322}
+                  sizes="150px"
                   className="h-10 w-auto"
                 />
                 <button

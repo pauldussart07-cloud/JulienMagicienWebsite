@@ -88,6 +88,25 @@ colonne la plus courte : les colonnes finissent à la même hauteur.
 L'image fixe `site-hero-poster` est la première image exacte de la boucle : le
 passage de la photo à la vidéo est invisible.
 
+## SEO technique
+
+Quatre mécanismes, tous dans `src/lib` et `src/app` :
+
+- `lib/metadata.ts` : un seul gabarit construit le bloc de métadonnées de
+  chaque page. Next remplace le `openGraph` de la racine au lieu de le
+  compléter : sans gabarit commun, une page qui déclarait son adresse
+  perdait son image de partage, et une page qui ne déclarait rien héritait
+  de l'adresse de l'accueil. Ajouter une page, c'est appeler `pageMetadata`.
+- `lib/jsonld.tsx` : les données structurées. `identiteSchema` est posé par
+  la mise en page racine, donc présent partout ; tous les autres schémas
+  renvoient à son `@id`. Un renvoi dont le nœud n'existe pas sur la page est
+  abandonné par Google : la règle est qu'un `@id` désigné doit être décrit.
+- `app/sitemap.ts` : dates de modification écrites à la main, page par page,
+  plus les photos de la galerie et le teaser. Les deux pages en `noindex`
+  en sont volontairement absentes.
+- `next.config.mjs` : redirections 301 de l'ancien site Wix, et cache long
+  sur les fichiers immuables.
+
 ## Formulaire de contact
 
 `POST /api/contact` valide avec Zod, limite à 5 envois par IP toutes les

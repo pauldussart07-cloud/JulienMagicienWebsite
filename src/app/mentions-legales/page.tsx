@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 
+import { pageMetadata } from "@/lib/metadata";
+
 import { PageLegale } from "@/components/sections/page-legale";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Mentions légales",
   description:
     "Éditeur, hébergeur, propriété intellectuelle et responsabilité : les mentions légales du site de Julien Lambert, magicien close-up.",
-  alternates: { canonical: "/mentions-legales" },
+  path: "/mentions-legales",
   robots: { index: false, follow: true },
-};
+});
 
 export default function Page() {
   return (

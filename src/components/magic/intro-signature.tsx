@@ -76,6 +76,9 @@ export function IntroSignature() {
           alt=""
           width={1200}
           height={322}
+          // Préchargé, donc en concurrence directe avec l'image du hero :
+          // `sizes` ramène ce préchargement à la taille réellement affichée.
+          sizes="(min-width: 640px) 300px, 240px"
           priority
           className="h-16 w-auto max-w-none sm:h-20"
         />

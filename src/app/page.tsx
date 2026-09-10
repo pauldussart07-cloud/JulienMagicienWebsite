@@ -10,21 +10,20 @@ import { ReactionsRail } from "@/components/sections/reactions-rail";
 import { AvisGalerie } from "@/components/sections/avis-galerie";
 import { ClientsBand } from "@/components/sections/temoignages-section";
 import { VideoSection } from "@/components/sections/video-section";
-import { JsonLd, performerSchema } from "@/lib/jsonld";
+import { JsonLd, avisSchema, videoSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Julien Lambert, magicien close-up en Bretagne et à Paris",
-  },
+export const metadata: Metadata = pageMetadata({
+  titleAbsolu: "Julien Lambert, magicien close-up en Bretagne et à Paris",
   description:
     "Magicien professionnel basé en Bretagne et en région parisienne. Close-up et magie de salon pour mariages, soirées d'entreprise et réceptions privées.",
-  alternates: { canonical: "/" },
-};
+  path: "/",
+});
 
 export default function Page() {
   return (
     <>
-      <JsonLd data={performerSchema()} />
+      <JsonLd data={[avisSchema(), videoSchema()]} />
 
       <Hero />
 

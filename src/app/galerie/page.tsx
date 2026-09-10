@@ -5,23 +5,29 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { PageHero } from "@/components/sections/page-hero";
 import { VideoSection } from "@/components/sections/video-section";
 import { photos } from "@/content/galerie";
-import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
+import { JsonLd, breadcrumbSchema, videoSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Galerie",
   description:
     "Regards émerveillés, moments suspendus et souvenirs inoubliables : les photographies des prestations de Julien Lambert, magicien close-up.",
-  alternates: { canonical: "/galerie" },
-};
+  path: "/galerie",
+  image: "/images/site/site-galerie-hero.webp",
+  imageAlt: "Julien Lambert présente un tour dans le parc d'un domaine",
+});
 
 export default function Page() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Accueil", href: "/" },
-          { name: "Galerie", href: "/galerie" },
-        ])}
+        data={[
+          videoSchema(),
+          breadcrumbSchema([
+            { name: "Accueil", href: "/" },
+            { name: "Galerie", href: "/galerie" },
+          ]),
+        ]}
       />
 
       <PageHero

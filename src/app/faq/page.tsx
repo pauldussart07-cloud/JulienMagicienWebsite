@@ -6,13 +6,14 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { PageHeroTexte } from "@/components/sections/page-hero";
 import { faqFlat } from "@/content/faq";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Questions fréquentes",
   description:
     "Déroulé, durée, nombre d'invités, extérieur, réservation, tarifs : toutes les réponses aux questions posées à Julien Lambert, magicien close-up.",
-  alternates: { canonical: "/faq" },
-};
+  path: "/faq",
+});
 
 export default function Page() {
   return (

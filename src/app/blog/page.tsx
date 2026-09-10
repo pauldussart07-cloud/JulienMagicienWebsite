@@ -6,14 +6,15 @@ import { Reveal } from "@/components/magic/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
 import { PageHeroTexte } from "@/components/sections/page-hero";
 import { articles } from "@/content/blog";
-import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
+import { JsonLd, blogSchema, breadcrumbSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Le blog",
   description:
     "Coulisses, conseils et réflexions sur la magie close-up, le détournement d'attention et l'animation d'événements, par Julien Lambert.",
-  alternates: { canonical: "/blog" },
-};
+  path: "/blog",
+});
 
 export default function Page() {
   const [une, ...suite] = articles;
@@ -21,10 +22,13 @@ export default function Page() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Accueil", href: "/" },
-          { name: "Blog", href: "/blog" },
-        ])}
+        data={[
+          blogSchema(articles),
+          breadcrumbSchema([
+            { name: "Accueil", href: "/" },
+            { name: "Blog", href: "/blog" },
+          ]),
+        ]}
       />
 
       <PageHeroTexte

@@ -6,23 +6,29 @@ import { PageHeroTexte } from "@/components/sections/page-hero";
 import { ClientsBand } from "@/components/sections/temoignages-section";
 import { ButtonLink } from "@/components/ui/button";
 import { noteGoogle } from "@/content/temoignages";
-import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
+import { JsonLd, avisSchema, breadcrumbSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Avis clients",
   description:
     "5,0 sur 27 avis Google. Ce que disent les clients de Julien Lambert après un mariage, une soirée d'entreprise ou une réception privée.",
-  alternates: { canonical: "/avis" },
-};
+  path: "/avis",
+  image: "/images/site/site-portrait.webp",
+  imageAlt: "Julien Lambert, une pièce entre les doigts",
+});
 
 export default function Page() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Accueil", href: "/" },
-          { name: "Avis", href: "/avis" },
-        ])}
+        data={[
+          avisSchema(),
+          breadcrumbSchema([
+            { name: "Accueil", href: "/" },
+            { name: "Avis", href: "/avis" },
+          ]),
+        ]}
       />
 
       <PageHeroTexte

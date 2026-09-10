@@ -5,13 +5,14 @@ import { ContactForm } from "@/components/sections/contact-form";
 import { Note } from "@/components/ui/stars";
 import { site } from "@/content/site";
 import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact et devis",
   description:
     "Parlez de votre événement à Julien Lambert. Réponse rapide et devis personnalisé pour mariages, soirées d'entreprise et réceptions privées.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 /** Ce que le client obtient en écrivant, repris de l'ancien site. */
 const promesses = [

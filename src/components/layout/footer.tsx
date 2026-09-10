@@ -37,6 +37,7 @@ export function Footer() {
                 alt={`${site.name}, ${site.role}`}
                 width={1200}
                 height={322}
+                sizes="180px"
                 className="h-12 w-auto"
               />
             </Link>

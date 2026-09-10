@@ -8,6 +8,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { articles, articlesLies, getArticle, type Block } from "@/content/blog";
 import { site } from "@/content/site";
 import { JsonLd, articleSchema, breadcrumbSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -22,18 +23,15 @@ export async function generateMetadata({
   const article = getArticle(slug);
   if (!article) return {};
 
-  return {
+  return pageMetadata({
     title: article.titreSeo,
     description: article.chapo,
-    alternates: { canonical: `/blog/${article.slug}` },
-    openGraph: {
-      type: "article",
-      title: article.titre,
-      description: article.chapo,
-      publishedTime: article.date,
-      images: [{ url: article.cover.src }],
-    },
-  };
+    path: `/blog/${article.slug}`,
+    image: article.cover.src,
+    imageAlt: article.cover.alt,
+    type: "article",
+    publishedTime: article.date,
+  });
 }
 
 export default async function Page({
