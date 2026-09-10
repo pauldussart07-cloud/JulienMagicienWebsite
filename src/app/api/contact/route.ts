@@ -79,11 +79,22 @@ export async function POST(request: Request) {
 
   const cle = process.env.RESEND_API_KEY;
   const destinataire = process.env.CONTACT_TO ?? site.email;
-  const expediteur = process.env.CONTACT_FROM;
+  /**
+   * Expéditeur. `onboarding@resend.dev` est l'adresse que Resend ouvre à tout
+   * compte sans vérification de domaine : elle n'écrit qu'à l'adresse du
+   * titulaire du compte, ce qui est précisément notre cas puisque les demandes
+   * partent chez Julien. Le formulaire fonctionne donc dès que la clé est
+   * posée, sans attendre les enregistrements DNS. Renseigner `CONTACT_FROM`
+   * avec une adresse du domaine vérifié reste préférable une fois celui-ci en
+   * place : le message cesse alors d'arriver au nom de Resend.
+   */
+  const expediteur =
+    process.env.CONTACT_FROM ?? `${site.name} <onboarding@resend.dev>`;
 
-  if (!cle || !expediteur) {
+  if (!cle) {
     console.error(
-      "Contact : RESEND_API_KEY ou CONTACT_FROM manquant, voir .env.example"
+      "Contact : RESEND_API_KEY manquante, aucune demande ne peut partir. " +
+        "Voir .env.example et la variable d'environnement du projet Vercel."
     );
     return NextResponse.json(
       {
@@ -122,17 +133,39 @@ export async function POST(request: Request) {
     </div>
   `;
 
+  // Version texte : certains clients de messagerie n'affichent que celle-ci,
+  // et c'est elle que Gmail montre en aperçu dans la liste des messages.
+  const texte = [
+    "Nouvelle demande de devis",
+    "",
+    ...lignes.map(([k, v]) => `${k} : ${v}`),
+    "",
+    "Message",
+    d.message,
+    "",
+    `Répondre à : ${d.email}`,
+  ].join("\n");
+
   try {
     const resend = new Resend(cle);
     const { error } = await resend.emails.send({
       from: expediteur,
       to: destinataire,
+      // La réponse part directement chez la personne qui a rempli le
+      // formulaire : un « Répondre » suffit, sans recopier son adresse.
       replyTo: d.email,
-      subject: `Devis : ${d.typeEvenement} à ${d.ville} (${d.prenom} ${d.nom})`,
+      subject:
+        `Devis ${d.typeEvenement} à ${d.ville}` +
+        (d.date ? ` le ${d.date}` : "") +
+        ` : ${d.prenom} ${d.nom}`,
       html,
+      text: texte,
     });
 
     if (error) throw new Error(error.message);
+    console.log(
+      `Contact : demande de ${d.prenom} ${d.nom} transmise à ${destinataire}`
+    );
 
     return NextResponse.json({ ok: true });
   } catch (e) {

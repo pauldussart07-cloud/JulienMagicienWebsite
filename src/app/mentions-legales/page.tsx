@@ -22,9 +22,11 @@ export default function Page() {
         {
           titre: "Éditeur du site",
           paragraphes: [
-            `${site.name}, magicien professionnel, exerçant en entreprise individuelle.`,
+            `${site.name}, magicien professionnel, entrepreneur individuel.`,
+            "Siège social : 2 rue Georges Didier, 91320 Wissous, France.",
+            "SIRET : 879 483 907 00058, immatriculé au registre du commerce et des sociétés de Saint-Brieuc.",
+            "TVA non applicable, article 293 B du code général des impôts.",
             `Téléphone : ${site.phone}. Courriel : ${site.email}.`,
-            "Numéro SIRET et adresse du siège : à compléter avant la mise en ligne.",
           ],
         },
         {
