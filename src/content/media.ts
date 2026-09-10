@@ -21,6 +21,9 @@ export const teaser = {
   dureeTexte: "1 min 25",
   /** Mise en ligne sur le site. Sert de `uploadDate`. */
   publieLe: "2026-09-10",
+  // Dimensions de l'image réelle. Le montage d'origine est livré dans un
+  // cadre 1920x1080 avec des bandes noires incrustées : elles sont retirées
+  // à l'encodage, il reste un 2,28:1 de 1920 sur 842.
   largeur: 1920,
-  hauteur: 1080,
+  hauteur: 842,
 } as const;

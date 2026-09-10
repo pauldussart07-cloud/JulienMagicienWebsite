@@ -43,7 +43,7 @@ export function VideoSection() {
         </div>
       </div>
 
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-encre-900 lg:aspect-[2.2/1]">
+      <div className="relative aspect-[16/9] w-full overflow-hidden bg-encre-900 lg:aspect-[2.28/1]">
         {lance ? (
           <video
             ref={video}

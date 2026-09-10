@@ -38,7 +38,7 @@ const PLAN = {
  */
 const SITE = {
   "site-cartes-envol": 3000,
-  "site-hero-poster": 1920,
+  "site-hero-poster": 2560,
   "site-video-poster": 1920,
   "site-apropos": 2400,
   "site-apropos-cta": 1800,
@@ -58,6 +58,14 @@ const SITE = {
   "site-rail-04": 1200,
   "site-rail-05": 1200,
   "site-rail-06": 1200,
+};
+
+/** Qualité WebP par famille de visuels. */
+const QUALITE = {
+  site: 88,
+  galerie: 82,
+  clients: 86,
+  apropos: 88,
 };
 
 function planPour(name) {
@@ -107,11 +115,15 @@ async function main() {
     } else {
       // Les sources sont volontairement douces (24 Mpx redescendus à 1800) :
       // une légère accentuation rend le piqué perdu au redimensionnement.
-      // Au-delà de 1800 px, le fichier ne sert que de source à l'optimiseur
-      // de Next : la qualité peut baisser sans que rien ne se voie à l'écran.
+      //
+      // La qualité ne suit plus la largeur. Elle suivait, et les visuels
+      // plein écran, qui sont les plus larges, recevaient la qualité la plus
+      // basse : exactement ceux que l'on regarde en grand. Les fonds et les
+      // posters gardent donc une qualité haute, la galerie une qualité
+      // courante, puisqu'on l'y voit en vignette.
       await pipeline
         .sharpen({ sigma: 0.6, m1: 0.5, m2: 2 })
-        .webp({ quality: width > 1800 ? 76 : 84, effort: 6 })
+        .webp({ quality: QUALITE[plan.dir] ?? 82, effort: 6 })
         .toFile(destPath);
     }
 
