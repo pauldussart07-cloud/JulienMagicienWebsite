@@ -46,17 +46,50 @@
     outline-offset: 3px;
   }
 
+  /* ─────────────────────────────────────────────────────────
+     Barre de défilement
+     ─────────────────────────────────────────────────────────
+     Le pouce était un bleu profond posé sur un fond presque noir :
+     deux tons séparés par rien, invisibles l'un de l'autre, et un pouce
+     qu'on manquait à la souris faute de le voir. Il passe à un gris
+     violet assez clair pour se détacher, et au laiton dès qu'on le
+     survole, comme tous les repères actifs du site.
+
+     La bordure de la même couleur que la piste, découpée au padding,
+     amincit le pouce sans toucher à la largeur de la zone cliquable :
+     le trait reste fin, la cible reste large.
+
+     Firefox n'écoute pas ces règles : il a les siennes, posées sur html,
+     et il était jusqu'ici laissé à la barre par défaut du système. */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #46405a #080418;
+  }
+
   ::-webkit-scrollbar {
-    width: 9px;
+    width: 11px;
+    height: 11px;
   }
   ::-webkit-scrollbar-track {
     background: #080418;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1b1060;
+    background: #46405a;
+    border: 3px solid #080418;
+    background-clip: padding-box;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #2c1f72;
+    background: #c79a4b;
+    border-width: 2px;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: #dfbe7e;
+    border-width: 2px;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-corner {
+    background: #080418;
   }
 }
 
