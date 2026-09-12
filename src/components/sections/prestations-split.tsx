@@ -25,10 +25,11 @@ export function PrestationsSplit() {
           ].join(" ")}
         >
           <Image
-            src={p.hero.src}
-            alt={p.hero.alt}
+            src={p.vignette.src}
+            alt={p.vignette.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
+            style={{ objectPosition: p.vignette.position ?? "50% 50%" }}
             className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
           />
           <div className="veil-panel absolute inset-0" />

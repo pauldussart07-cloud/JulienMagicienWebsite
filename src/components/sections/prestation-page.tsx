@@ -6,7 +6,7 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { FaqListe } from "@/components/sections/faq-section";
 import { PageHero } from "@/components/sections/page-hero";
 import { MagicIcon } from "@/components/ui/magic-icon";
-import { TemoignageUnique } from "@/components/sections/temoignages-section";
+import { AvisGalerie } from "@/components/sections/avis-galerie";
 import { faqPour } from "@/content/faq";
 import { getAutrePrestation, type Prestation } from "@/content/prestations";
 
@@ -22,6 +22,7 @@ export function PrestationPage({ p }: { p: Prestation }) {
         titre={p.nom}
         image={p.hero.src}
         alt={p.hero.alt}
+        position={p.hero.position ?? "50% 50%"}
         hauteur="haute"
       />
 
@@ -102,7 +103,8 @@ export function PrestationPage({ p }: { p: Prestation }) {
           alt={p.photos[0].alt}
           fill
           sizes="100vw"
-          className="object-cover object-[50%_26%]"
+          style={{ objectPosition: p.photos[0].position ?? "50% 26%" }}
+          className="object-cover"
         />
       </RevealImage>
 
@@ -135,7 +137,9 @@ export function PrestationPage({ p }: { p: Prestation }) {
         </div>
       </section>
 
-      <TemoignageUnique {...p.temoignage} />
+      {/* Les avis défilent, comme sur l'accueil et la page Avis : un
+          témoignage isolé valait moins que dix qu'on peut parcourir. */}
+      <AvisGalerie titre="Ce qu'en disent les clients" />
 
       {/* En pratique */}
       <section className="register-carton bg-carton-200 py-20 text-encre lg:py-28">
@@ -171,7 +175,7 @@ export function PrestationPage({ p }: { p: Prestation }) {
               <Link href="/contact" className="link text-carton">
                 Écrivez à Julien
               </Link>
-              , il répond vite.
+              , il vous répond rapidement.
             </p>
           </div>
           <FaqListe items={questions} />

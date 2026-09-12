@@ -50,8 +50,8 @@ const SITE = {
   "site-salon-cta": 1800,
   "site-portrait": 1600,
   "site-cta-accueil": 1600,
+  "site-avis-cta": 1800,
   "site-galerie-hero": 2400,
-  "site-flamme": 1600,
   // Bande de réactions : jamais affichée au-delà de 24rem de large.
   "site-rail-01": 1200,
   "site-rail-02": 1200,

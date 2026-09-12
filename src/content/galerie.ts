@@ -74,12 +74,6 @@ export const photos: Photo[] = [
     alt: "Deux invités n'en croient pas leurs yeux pendant un tour",
   },
   {
-    src: "/images/galerie/gal-05.webp",
-    width: 1800,
-    height: 1200,
-    alt: "Une mariée éclate de rire pendant une prestation de close-up",
-  },
-  {
     src: "/images/galerie/gal-12.webp",
     width: 1800,
     height: 785,

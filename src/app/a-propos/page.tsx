@@ -195,9 +195,9 @@ export default function Page() {
 
       <CtaBand
         lignes={["Parlons de", "votre événement."]}
-        image="/images/site/site-portrait.webp"
-        alt="Julien Lambert, une pièce entre les doigts, pendant un vin d'honneur"
-        position="50% 15%"
+        image="/images/site/site-apropos-cta.webp"
+        alt="Julien Lambert désigne une carte que tient une invitée, dans un parc"
+        position="50% 40%"
       />
     </>
   );

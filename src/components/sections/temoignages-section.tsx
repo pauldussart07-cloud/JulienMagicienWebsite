@@ -30,36 +30,3 @@ export function ClientsBand() {
   );
 }
 
-/** Avis unique mis en avant en bas des pages prestation. */
-export function TemoignageUnique({
-  auteur,
-  ville,
-  texte,
-}: {
-  auteur: string;
-  ville: string;
-  texte: string;
-}) {
-  return (
-    <section className="border-y border-carton/12">
-      <div className="gutter py-20 lg:py-28">
-        <figure className="max-w-4xl">
-          <Stars />
-          <blockquote className="mt-7">
-            <p className="t-h3 font-display italic text-carton">
-              «&nbsp;{texte}&nbsp;»
-            </p>
-          </blockquote>
-          <figcaption className="mt-8 text-[0.875rem] text-carton/55">
-            {auteur}, {ville}
-          </figcaption>
-        </figure>
-        <p className="mt-10">
-          <TextLink href="/avis" className="text-carton">
-            Voir tous les avis
-          </TextLink>
-        </p>
-      </div>
-    </section>
-  );
-}

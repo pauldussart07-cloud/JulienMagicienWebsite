@@ -14,8 +14,8 @@ export const metadata: Metadata = pageMetadata({
   description:
     "5,0 sur 27 avis Google. Ce que disent les clients de Julien Lambert après un mariage, une soirée d'entreprise ou une réception privée.",
   path: "/avis",
-  image: "/images/site/site-portrait.webp",
-  imageAlt: "Julien Lambert, une pièce entre les doigts",
+  image: "/images/site/site-avis-cta.webp",
+  imageAlt: "Une mariée éclate de rire pendant un tour de close-up",
 });
 
 export default function Page() {
@@ -61,9 +61,9 @@ export default function Page() {
 
       <CtaBand
         lignes={["À votre tour", "d'y assister."]}
-        image="/images/site/site-flamme.webp"
-        alt="Julien Lambert fait apparaître une flamme entre ses mains, pendant une réception"
-        position="50% 30%"
+        image="/images/site/site-avis-cta.webp"
+        alt="Une mariée éclate de rire pendant un tour de close-up"
+        position="50% 35%"
       />
     </>
   );

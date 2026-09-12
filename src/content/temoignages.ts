@@ -10,6 +10,12 @@
  * `extrait` : ils sont présentés comme tels, sans que la suite soit
  * inventée, et le lien renvoie vers la fiche pour les lire en entier.
  *
+ * L'ordre est celui de l'affichage, pas celui de la fiche : les avis
+ * complets et circonstanciés ouvrent la série, ceux que Google tronque la
+ * ferment. Les dix repris ici ne sont pas les vingt-sept de la fiche :
+ * Google refuse d'en servir davantage à un outil automatique, et les
+ * dix-sept autres restent à recopier à la main.
+ *
  * Pour ajouter un avis : le recopier depuis la fiche sans le retoucher, et
  * tenir `noteGoogle` à jour.
  */
@@ -35,13 +41,12 @@ export const noteGoogle = {
 
 export const temoignages: Temoignage[] = [
   {
-    auteur: "Léa Ponchart",
+    auteur: "Juliette Raulet",
     texte:
-      "Moment hors du temps ! Nous avons été émerveillés par la magie de Julien qui manie aussi bien les cartes que le mentalisme.",
+      "Je recommande Julien pour vos évènements. Julien nous a suivi sur notre Roadshow 2025 de Lyon à Nantes en passant par Paris, il a su divertir avec succès tous nos invités, environ 250 personnes par ville. Nous n'hésiterons pas à refaire appel à lui pour d'autres évents commerciaux :)",
     note: 5,
-    quand: "il y a un jour",
-    contexte: "Réception en août",
-    extrait: true,
+    quand: "il y a un an",
+    contexte: "Roadshow d'entreprise, Lyon, Paris, Nantes",
   },
   {
     auteur: "MARSTEAU Gérald",
@@ -52,25 +57,9 @@ export const temoignages: Temoignage[] = [
     contexte: "Réception en juillet",
   },
   {
-    auteur: "Juliette Raulet",
-    texte:
-      "Je recommande Julien pour vos évènements. Julien nous a suivi sur notre Roadshow 2025 de Lyon à Nantes en passant par Paris, il a su divertir avec succès tous nos invités, environ 250 personnes par ville. Nous n'hésiterons pas à refaire appel à lui pour d'autres évents commerciaux :)",
-    note: 5,
-    quand: "il y a un an",
-    contexte: "Roadshow d'entreprise, Lyon, Paris, Nantes",
-  },
-  {
     auteur: "David MARTINEZ",
     texte:
       "Des tours maîtrisés à la perfection ! Je suis retourné en enfance quand j'étais épaté de ne rien comprendre ! La magie était au rendez-vous je vous le recommande chaudement",
-    note: 5,
-    quand: "il y a trois mois",
-    contexte: "Soirée en mai",
-  },
-  {
-    auteur: "jeanne aslnt",
-    texte:
-      "Merci Julien pour ces superbes prestations !! Je recommande vivement !! Impressionnant, j'en suis restée bouche bée !!",
     note: 5,
     quand: "il y a trois mois",
     contexte: "Soirée en mai",
@@ -82,6 +71,31 @@ export const temoignages: Temoignage[] = [
     note: 5,
     quand: "il y a un an",
     contexte: "Magie de salon, Saint-Malo",
+  },
+  {
+    auteur: "Jörn Harms",
+    texte:
+      "Autant j'ai vu beaucoup de magiciens, autant là c'est du haut niveau. Impressionnant et à recommander",
+    note: 5,
+    quand: "il y a un an",
+    contexte: "Magie close-up, Saint-Malo",
+  },
+  {
+    auteur: "jeanne aslnt",
+    texte:
+      "Merci Julien pour ces superbes prestations !! Je recommande vivement !! Impressionnant, j'en suis restée bouche bée !!",
+    note: 5,
+    quand: "il y a trois mois",
+    contexte: "Soirée en mai",
+  },
+  {
+    auteur: "Léa Ponchart",
+    texte:
+      "Moment hors du temps ! Nous avons été émerveillés par la magie de Julien qui manie aussi bien les cartes que le mentalisme.",
+    note: 5,
+    quand: "il y a un jour",
+    contexte: "Réception en août",
+    extrait: true,
   },
   {
     auteur: "Stéphane FAIVRE-RAMPANT",
@@ -100,14 +114,6 @@ export const temoignages: Temoignage[] = [
     quand: "il y a un an",
     contexte: "Soirée privée",
     extrait: true,
-  },
-  {
-    auteur: "Jörn Harms",
-    texte:
-      "Autant j'ai vu beaucoup de magiciens, autant là c'est du haut niveau. Impressionnant et à recommander",
-    note: 5,
-    quand: "il y a un an",
-    contexte: "Magie close-up, Saint-Malo",
   },
   {
     auteur: "Maxime Guillois",

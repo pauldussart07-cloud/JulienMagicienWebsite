@@ -10,7 +10,13 @@ export type Prestation = {
   accroche: string;
   duree: string;
   resume: string;
-  hero: { src: string; alt: string };
+  hero: { src: string; alt: string; position?: string };
+  /**
+   * Photo du panneau d'accueil. Le hero est cadré pour un plein écran :
+   * dans un panneau vertical de moitié d'écran, il ne raconte plus la meme
+   * chose. Chaque prestation a donc sa vignette.
+   */
+  vignette: { src: string; alt: string; position?: string };
   /**
    * Photo du renvoi « L'autre prestation », en bas de la page voisine.
    * C'est un bandeau très large : le hero, cadré pour un plein écran,
@@ -23,9 +29,8 @@ export type Prestation = {
   chiffres: { value: string; label: string }[];
   piliers: { titre: string; texte: string; icone: NomIcone }[];
   contextes: { titre: string; texte: string; icone: NomIcone }[];
-  temoignage: { auteur: string; ville: string; texte: string };
   pratique: { titre: string; texte: string; icone: NomIcone }[];
-  photos: { src: string; alt: string }[];
+  photos: { src: string; alt: string; position?: string }[];
 };
 
 export const closeUp: Prestation = {
@@ -36,6 +41,10 @@ export const closeUp: Prestation = {
   resume:
     "Pas d'écran, pas de distance : juste vos yeux, mes mains, et l'incroyable qui s'invite. Une expérience unique pour vos mariages, cocktails et soirées d'entreprise.",
   hero: {
+    src: "/images/site/site-closeup-hero.webp",
+    alt: "Julien Lambert en pleine prestation de magie close-up devant des invités attablés",
+  },
+  vignette: {
     src: "/images/site/site-closeup-hero.webp",
     alt: "Julien Lambert en pleine prestation de magie close-up devant des invités attablés",
   },
@@ -129,12 +138,6 @@ export const closeUp: Prestation = {
       icone: "regards",
     },
   ],
-  temoignage: {
-    auteur: "Jörn H.",
-    ville: "Saint-Malo",
-    texte:
-      "Autant j'ai vu beaucoup de magiciens, autant là c'est du haut niveau. Impressionnant et à recommander.",
-  },
   pratique: [
     {
       titre: "1h30-2h à vos côtés",
@@ -177,6 +180,7 @@ export const closeUp: Prestation = {
     {
       src: "/images/site/site-closeup-large.webp",
       alt: "Réactions du public pendant un tour de close-up",
+      position: "50% 26%",
     },
     {
       src: "/images/site/site-closeup-cta.webp",
@@ -195,6 +199,13 @@ export const magieDeSalon: Prestation = {
   hero: {
     src: "/images/site/site-salon-hero.webp",
     alt: "Julien Lambert pendant un spectacle de magie de salon, une carte à la main",
+    // Julien est haut dans le cadre : centre, le sommet du crâne touche le bord.
+    position: "50% 22%",
+  },
+  vignette: {
+    src: "/images/site/site-salon-cta.webp",
+    alt: "Julien Lambert présente un effet devant un groupe réuni",
+    position: "50% 30%",
   },
   carte: {
     src: "/images/site/site-salon-hero.webp",
@@ -281,12 +292,6 @@ export const magieDeSalon: Prestation = {
       icone: "regards",
     },
   ],
-  temoignage: {
-    auteur: "Gérald M.",
-    ville: "Saint-Malo",
-    texte:
-      "Nous sommes ravis de la prestation de Julien. Nous et nos invités sommes restés subjugués par les divers tours de magie aussi impressionnants les uns que les autres.",
-  },
   pratique: [
     {
       titre: "50 min de magie",
@@ -323,6 +328,8 @@ export const magieDeSalon: Prestation = {
     {
       src: "/images/site/site-salon-large.webp",
       alt: "Julien Lambert fait tenir deux cordes à des spectatrices",
+      // Même raison : sans remonter le cadrage, la tête est coupée.
+      position: "50% 5%",
     },
     {
       src: "/images/site/site-salon-cta.webp",

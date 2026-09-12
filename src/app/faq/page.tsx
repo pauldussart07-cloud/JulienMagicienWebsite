@@ -42,7 +42,7 @@ export default function Page() {
             <Link href="/contact" className="link text-carton">
               Écrivez à Julien
             </Link>
-            , il répond rapidement.
+            , il vous répond rapidement.
           </p>
         </div>
       </section>
