@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cloneElement, useId, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, type UseFormRegister } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -215,69 +215,46 @@ export function ContactForm() {
       className="space-y-14"
     >
       <Bloc numero="01" titre="Votre événement">
-        <div className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
-          <Champ
+        <div className="space-y-9">
+          <Choix
             label="Type d'événement"
+            nom="typeEvenement"
+            options={TYPES}
             erreur={errors.typeEvenement?.message}
-            input={
-              <select defaultValue="" {...register("typeEvenement")}>
-                <option value="" disabled>
-                  Choisir
-                </option>
-                {TYPES.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
-            }
+            register={register}
           />
-          <Champ
+          <Choix
             label="Prestation souhaitée"
             indice="Julien vous guidera si vous hésitez."
+            nom="prestation"
+            options={PRESTATIONS}
             erreur={errors.prestation?.message}
-            input={
-              <select defaultValue="" {...register("prestation")}>
-                <option value="" disabled>
-                  Choisir
-                </option>
-                {PRESTATIONS.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
-            }
+            register={register}
           />
-          <Champ
-            label="Ville de l'événement"
-            indice="Elle détermine le déplacement, inclus dans le devis."
-            erreur={errors.ville?.message}
-            input={<input type="text" autoComplete="address-level2" {...register("ville")} />}
-          />
-          <Champ
+          <Choix
             label="Nombre d'invités"
+            indice="Une tranche suffit, même approximative."
+            nom="personnes"
+            options={INVITES}
             erreur={errors.personnes?.message}
-            input={
-              <select defaultValue="" {...register("personnes")}>
-                <option value="" disabled>
-                  Choisir
-                </option>
-                {INVITES.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
-            }
+            register={register}
           />
-          <Champ
-            label="Date envisagée"
-            facultatif
-            indice="Pas encore fixée ? Laissez vide, on en parlera."
-            erreur={errors.date?.message}
-            input={<input type="date" {...register("date")} />}
-          />
+
+          <div className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
+            <Champ
+              label="Ville de l'événement"
+              indice="Elle détermine le déplacement, inclus dans le devis."
+              erreur={errors.ville?.message}
+              input={<input type="text" autoComplete="address-level2" {...register("ville")} />}
+            />
+            <Champ
+              label="Date envisagée"
+              facultatif
+              indice="Pas encore fixée ? Laissez vide, on en parlera."
+              erreur={errors.date?.message}
+              input={<input type="date" {...register("date")} />}
+            />
+          </div>
         </div>
       </Bloc>
 
@@ -452,5 +429,85 @@ function Champ({
         )
       )}
     </div>
+  );
+}
+
+/**
+ * Un choix parmi quelques-uns, en pastilles.
+ *
+ * Les listes déroulantes natives ouvraient un panneau dessiné par le système
+ * d'exploitation : fond blanc, police du système, aucun rapport avec le
+ * reste de la page, et impossible à habiller. Elles cachaient en plus les
+ * options derrière un clic, alors qu'il n'y en a jamais plus de sept.
+ *
+ * Tout est donc montré. Ce sont de vrais boutons radio, simplement masqués
+ * derrière leur étiquette : la navigation au clavier par les flèches, la
+ * lecture par les lecteurs d'écran et l'envoi du formulaire restent ceux du
+ * navigateur, sans une ligne de script.
+ */
+function Choix({
+  label,
+  indice,
+  nom,
+  options,
+  erreur,
+  register,
+}: {
+  label: string;
+  indice?: string;
+  nom: "typeEvenement" | "prestation" | "personnes";
+  options: string[];
+  erreur?: string;
+  register: UseFormRegister<Valeurs>;
+}) {
+  const id = useId();
+  const aide = `${id}-aide`;
+
+  return (
+    <fieldset
+      aria-invalid={erreur ? true : undefined}
+      aria-describedby={erreur || indice ? aide : undefined}
+    >
+      <legend className="text-[0.8125rem] text-carton/50">{label}</legend>
+
+      <div className="mt-4 flex flex-wrap gap-x-2.5 gap-y-3">
+        {options.map((option) => (
+          <label
+            key={option}
+            className={cn(
+              "group cursor-pointer select-none border px-4 py-2.5 text-[0.9rem] transition-colors",
+              "border-carton/20 text-carton/70",
+              "hover:border-carton/45 hover:text-carton",
+              // L'état coché ne tient qu'au CSS : le filet passe au laiton,
+              // le fond s'éclaire à peine, le texte devient plein.
+              "has-[:checked]:border-laiton has-[:checked]:bg-laiton/10 has-[:checked]:text-carton",
+              // Le liseré de focus doit rester visible au clavier.
+              "has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-laiton",
+              erreur && "border-[#E06A7E]/60"
+            )}
+          >
+            <input
+              type="radio"
+              value={option}
+              className="sr-only"
+              {...register(nom)}
+            />
+            {option}
+          </label>
+        ))}
+      </div>
+
+      {erreur ? (
+        <p id={aide} className="mt-3 text-[0.75rem] text-[#E06A7E]" role="alert">
+          {erreur}
+        </p>
+      ) : (
+        indice && (
+          <p id={aide} className="mt-3 text-[0.75rem] text-carton/35">
+            {indice}
+          </p>
+        )
+      )}
+    </fieldset>
   );
 }
