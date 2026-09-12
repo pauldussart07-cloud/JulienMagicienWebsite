@@ -14,7 +14,10 @@ import sharp from "sharp";
 const L = 1200;
 const H = 630;
 
-const PHOTO = "public/images/site/site-hero-poster.webp";
+// Le poster du hero est un gros plan de mains depuis que la boucle
+// s'ouvre sur l'éventail de cartes. Une vignette de partage a besoin
+// d'un visage : on prend celle de la page À propos.
+const PHOTO = "public/images/site/site-apropos-cta.webp";
 const LOGO = "public/images/brand/logo-blanc.png";
 const SORTIE = "public/og.png";
 
