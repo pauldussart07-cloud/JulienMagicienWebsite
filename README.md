@@ -79,9 +79,29 @@ colonne la plus courte : les colonnes finissent à la même hauteur.
 `public/videos/` contient deux choses, toutes deux tirées du montage d'origine
 à 27 Mbit/s, et non d'une copie récupérée sur YouTube :
 
-- `hero-1920` et `hero-1280` (mp4 + webm) : la boucle muette de fond du hero,
-  six secondes, deux plans raccordés par un fondu, avec un second fondu au
-  point de bouclage pour que le raccord ne se voie pas ;
+- `hero-2560-2`, `hero-1920-2` et `hero-1280-2` (mp4 + webm) : la boucle
+  muette de fond du hero, huit secondes, quatre plans raccordés par des
+  fondus de 0,45 s. Un cinquième fondu ramène le dernier plan sur la
+  première image : le point de bouclage ne se voit pas. Les plans, dans
+  l'ordre : l'éventail de cartes (66,4 s du montage), le portefeuille en feu
+  face à la mer (71,2 s), les visages pendant la prestation (44,4 s), Julien
+  au milieu de ses spectateurs (73,4 s).
+
+  Deux règles ont présidé au choix, et toute reprise doit les repasser :
+
+  - aucun plan ne reste moins de deux secondes à l'écran, fondus compris.
+    En dessous, on ne le voit pas passer, et la boucle donne l'impression de
+    n'en compter que deux ;
+  - aucun plan ne rejoue une image. Le plan de la falaise (76 s) est
+    inutilisable pour cette raison : sur 89 images, 74 sont quasi identiques
+    à la précédente et une sur six en est un doublon exact. Le contrôle se
+    fait en mesurant l'écart moyen entre images voisines
+    (`tblend=all_mode=difference,signalstats`). Sur la boucle en place :
+    243 images, aucune identique, écart minimum 0,52.
+
+  Le `-2` est le numéro du montage. Les vidéos sont servies en cache immuable
+  d'un an : refaire la boucle demande un nouveau nom de fichier, et `BOUCLE`
+  dans `hero-video.tsx` suit ;
 - `teaser-1080.mp4` et `teaser-720.mp4` : le teaser complet, 1 min 25 avec le
   son, chargé seulement au clic. Le 720p est servi sous 900 px de large.
 

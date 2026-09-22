@@ -70,33 +70,62 @@ export default async function Page({
         intro="Une magie qui se vit à quelques centimètres de vous."
         image={p.image.src}
         alt={p.image.alt}
+        position={p.image.cadrage}
       />
 
-      {/* Présentation, sur le registre de lecture */}
+      {/* Présentation, sur le registre de lecture.
+
+          Les deux paragraphes ne se valent pas : le premier répond à la
+          question posée par le titre, le second explique la manière. Ils
+          sont donc posés en chapô et en texte courant, côte à côte, et non
+          l’un sous l’autre dans une colonne unique qui laissait la moitié
+          droite de la page vide sur les pages de ville. */}
       <section className="register-carton bg-carton py-16 text-encre lg:py-24">
-        <div className="gutter grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-24">
-          <div className="prose-fr text-[1.0625rem] leading-relaxed text-encre/78">
-            {p.intro.map((t) => (
-              <p key={t}>{t}</p>
-            ))}
+        <div className="gutter">
+          <p className="mark text-encre/55">
+            <span>La prestation</span>
+          </p>
+          <div className="rule mt-5" />
+
+          <div className="mt-10 grid gap-x-16 gap-y-8 lg:grid-cols-12 lg:gap-x-24 lg:gap-y-0">
+            <p className="text-pretty font-display text-[clamp(1.375rem,1rem+1.3vw,2.125rem)] leading-[1.24] text-encre lg:col-span-7">
+              {p.intro[0]}
+            </p>
+
+            <div className="prose-fr text-[1rem] leading-relaxed text-encre/70 lg:col-span-5 lg:pt-[0.4rem]">
+              {p.intro.slice(1).map((t) => (
+                <p key={t}>{t}</p>
+              ))}
+            </div>
           </div>
 
           {p.territoires && (
-            <div>
+            <div className="mt-16 border-t border-encre/15 pt-10 lg:mt-20">
               <h2 className="font-display text-[1.5rem] leading-snug">
                 Là où j&apos;interviens {p.ou}
               </h2>
-              <ul className="mt-6 border-t border-encre/15">
+              {/* La liste passe en grille : en colonne unique elle dépassait
+                  la hauteur du texte qu’elle accompagnait. Les filets entre
+                  lignes sont remplacés par les repères de laiton du site : une
+                  dernière rangée incomplète laissait sinon un trait qui
+                  s’arrêtait au tiers de la page. */}
+              <div className="rule mt-8" />
+              <ul className="mt-6 grid gap-x-10 gap-y-1 sm:grid-cols-2 lg:grid-cols-3">
                 {p.territoires.map((t) => (
                   <li
                     key={t}
-                    className="border-b border-encre/15 py-3 text-[0.95rem] text-encre/75"
+                    className="flex items-baseline gap-3 py-2 text-[0.95rem] text-encre/75"
                   >
+                    <span
+                      aria-hidden
+                      className="mt-[0.5em] h-[5px] w-[5px] shrink-0 self-start bg-laiton-600"
+                    />
                     {t}
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-[0.9rem] leading-relaxed text-encre/60">
+              <div className="rule mt-6" />
+              <p className="mt-8 max-w-2xl text-[0.9rem] leading-relaxed text-encre/60">
                 Vous ne trouvez pas votre ville ?{" "}
                 <Link href="/contact" className="link text-encre">
                   Écrivez-moi
@@ -228,18 +257,31 @@ export default async function Page({
         chute={communs.lieuReserve}
       />
 
-      {/* Pourquoi */}
+      {/* Pourquoi.
+
+          La question d’un côté, la réponse de l’autre, séparées par un filet :
+          les trois blocs s’empilaient jusque-là dans la moitié gauche, chacun
+          sur une largeur différente, et la réponse passait avant d’être lue
+          comme une réponse. */}
       <section className="border-y border-carton/12 py-20 lg:py-28">
         <div className="gutter">
-          <h2 className="t-h3 max-w-2xl font-display text-carton">
-            Pourquoi choisir un magicien {p.ou} pour votre événement ?
-          </h2>
-          <p className="mt-10 max-w-4xl text-balance font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)] leading-[1.2] text-carton">
-            {communs.pourquoi[0]}
-          </p>
-          <p className="mt-8 max-w-2xl text-[0.95rem] leading-relaxed text-carton/65">
-            {communs.pourquoi[1]}
-          </p>
+          <div className="grid gap-y-10 lg:grid-cols-[minmax(0,5fr)_1px_minmax(0,7fr)] lg:gap-x-16 xl:gap-x-24">
+            <h2 className="t-h3 max-w-[22ch] text-balance font-display text-carton">
+              Pourquoi choisir un magicien {p.ou} pour votre événement ?
+            </h2>
+
+            <div className="rule-v hidden lg:block" />
+
+            <div>
+              <p className="text-pretty font-display text-[clamp(1.5rem,1.1rem+1.5vw,2.375rem)] leading-[1.2] text-carton">
+                {communs.pourquoi[0]}
+              </p>
+              <div className="rule mt-9" />
+              <p className="mt-7 max-w-[56ch] text-[0.95rem] leading-relaxed text-carton/65">
+                {communs.pourquoi[1]}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

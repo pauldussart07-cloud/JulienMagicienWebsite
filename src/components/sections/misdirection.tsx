@@ -12,10 +12,11 @@ const PHOTO = {
 /**
  * Le moment signature du site.
  *
- * La photo reste fixe pendant deux hauteurs d'écran. Les deux phrases
- * défilent dans une fenêtre découpée : la première sort par le haut au moment
- * exact où la seconde entre par le bas. Il y a donc toujours une phrase et une
- * seule à l'écran — le regard est déplacé sans jamais être perdu.
+ * La photo reste fixe pendant deux hauteurs d'écran. Les deux phrases se
+ * remplacent par un fondu enchaîné, au même endroit : la première se dissout
+ * vers le haut pendant que la seconde monte à sa place. Elles se recouvrent au
+ * milieu du passage : il n'y a donc jamais deux phrases installées, ni le long
+ * moment sans aucune que laissait le défilement précédent.
  *
  * L'image occupe tout le cadre, y compris sur téléphone : le texte posé
  * dessus fait toute la force de la séquence. Le recadrage vertical d'un
@@ -35,8 +36,20 @@ export function Misdirection() {
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
-  // La fenêtre glisse d'un cran : phrase 1 sort, phrase 2 entre.
-  const trackY = useTransform(scrollYProgress, [0.28, 0.58], ["0%", "-50%"]);
+
+  // Fondu enchaîné : les deux phrases occupent le même espace et se
+  // recouvrent entre 0,34 et 0,46. La première s'efface vers le haut, la
+  // seconde monte pour prendre sa place. L'une n'attend plus que l'autre ait
+  // fini de sortir : il n'y a plus de vide entre les deux.
+  //
+  // Opacité et déplacement seulement : un flou animé sur un titre de cette
+  // taille se paie en images perdues sur téléphone, pour un gain qu'on ne
+  // voit pas passer.
+  const opacite1 = useTransform(scrollYProgress, [0.3, 0.46], [1, 0]);
+  const y1 = useTransform(scrollYProgress, [0.3, 0.46], ["0rem", "-1.4rem"]);
+
+  const opacite2 = useTransform(scrollYProgress, [0.34, 0.5], [0, 1]);
+  const y2 = useTransform(scrollYProgress, [0.34, 0.5], ["1.4rem", "0rem"]);
 
   if (reduce) {
     return (
@@ -81,20 +94,22 @@ export function Misdirection() {
         <div className="absolute inset-0 bg-encre-900/20" />
 
         <div className="gutter relative w-full pb-14 lg:pb-20">
-          {/* Fenêtre : une seule phrase visible à la fois */}
-          <div className="h-[9.5rem] overflow-hidden sm:h-[11rem] lg:h-[13rem]">
-            <motion.div className="h-[200%]" style={{ y: trackY }}>
-              <div className="flex h-1/2 flex-col justify-end pb-2">
-                <p className="t-h2 font-display italic text-carton">
-                  Vous regardiez au bon endroit.
-                </p>
-              </div>
-              <div className="flex h-1/2 flex-col justify-end pb-2">
-                <p className="t-h2 max-w-5xl font-display text-carton">
-                  L&apos;impossible se construisait juste à côté.
-                </p>
-              </div>
-            </motion.div>
+          {/* Les deux phrases sont calées sur le même bas de bloc : la hauteur
+              réservée est celle de la plus longue, et rien ne bouge sous elles
+              pendant l'échange. */}
+          <div className="relative h-[9rem] sm:h-[10.5rem] lg:h-[12rem]">
+            <motion.p
+              className="t-h2 absolute inset-x-0 bottom-0 font-display italic text-carton"
+              style={{ opacity: opacite1, y: y1 }}
+            >
+              Vous regardiez au bon endroit.
+            </motion.p>
+            <motion.p
+              className="t-h2 absolute inset-x-0 bottom-0 max-w-5xl font-display text-carton"
+              style={{ opacity: opacite2, y: y2 }}
+            >
+              L&apos;impossible se construisait juste à côté.
+            </motion.p>
           </div>
 
           <div className="rule mt-8" />

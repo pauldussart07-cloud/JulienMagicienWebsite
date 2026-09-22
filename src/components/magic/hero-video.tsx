@@ -4,6 +4,15 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 /**
+ * Numéro du montage.
+ *
+ * `next.config.mjs` sert les vidéos en cache immuable d'un an. Remplacer un
+ * fichier sans changer son nom ne change donc rien pour qui est déjà venu :
+ * le nom porte le numéro du montage, et refaire la boucle, c'est l'incrémenter.
+ */
+const BOUCLE = 2;
+
+/**
  * Boucle vidéo de fond du hero.
  *
  * L'image de poster est rendue côté serveur et reste seule visible tant que
@@ -12,9 +21,10 @@ import { useEffect, useRef, useState } from "react";
  * moins d'animation, s'il est en connexion mesurée, ou sur petit écran, où le
  * poids ne se justifie pas.
  *
- * Le plan est un 2,28:1. Dans le bandeau 4/3 du mobile, un cadrage centré
- * couperait Julien sur le plan de la plage, où il est à gauche : le cadrage
- * est donc décalé, et ne revient au centre qu'en plein cadre, à partir de `md`.
+ * La boucle est un 2,29:1 de quatre plans. Le bandeau 4/3 du mobile n'en
+ * garde qu'un peu moins de six dixièmes de la largeur, mais les quatre plans
+ * sont composés au centre : contrairement à la boucle précédente, aucun
+ * décalage n'est nécessaire, le cadrage reste centré partout.
  */
 export function HeroVideo({
   poster,
@@ -73,7 +83,7 @@ export function HeroVideo({
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[28%_50%] md:object-center"
+        className="object-cover object-center"
       />
 
       {charger && (
@@ -87,12 +97,18 @@ export function HeroVideo({
           poster={poster}
           aria-hidden
           tabIndex={-1}
-          className={`absolute inset-0 h-full w-full object-cover object-[28%_50%] transition-opacity duration-[1200ms] md:object-center ${
+          className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[1200ms] ${
             visible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <source src={`/videos/hero-${taille}.webm`} type="video/webm" />
-          <source src={`/videos/hero-${taille}.mp4`} type="video/mp4" />
+          <source
+            src={`/videos/hero-${taille}-${BOUCLE}.webm`}
+            type="video/webm"
+          />
+          <source
+            src={`/videos/hero-${taille}-${BOUCLE}.mp4`}
+            type="video/mp4"
+          />
         </video>
       )}
     </>

@@ -30,7 +30,15 @@ export type ZonePage = {
   lieuxMariage: { chapo: string; items: Lieu[]; chute: string };
   entrepriseIntro: string;
   lieuxPro: { chapo: string; items: Lieu[] };
-  image: { src: string; alt: string };
+  /**
+   * Photo d'ouverture, et son cadrage.
+   *
+   * Le bandeau du haut de page est beaucoup plus large que les originaux :
+   * un cadrage centré coupe les visages, qui sont dans le tiers haut de
+   * chaque photo. Chaque page donne donc son propre point d'ancrage, choisi
+   * pour qu'on y voie à la fois Julien et les spectateurs.
+   */
+  image: { src: string; alt: string; cadrage: string };
 };
 
 /** Blocs identiques d'une page à l'autre : ils décrivent la prestation
@@ -178,6 +186,7 @@ export const zonesPages: ZonePage[] = [
     image: {
       src: "/images/site/site-apropos.webp",
       alt: "Invités stupéfaits pendant une prestation de magie près de Saint-Malo",
+      cadrage: "70% 20%",
     },
   },
 
@@ -262,6 +271,7 @@ export const zonesPages: ZonePage[] = [
     image: {
       src: "/images/site/site-apropos-cta.webp",
       alt: "Julien Lambert entouré d'invités pendant une réception en Ille-et-Vilaine",
+      cadrage: "55% 10%",
     },
   },
 
@@ -344,6 +354,7 @@ export const zonesPages: ZonePage[] = [
     image: {
       src: "/images/site/site-video-poster.webp",
       alt: "Julien Lambert en prestation face à la mer, sur la côte bretonne",
+      cadrage: "50% 4%",
     },
   },
 
@@ -422,6 +433,7 @@ export const zonesPages: ZonePage[] = [
     image: {
       src: "/images/site/site-closeup-large.webp",
       alt: "Public captivé pendant une prestation de magie lors d'une soirée d'entreprise",
+      cadrage: "48% 20%",
     },
   },
 
@@ -501,6 +513,7 @@ export const zonesPages: ZonePage[] = [
     image: {
       src: "/images/site/site-salon-large.webp",
       alt: "Ambiance de soirée d'entreprise pendant une prestation de magie",
+      cadrage: "46% 4%",
     },
   },
 ];
