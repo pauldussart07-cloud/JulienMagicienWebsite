@@ -9,10 +9,10 @@ export function ClientsBand() {
   return (
     <section className="register-carton border-y border-encre/10 bg-carton py-12 text-encre">
       <div className="gutter flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16">
-        <p className="shrink-0 text-[0.8125rem] text-encre/55">
+        <p className="shrink-0 text-center text-[0.8125rem] text-encre/55 lg:text-left">
           Ils ont fait appel à Julien
         </p>
-        <ul className="flex flex-1 flex-wrap items-center justify-between gap-x-10 gap-y-7">
+        <ul className="flex flex-1 flex-wrap items-center justify-center gap-x-10 gap-y-7 lg:justify-between">
           {clients.map((c) => (
             <li key={c.src}>
               <Image
