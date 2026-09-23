@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { IntroSignature } from "@/components/magic/intro-signature";
 import { site } from "@/content/site";
-import { baseUrl } from "@/lib/base-url";
+import { baseUrl, indexable } from "@/lib/base-url";
 import { JsonLd, identiteSchema } from "@/lib/jsonld";
 
 import "./globals.css";
@@ -31,20 +31,8 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
-  keywords: [
-    "magicien",
-    "magicien close-up",
-    "magie de salon",
-    "magicien mariage",
-    "magicien Saint-Malo",
-    "magicien Rennes",
-    "magicien Paris",
-    "magicien Bretagne",
-    "animation soirée entreprise",
-  ],
   authors: [{ name: site.name }],
   creator: site.name,
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -60,7 +48,10 @@ export const metadata: Metadata = {
     description: site.description,
     images: ["/og.png"],
   },
-  robots: { index: true, follow: true },
+  // Pas de canonique ni de robots par défaut ici : chaque page déclare la
+  // sienne via `pageMetadata`, et la page 404 n'hérite ainsi ni d'une
+  // canonique vers l'accueil ni d'un « index » contredisant son noindex.
+  ...(indexable ? {} : { robots: { index: false, follow: false } }),
 };
 
 export const viewport: Viewport = {

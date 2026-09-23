@@ -13,6 +13,12 @@ import { teaser } from "@/content/media";
  * personne ne clique, ni script, ni cookie, ni le moindre octet de vidéo.
  * On n'affiche qu'une image et un bouton.
  *
+ * La balise vidéo est pourtant présente dès le HTML, sous l'image, avec
+ * `preload="none"` : elle ne télécharge rien, mais Google la trouve. Sans
+ * elle, le schéma VideoObject et le plan de site décrivent une vidéo que la
+ * page ne contient pas, et la Search Console la classe « aucune vidéo
+ * détectée ».
+ *
  * Deux fichiers sont préparés. Le 720p est servi aux écrans étroits, où le
  * 1080p ne se verrait pas mais se paierait en attente.
  */
@@ -44,18 +50,19 @@ export function VideoSection() {
       </div>
 
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-encre-900 lg:aspect-[2.28/1]">
-        {lance ? (
-          <video
-            ref={video}
-            controls
-            playsInline
-            preload="auto"
-            poster={teaser.poster}
-            className="absolute inset-0 h-full w-full bg-encre-900 object-cover"
-          >
-            <source src={source} type="video/mp4" />
-          </video>
-        ) : (
+        <video
+          ref={video}
+          controls={lance}
+          playsInline
+          preload="none"
+          // L'affiche n'est posée qu'au lancement : le navigateur la
+          // téléchargerait sinon en double de l'image optimisée ci-dessous.
+          poster={lance ? teaser.poster : undefined}
+          src={source}
+          title={teaser.titre}
+          className="absolute inset-0 h-full w-full bg-encre-900 object-cover"
+        />
+        {!lance && (
           <button
             type="button"
             onClick={() => setLance(true)}

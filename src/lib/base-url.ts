@@ -24,3 +24,14 @@ export const baseUrl =
   nettoyer(process.env.NEXT_PUBLIC_SITE_URL) ??
   (domaineVercel ? `https://${domaineVercel}` : undefined) ??
   site.url;
+
+/**
+ * Le site n'est indexable que sur son domaine définitif.
+ *
+ * Tant que l'ancien site Wix occupe julienlambertmagicien.fr, la version
+ * .vercel.app en est un double : si Google l'indexe, les deux se disputent
+ * les mêmes requêtes, et c'est l'adresse provisoire qui risque de gagner.
+ * Elle porte donc un noindex, qui tombe de lui-même le jour où le domaine
+ * est branché sur le projet et que `baseUrl` devient ce domaine.
+ */
+export const indexable = new URL(baseUrl).host === new URL(site.url).host;

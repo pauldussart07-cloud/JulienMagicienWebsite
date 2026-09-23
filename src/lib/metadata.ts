@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { site } from "@/content/site";
-import { baseUrl } from "@/lib/base-url";
+import { baseUrl, indexable } from "@/lib/base-url";
 
 /**
  * Métadonnées d'une page.
@@ -69,6 +69,11 @@ export function pageMetadata({
       description,
       images: [visuel],
     },
-    ...(robots ? { robots } : {}),
+    // Hors du domaine définitif, rien ne s'indexe, quoi que demande la page.
+    ...(!indexable
+      ? { robots: { index: false, follow: false } }
+      : robots
+        ? { robots }
+        : {}),
   };
 }

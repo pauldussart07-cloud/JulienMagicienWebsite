@@ -11,7 +11,7 @@ import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
-  title: "À propos de Julien Lambert",
+  titleAbsolu: "À propos de Julien Lambert, magicien close-up",
   description:
     "De la boîte de magie reçue à 5 ans au métier de magicien professionnel depuis 2019. Le parcours de Julien Lambert, spécialiste du détournement d'attention.",
   path: "/a-propos",

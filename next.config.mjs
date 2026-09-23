@@ -66,6 +66,19 @@ function versionsAccentuees(chemin, destination) {
   return sources.map((source) => ({ source, destination, statusCode: 301 }));
 }
 
+/**
+ * L'adresse .vercel.app reste en ligne après le branchement du domaine. Dès
+ * que Vercel annonce le domaine définitif comme adresse de production, elle
+ * y renvoie en 301 : un seul site pour Google, et les liens déjà partagés
+ * vers l'adresse provisoire transmettent leur poids au bon endroit.
+ * Les déploiements de prévisualisation, sur d'autres sous-domaines, ne sont
+ * pas concernés.
+ */
+const DOMAINE = "www.julienlambertmagicien.fr";
+const ADRESSE_PROVISOIRE = "julien-lambert-magicien.vercel.app";
+const domaineBranche =
+  process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim() === DOMAINE;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -81,6 +94,17 @@ const nextConfig = {
 
   async redirects() {
     return [
+      ...(domaineBranche
+        ? [
+            {
+              source: "/:path*",
+              has: [{ type: "host", value: ADRESSE_PROVISOIRE }],
+              destination: `https://${DOMAINE}/:path*`,
+              statusCode: 301,
+            },
+          ]
+        : []),
+
       // Pages légales : les accents disparaissent de l'URL
       ...versionsAccentuees(
         "/politique-de-confidentialité",

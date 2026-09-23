@@ -53,8 +53,12 @@ export const AccordionContent = forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
+  // Monté en permanence : Radix retire sinon la réponse du DOM tant que la
+  // question est fermée, et le HTML livré aux moteurs ne contient que les
+  // questions. Fermée, elle porte l'attribut `hidden`.
   <AccordionPrimitive.Content
     ref={ref}
+    forceMount
     className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
