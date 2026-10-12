@@ -19,8 +19,11 @@ export const teaser = {
   duree: "PT1M25S",
   /** Lisible par un humain, affiché sous le bouton de lecture. */
   dureeTexte: "1 min 25",
-  /** Mise en ligne sur le site. Sert de `uploadDate`. */
-  publieLe: "2026-09-10",
+  /**
+   * Mise en ligne sur le site. Sert de `uploadDate`, pour lequel Google
+   * exige l'heure et le fuseau : une date seule y est signalée comme erreur.
+   */
+  publieLe: "2026-09-10T00:00:00+02:00",
   // Dimensions de l'image réelle. Le montage d'origine est livré dans un
   // cadre 1920x1080 avec des bandes noires incrustées : elles sont retirées
   // à l'encodage, il reste un 2,28:1 de 1920 sur 842.
