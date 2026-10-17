@@ -121,7 +121,13 @@ export function Footer() {
             <p>
               © {new Date().getFullYear()} {site.name}, {site.role}. {site.zone}.
             </p>
-            <div className="flex gap-7">
+            <div className="flex flex-wrap gap-x-7 gap-y-3">
+              <a
+                href="https://tellao.fr"
+                className="link-hover hover:text-carton"
+              >
+                Site proposé par Tellao
+              </a>
               <Link
                 href="/politique-de-confidentialite"
                 className="link-hover hover:text-carton"
