@@ -123,7 +123,7 @@ export function Footer() {
             </p>
             <div className="flex flex-wrap gap-x-7 gap-y-3">
               <a
-                href="https://tellao.com"
+                href="https://www.tellao.com/"
                 className="link-hover hover:text-carton"
               >
                 Site proposé par Tellao
